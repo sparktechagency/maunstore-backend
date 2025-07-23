@@ -33,10 +33,10 @@ const getAdmins = catchAsync(async (req, res) => {
      sendResponse(res, {
           success: true,
           statusCode: 200,
-          message: "Admins are retrieved successfully",
+          message: 'Admins are retrieved successfully',
           data: result,
-     })
-})
+     });
+});
 
 const updateAdmin = catchAsync(async (req, res) => {
      const { id } = req.params;
@@ -45,10 +45,10 @@ const updateAdmin = catchAsync(async (req, res) => {
      sendResponse(res, {
           success: true,
           statusCode: 200,
-          message: "Admin data is updated successfully",
+          message: 'Admin data is updated successfully',
           data: result,
-     })
-})
+     });
+});
 
 const updateUser = catchAsync(async (req, res) => {
      const { id } = req.params;
@@ -57,10 +57,10 @@ const updateUser = catchAsync(async (req, res) => {
      sendResponse(res, {
           success: true,
           statusCode: 200,
-          message: "User is updated successfully",
+          message: 'User is updated successfully',
           data: result,
-     })
-})
+     });
+});
 
 const deleteUser = catchAsync(async (req, res) => {
      const { id } = req.params;
@@ -68,10 +68,10 @@ const deleteUser = catchAsync(async (req, res) => {
      sendResponse(res, {
           success: true,
           statusCode: 200,
-          message: "User is deleted successfully",
+          message: 'User is deleted successfully',
           data: result,
-     })
-})
+     });
+});
 
 const getUserProfile = catchAsync(async (req, res) => {
      const user: any = req.user;
@@ -90,10 +90,21 @@ const getUsers = catchAsync(async (req, res) => {
      sendResponse(res, {
           success: true,
           statusCode: 200,
-          message: "Users data are retrieved successfully",
+          message: 'Users data are retrieved successfully',
           data: result,
-     })
-})
+     });
+});
+
+const getUserById = catchAsync(async (req, res) => {
+     const { id } = req.params;
+     const result = await UserServices.getUserByIdFromDB(id);
+     sendResponse(res, {
+          success: true,
+          statusCode: 200,
+          message: 'User data is retrieved successfully',
+          data: result,
+     });
+});
 
 const updateUserStatus = catchAsync(async (req, res) => {
      const { id } = req.params;
@@ -103,10 +114,10 @@ const updateUserStatus = catchAsync(async (req, res) => {
      sendResponse(res, {
           success: true,
           statusCode: 200,
-          message: "User status is updated successfully",
+          message: 'User status is updated successfully',
           data: result,
-     })
-})
+     });
+});
 const updateAdminStatus = catchAsync(async (req, res) => {
      const { id } = req.params;
      const { status } = req.body;
@@ -115,10 +126,10 @@ const updateAdminStatus = catchAsync(async (req, res) => {
      sendResponse(res, {
           success: true,
           statusCode: 200,
-          message: "Admin status is updated successfully",
+          message: 'Admin status is updated successfully',
           data: result,
-     })
-})
+     });
+});
 
 const deleteAdmin = catchAsync(async (req, res) => {
      const { id } = req.params;
@@ -126,10 +137,10 @@ const deleteAdmin = catchAsync(async (req, res) => {
      sendResponse(res, {
           success: true,
           statusCode: 200,
-          message: "Admin is  deleted successfully",
+          message: 'Admin is  deleted successfully',
           data: result,
-     })
-})
+     });
+});
 
 //update profile
 const updateProfile = catchAsync(async (req, res) => {
@@ -189,4 +200,5 @@ export const UserControllers = {
      updateUserStatus,
      updateUser,
      deleteUser,
+     getUserById,
 };

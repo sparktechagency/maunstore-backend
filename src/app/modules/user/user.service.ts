@@ -70,13 +70,12 @@ const createAdminToDB = async (payload: Partial<IUser>): Promise<IUser> => {
 const getAdminsFromDB = async () => {
      const result = await User.find({ role: USER_ROLES.ADMIN });
      if (!result || result.length === 0) {
-          throw new AppError(404, "No admins data are found in the database")
-     };
+          throw new AppError(404, 'No admins data are found in the database');
+     }
      return result;
-}
+};
 
 const updateAdminToDB = async (id: string, payload: Partial<IUser>) => {
-
      const isExistUser = await User.isExistUserById(id);
      if (!isExistUser) {
           throw new AppError(StatusCodes.BAD_REQUEST, "Admin doesn't exist!");
@@ -88,38 +87,36 @@ const updateAdminToDB = async (id: string, payload: Partial<IUser>) => {
 
      const result = await User.findByIdAndUpdate(id, payload, { new: true });
      if (!result) {
-          throw new AppError(400, "Failed to updated admin")
-     };
+          throw new AppError(400, 'Failed to updated admin');
+     }
      return result;
-}
+};
 
 const updateAdminStatusToDB = async (id: string, status: USER_STATUS.ACTIVE | USER_STATUS.BLOCKED) => {
      const admin = await User.findById(id);
      if (!admin) {
-          throw new AppError(404, "No admin data is found for this ID")
-     };
-
+          throw new AppError(404, 'No admin data is found for this ID');
+     }
 
      const result = await User.findByIdAndUpdate(id, { status }, { new: true });
      if (!result) {
-          throw new AppError(400, "Failed to update admin status")
-     };
+          throw new AppError(400, 'Failed to update admin status');
+     }
 
      return result;
-
-}
+};
 
 const deleteAdminFromDB = async (id: string) => {
      const admin = await User.findById(id);
      if (!admin) {
-          throw new AppError(404, "No admin data is found for this ID")
-     };
+          throw new AppError(404, 'No admin data is found for this ID');
+     }
      const result = await User.findByIdAndDelete(id);
      if (!result) {
-          throw new AppError(400, "Failed to delete admin")
-     };
+          throw new AppError(400, 'Failed to delete admin');
+     }
      return result;
-}
+};
 
 // get user profile
 const getUserProfileFromDB = async (user: JwtPayload): Promise<Partial<IUser>> => {
@@ -135,18 +132,18 @@ const getUserProfileFromDB = async (user: JwtPayload): Promise<Partial<IUser>> =
 const getUsersFromDB = async () => {
      const result = await User.find({ role: USER_ROLES.USER });
      if (!result || result.length === 0) {
-          throw new AppError(404, "No users are found in the database")
-     };
+          throw new AppError(404, 'No users are found in the database');
+     }
      return result;
-}
+};
 
 const getUserByIdFromDB = async (id: string) => {
      const user = await User.findById(id);
      if (!user) {
-          throw new AppError(404, "No user is found in the database")
-     };
+          throw new AppError(404, 'No user is found in the database');
+     }
      return user;
-}
+};
 
 const updateUserToDB = async (id: string, updatedPayload: Partial<IUser>) => {
      const isExistUser = await User.isExistUserById(id);
@@ -159,26 +156,24 @@ const updateUserToDB = async (id: string, updatedPayload: Partial<IUser>) => {
      }
      const result = await User.findByIdAndUpdate(id, updatedPayload, { new: true });
      if (!result) {
-          throw new AppError(400, "Failed to update user")
-     };
+          throw new AppError(400, 'Failed to update user');
+     }
      return result;
-}
+};
 
 const updateUserStatusToDB = async (id: string, status: USER_STATUS.ACTIVE | USER_STATUS.BLOCKED) => {
      const user = await User.findById(id);
      if (!user) {
-          throw new AppError(404, "No user data is found for this ID")
-     };
-
+          throw new AppError(404, 'No user data is found for this ID');
+     }
 
      const result = await User.findByIdAndUpdate(id, { status }, { new: true });
      if (!result) {
-          throw new AppError(400, "Failed to update user status")
-     };
+          throw new AppError(400, 'Failed to update user status');
+     }
 
      return result;
-
-}
+};
 
 const deleteUserFromDB = async (id: string) => {
      const isExistUser = await User.isExistUserById(id);
@@ -187,10 +182,10 @@ const deleteUserFromDB = async (id: string) => {
      }
      const result = await User.findByIdAndDelete(id);
      if (!result) {
-          throw new AppError(400, "Failed to delete user")
-     };
+          throw new AppError(400, 'Failed to delete user');
+     }
      return result;
-}
+};
 
 // update user profile
 const updateProfileToDB = async (user: JwtPayload, payload: Partial<IUser>) => {

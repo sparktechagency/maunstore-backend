@@ -12,3 +12,20 @@ Wed Jul 23 2025 17:2:58 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/users 200 
 Wed Jul 23 2025 17:3:29 [SERVER-NAME] info: 10.10.7.111 - DELETE /api/v1/users/68809b3bc9ab47a4b7a262f5 200 - 921.002 ms
 Wed Jul 23 2025 17:5:46 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
 Wed Jul 23 2025 17:5:50 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 17:24:54 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 17:24:55 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 17:26:29 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 17:26:30 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 17:26:37 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 17:26:38 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 17:27:16 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 17:27:17 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 17:27:55 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/users 200 - 620.990 ms
+Wed Jul 23 2025 17:28:4 [SERVER-NAME] info: Mail send successfully
+Wed Jul 23 2025 17:28:16 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/users 200 - 208.508 ms
+Wed Jul 23 2025 17:28:38 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/users/6880c73b6122f67328209ad0 200 - 153.951 ms
+Wed Jul 23 2025 17:30:53 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/login 200 - 282.268 ms
+Wed Jul 23 2025 17:31:18 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/change-password 200 - 679.458 ms
+Wed Jul 23 2025 17:31:30 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/login 200 - 279.630 ms
+Wed Jul 23 2025 17:32:3 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/users/profile 200 - 152.594 ms
+Wed Jul 23 2025 17:32:14 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/users/profile 200 - 232.757 ms
