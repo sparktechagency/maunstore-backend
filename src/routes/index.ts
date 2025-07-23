@@ -3,6 +3,7 @@ import SettingsRouter from '../app/modules/settings/settings.route';
 import { AuthRoutes } from '../app/modules/auth/auth.route';
 import { UserRoutes } from '../app/modules/user/user.route';
 import { AdminRoutes } from '../app/modules/admin/admin.route';
+import { FaqRoutes } from '../app/modules/faq/faq.route';
 
 const router = express.Router();
 const routes = [
@@ -15,13 +16,17 @@ const routes = [
           route: UserRoutes,
      },
      {
-          path: '/admin',
+          path: '/admins',
           route: AdminRoutes,
      },
      {
           path: '/settings',
           route: SettingsRouter,
      },
+     {
+          path: "/faqs",
+          route: FaqRoutes
+     }
 ];
 
 routes.forEach((element) => {

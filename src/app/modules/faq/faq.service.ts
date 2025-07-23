@@ -13,19 +13,14 @@ const createFaqToDB = async (payload: IFaq): Promise<IFaq> => {
      return faq;
 };
 
-const faqsFromDB = async (): Promise<IFaq[]> => {
-     const faqs = await Faq.find({});
+const getFaqsFromDB = async () => {
+     const faqs = await Faq.find();
+     if (!faqs || faqs.length === 0) {
+          throw new AppError(404, "No faqs found in the database")
+     }
      return faqs;
 };
 
-const deleteFaqToDB = async (id: string): Promise<IFaq | undefined> => {
-     if (!mongoose.Types.ObjectId.isValid(id)) {
-          throw new AppError(StatusCodes.BAD_REQUEST, 'Invalid ID');
-     }
-
-     await Faq.findByIdAndDelete(id);
-     return;
-};
 
 const updateFaqToDB = async (id: string, payload: IFaq): Promise<IFaq> => {
      if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -42,9 +37,35 @@ const updateFaqToDB = async (id: string, payload: IFaq): Promise<IFaq> => {
      return updatedFaq;
 };
 
-export const FaqService = {
+const deleteFaqToDB = async (id: string) => {
+
+     const result = await Faq.findByIdAndDelete(id);
+     if (!result) {
+          throw new AppError(400, "Failed to delete faqs")
+     }
+     return result;
+};
+
+const deleteMultipleFaqsFromDB = async (ids: string[]) => {
+  console.log(ids);
+  if (!ids || !Array.isArray(ids) || ids.length === 0) {
+    throw new AppError(StatusCodes.BAD_REQUEST, 'No IDs provided for deletion');
+  }
+
+  const result = await Faq.deleteMany({ _id: { $in: ids } });
+
+  if (!result) {
+    throw new AppError(StatusCodes.BAD_REQUEST, 'Failed to delete FAQs');
+  }
+
+  return result;
+};
+
+
+export const FaqServices = {
      createFaqToDB,
      updateFaqToDB,
-     faqsFromDB,
+     getFaqsFromDB,
      deleteFaqToDB,
+     deleteMultipleFaqsFromDB,
 };
