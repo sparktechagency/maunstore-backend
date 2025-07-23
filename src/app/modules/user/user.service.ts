@@ -128,6 +128,14 @@ const getUserProfileFromDB = async (user: JwtPayload): Promise<Partial<IUser>> =
      return isExistUser;
 };
 
+const getUsersFromDB = async () => {
+     const result = await User.find({ role: USER_ROLES.USER });
+     if (!result || result.length === 0) {
+          throw new AppError(404, "No users are found in the database")
+     };
+     return result;
+}
+
 // update user profile
 const updateProfileToDB = async (user: JwtPayload, payload: Partial<IUser>) => {
      const { id } = user;
@@ -183,4 +191,5 @@ export const UserServices = {
      updateAdminToDB,
      updateAdminStatusToDB,
      deleteAdminFromDB,
+     getUsersFromDB,
 };

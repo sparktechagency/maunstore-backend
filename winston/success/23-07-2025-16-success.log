@@ -16,3 +16,7 @@ Wed Jul 23 2025 16:6:52 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/users/adm
 Wed Jul 23 2025 16:6:57 [SERVER-NAME] info: Mail send successfully
 Wed Jul 23 2025 16:7:25 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/login 200 - 290.747 ms
 Wed Jul 23 2025 16:7:31 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/users/admin/ 200 - 167.870 ms
+Wed Jul 23 2025 16:11:30 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 16:11:31 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 16:14:42 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 16:14:43 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
