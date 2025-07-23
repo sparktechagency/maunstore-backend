@@ -28,6 +28,16 @@ const createAdmin = catchAsync(async (req, res) => {
      });
 });
 
+const getAdmins = catchAsync(async (req, res) => {
+     const result = await UserServices.getAdminsFromDB();
+     sendResponse(res, {
+          success: true,
+          statusCode: 200,
+          message: "Admins are retrieved successfully",
+          data: result,
+     })
+})
+
 const getUserProfile = catchAsync(async (req, res) => {
      const user: any = req.user;
      const result = await UserServices.getUserProfileFromDB(user);
@@ -90,4 +100,5 @@ export const UserControllers = {
      updateProfile,
      createAdmin,
      deleteProfile,
+     getAdmins,
 };
