@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 1
+    },
+    "auditLog": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\error\\.a1280e53c4df07702d100ce9f47aadddeca34cf7-audit.json",
+    "files": [
+        {
+            "date": 1753245667331,
+            "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\error\\23-07-2025-10-error.log",
+            "hash": "1d2b8c093aaf12443ee89fed68fc7a88827a3a462f2fa0a40167252be101eef9"
+        }
+    ],
+    "hashType": "sha256"
+}
