@@ -72,6 +72,18 @@ const getUsers = catchAsync(async (req, res) => {
      })
 })
 
+const updateUserStatus = catchAsync(async (req, res) => {
+     const { id } = req.params;
+     const { status } = req.body;
+
+     const result = await UserServices.updateUserStatusToDB(id, status);
+     sendResponse(res, {
+          success: true,
+          statusCode: 200,
+          message: "User status is updated successfully",
+          data: result,
+     })
+})
 const updateAdminStatus = catchAsync(async (req, res) => {
      const { id } = req.params;
      const { status } = req.body;
@@ -151,4 +163,5 @@ export const UserControllers = {
      updateAdminStatus,
      deleteAdmin,
      getUsers,
+     updateUserStatus,
 };

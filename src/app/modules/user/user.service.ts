@@ -136,6 +136,22 @@ const getUsersFromDB = async () => {
      return result;
 }
 
+const updateUserStatusToDB = async (id: string, status: USER_STATUS.ACTIVE | USER_STATUS.BLOCKED) => {
+     const user = await User.findById(id);
+     if (!user) {
+          throw new AppError(404, "No user data is found for this ID")
+     };
+
+
+     const result = await User.findByIdAndUpdate(id, { status }, { new: true });
+     if (!result) {
+          throw new AppError(400, "Failed to update user status")
+     };
+
+     return result;
+
+}
+
 // update user profile
 const updateProfileToDB = async (user: JwtPayload, payload: Partial<IUser>) => {
      const { id } = user;
@@ -192,4 +208,5 @@ export const UserServices = {
      updateAdminStatusToDB,
      deleteAdminFromDB,
      getUsersFromDB,
+     updateUserStatusToDB,
 };
