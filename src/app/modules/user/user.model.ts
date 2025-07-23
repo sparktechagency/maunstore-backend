@@ -29,7 +29,16 @@ const userSchema = new Schema<IUser, UserModel>(
                select: false,
                minlength: 8,
           },
-          image: {
+          phone: {
+               type: String,
+          },
+          address: {
+               type: String,
+          },
+          countryCode: {
+               type: String,
+          },
+          profileImage: {
                type: String,
                default: '',
           },

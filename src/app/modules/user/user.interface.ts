@@ -6,7 +6,10 @@ export type IUser = {
      role: USER_ROLES;
      email: string;
      password?: string;
-     image?: string;
+     phone?: string;
+     address?: string;
+     countryCode?: string;
+     profileImage?: string;
      status: USER_STATUS;
      verified: boolean;
      authentication?: {

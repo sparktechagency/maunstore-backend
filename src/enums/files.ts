@@ -1,5 +1,6 @@
 export enum FOLDER_NAMES {
      IMAGE = 'image',
+     PROFILEIMAGE = "profileImage",
      IMAGES = 'images',
      LICENSE = 'license',
      DRIVER_LICENSE = 'driverLicense',
