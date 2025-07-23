@@ -29,6 +29,7 @@ router.route("/:id")
           fileUploadHandler(),
           parseFileData(FOLDER_NAMES.PROFILEIMAGE),
           UserControllers.updateUser)
+     .delete(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), UserControllers.deleteUser)
 
 router.route("/status/:id")
      .patch(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), UserControllers.updateUserStatus)
