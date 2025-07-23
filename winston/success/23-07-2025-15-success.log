@@ -107,3 +107,8 @@ Wed Jul 23 2025 15:55:22 [SERVER-NAME] info: [32m🚀 Database connected succes
 Wed Jul 23 2025 15:55:23 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
 Wed Jul 23 2025 15:55:29 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
 Wed Jul 23 2025 15:55:30 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 15:56:46 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 15:56:47 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 15:56:56 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/users/admin/status/6880a1a9f1c7d4c60e7ee1b3 200 - 523.591 ms
+Wed Jul 23 2025 15:57:45 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/users/admin/status/6880a1a9f1c7d4c60e7ee1b3 200 - 262.630 ms
+Wed Jul 23 2025 15:57:54 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/login 200 - 293.004 ms

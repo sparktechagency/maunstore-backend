@@ -22,7 +22,7 @@ router
 
 router.route('/').post(validateRequest(UserValidation.createUserZodSchema), UserControllers.createUser);
 
-// Admin routes for user management
+// admin management
 router.route('/admin')
      .post(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), validateRequest(UserValidation.createUserZodSchema), UserControllers.createAdmin)
      .get(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN),
@@ -33,6 +33,7 @@ router.route("/admin/:id")
           fileUploadHandler(),
           parseFileData(FOLDER_NAMES.PROFILEIMAGE),
           UserControllers.updateAdmin)
+     .delete(auth(USER_ROLES.SUPER_ADMIN), UserControllers.deleteAdmin)
 
 
 router.patch("/admin/status/:id", auth(USER_ROLES.SUPER_ADMIN), UserControllers.updateAdminStatus)

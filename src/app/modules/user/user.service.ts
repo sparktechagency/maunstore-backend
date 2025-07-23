@@ -94,7 +94,7 @@ const updateAdminStatusToDB = async (id: string, status: USER_STATUS.ACTIVE | US
      if (!admin) {
           throw new AppError(404, "No admin data is found for this ID")
      };
-     
+
 
      const result = await User.findByIdAndUpdate(id, { status }, { new: true });
      if (!result) {
@@ -103,6 +103,18 @@ const updateAdminStatusToDB = async (id: string, status: USER_STATUS.ACTIVE | US
 
      return result;
 
+}
+
+const deleteAdminFromDB = async (id: string) => {
+     const admin = await User.findById(id);
+     if (!admin) {
+          throw new AppError(404, "No admin data is found for this ID")
+     };
+     const result = await User.findByIdAndDelete(id);
+     if (!result) {
+          throw new AppError(400, "Failed to delete admin")
+     };
+     return result;
 }
 
 // get user profile
@@ -170,4 +182,5 @@ export const UserServices = {
      getAdminsFromDB,
      updateAdminToDB,
      updateAdminStatusToDB,
+     deleteAdminFromDB,
 };

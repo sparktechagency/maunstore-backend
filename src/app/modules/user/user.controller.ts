@@ -64,13 +64,24 @@ const getUserProfile = catchAsync(async (req, res) => {
 
 const updateAdminStatus = catchAsync(async (req, res) => {
      const { id } = req.params;
-     const {status} = req.body;
-    
+     const { status } = req.body;
+
      const result = await UserServices.updateAdminStatusToDB(id, status);
      sendResponse(res, {
           success: true,
           statusCode: 200,
           message: "Admin status is updated successfully",
+          data: result,
+     })
+})
+
+const deleteAdmin = catchAsync(async (req, res) => {
+     const { id } = req.params;
+     const result = await UserServices.deleteAdminFromDB(id);
+     sendResponse(res, {
+          success: true,
+          statusCode: 200,
+          message: "Admin is  deleted successfully",
           data: result,
      })
 })
@@ -128,4 +139,5 @@ export const UserControllers = {
      getAdmins,
      updateAdmin,
      updateAdminStatus,
+     deleteAdmin,
 };

@@ -1,0 +1,18 @@
+Wed Jul 23 2025 16:1:3 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 16:1:4 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 16:1:9 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 16:1:10 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 16:2:36 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 16:2:37 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 16:2:43 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 16:2:44 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 16:3:43 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 16:3:44 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 16:4:17 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/login 200 - 297.141 ms
+Wed Jul 23 2025 16:4:21 [SERVER-NAME] info: 10.10.7.111 - DELETE /api/v1/users/admin/6880a1a9f1c7d4c60e7ee1b3 200 - 259.796 ms
+Wed Jul 23 2025 16:5:27 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/users/admin 200 - 562.869 ms
+Wed Jul 23 2025 16:5:33 [SERVER-NAME] info: Mail send successfully
+Wed Jul 23 2025 16:6:52 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/users/admin 200 - 563.036 ms
+Wed Jul 23 2025 16:6:57 [SERVER-NAME] info: Mail send successfully
+Wed Jul 23 2025 16:7:25 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/login 200 - 290.747 ms
+Wed Jul 23 2025 16:7:31 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/users/admin/ 200 - 167.870 ms
