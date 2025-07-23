@@ -8,6 +8,7 @@ import { IUser } from './user.interface';
 import { User } from './user.model';
 import AppError from '../../../errors/AppError';
 import generateOTP from '../../../utils/generateOTP';
+import { USER_STATUS } from './user.constant';
 
 // create user
 const createUserToDB = async (payload: Partial<IUser>): Promise<IUser> => {
@@ -88,6 +89,22 @@ const updateAdminToDB = async (id: string, payload: Partial<IUser>) => {
      return result;
 }
 
+const updateAdminStatusToDB = async (id: string, status: USER_STATUS.ACTIVE | USER_STATUS.BLOCKED) => {
+     const admin = await User.findById(id);
+     if (!admin) {
+          throw new AppError(404, "No admin data is found for this ID")
+     };
+     
+
+     const result = await User.findByIdAndUpdate(id, { status }, { new: true });
+     if (!result) {
+          throw new AppError(400, "Failed to update admin status")
+     };
+
+     return result;
+
+}
+
 // get user profile
 const getUserProfileFromDB = async (user: JwtPayload): Promise<Partial<IUser>> => {
      const { id } = user;
@@ -152,4 +169,5 @@ export const UserServices = {
      verifyUserPassword,
      getAdminsFromDB,
      updateAdminToDB,
+     updateAdminStatusToDB,
 };

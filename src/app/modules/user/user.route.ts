@@ -34,4 +34,7 @@ router.route("/admin/:id")
           parseFileData(FOLDER_NAMES.PROFILEIMAGE),
           UserControllers.updateAdmin)
 
+
+router.patch("/admin/status/:id", auth(USER_ROLES.SUPER_ADMIN), UserControllers.updateAdminStatus)
+
 export const UserRoutes = router;

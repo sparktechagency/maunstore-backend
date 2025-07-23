@@ -62,6 +62,19 @@ const getUserProfile = catchAsync(async (req, res) => {
      });
 });
 
+const updateAdminStatus = catchAsync(async (req, res) => {
+     const { id } = req.params;
+     const {status} = req.body;
+    
+     const result = await UserServices.updateAdminStatusToDB(id, status);
+     sendResponse(res, {
+          success: true,
+          statusCode: 200,
+          message: "Admin status is updated successfully",
+          data: result,
+     })
+})
+
 //update profile
 const updateProfile = catchAsync(async (req, res) => {
      const user: any = req.user;
@@ -114,4 +127,5 @@ export const UserControllers = {
      deleteProfile,
      getAdmins,
      updateAdmin,
+     updateAdminStatus,
 };
