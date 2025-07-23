@@ -172,6 +172,18 @@ const updateUserStatusToDB = async (id: string, status: USER_STATUS.ACTIVE | USE
 
 }
 
+const deleteUserFromDB = async (id: string) => {
+     const isExistUser = await User.isExistUserById(id);
+     if (!isExistUser) {
+          throw new AppError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
+     }
+     const result = await User.findByIdAndDelete(id);
+     if (!result) {
+          throw new AppError(400, "Failed to delete user")
+     };
+     return result;
+}
+
 // update user profile
 const updateProfileToDB = async (user: JwtPayload, payload: Partial<IUser>) => {
      const { id } = user;
@@ -230,4 +242,5 @@ export const UserServices = {
      getUsersFromDB,
      updateUserStatusToDB,
      updateUserToDB,
+     deleteUserFromDB,
 };
