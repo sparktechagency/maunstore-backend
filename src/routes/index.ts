@@ -1,17 +1,17 @@
 import express from 'express';
-import { UserRouter } from '../app/modules/user/user.route';
-import { AuthRouter } from '../app/modules/auth/auth.route';
 import SettingsRouter from '../app/modules/settings/settings.route';
+import { AuthRoutes } from '../app/modules/auth/auth.route';
+import { UserRoutes } from '../app/modules/user/user.route';
 
 const router = express.Router();
 const routes = [
      {
           path: '/auth',
-          route: AuthRouter,
+          route: AuthRoutes,
      },
      {
           path: '/users',
-          route: UserRouter,
+          route: UserRoutes,
      },
      {
           path: '/settings',

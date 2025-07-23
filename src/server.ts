@@ -26,7 +26,6 @@ export async function startServer() {
           httpServer = createServer(app);
           const httpPort = Number(config.port);
           const ipAddress = config.ip_address as string;
-  
 
           // Set timeouts
           httpServer.timeout = 120000;

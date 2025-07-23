@@ -1,6 +1,8 @@
 import jwt, { JwtPayload, Secret, SignOptions } from 'jsonwebtoken';
 
 const createToken = (payload: object, secret: Secret, expireTime: string) => {
+     console.log('JWT_SECRET:', secret);
+     console.log('EXPIRE_TIME:', expireTime);
      return jwt.sign(payload, secret, { expiresIn: expireTime } as SignOptions);
 };
 

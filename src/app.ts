@@ -42,7 +42,6 @@ app.use(
      }),
 );
 
-
 //file retrieve
 app.use(express.static('uploads'));
 app.use(express.static('public'));

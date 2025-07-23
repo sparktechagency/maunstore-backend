@@ -5,7 +5,7 @@ export type IUser = {
      name: string;
      role: USER_ROLES;
      email: string;
-     password?: string;
+     password: string;
      phone?: string;
      address?: string;
      countryCode?: string;
@@ -22,6 +22,5 @@ export type IUser = {
 export type UserModel = {
      isExistUserById(id: string): any;
      isExistUserByEmail(email: string): any;
-     isExistUserByPhone(contact: string): any;
      isMatchPassword(password: string, hashPassword: string): boolean;
 } & Model<IUser>;

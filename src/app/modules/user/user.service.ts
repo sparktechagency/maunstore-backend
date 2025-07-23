@@ -10,20 +10,15 @@ import AppError from '../../../errors/AppError';
 import generateOTP from '../../../utils/generateOTP';
 
 // create user
-const createUserToDB = async (payload: IUser): Promise<IUser> => {
-     //set role
-     const user = await User.isExistUserByEmail(payload.email);
-     if (user) {
-          throw new AppError(StatusCodes.CONFLICT, 'Email already exists');
-     }
+const createUserToDB = async (payload: Partial<IUser>): Promise<IUser> => {
      payload.role = USER_ROLES.USER;
      const createUser = await User.create(payload);
      if (!createUser) {
-          throw new AppError(StatusCodes.BAD_REQUEST, 'Failed to create user');
+          throw new AppError(StatusCodes.BAD_REQUEST, 'Failed to create business owner account');
      }
 
      //send email
-     const otp = generateOTP(4);
+     const otp = generateOTP();
      const values = {
           name: createUser.name,
           otp: otp,
@@ -66,10 +61,7 @@ const createAdminToDB = async (payload: Partial<IUser>): Promise<IUser> => {
           oneTimeCode: otp,
           expireAt: new Date(Date.now() + 3 * 60000),
      };
-     await User.findOneAndUpdate(
-          { _id: createAdmin._id },
-          { $set: { authentication } }
-     );
+     await User.findOneAndUpdate({ _id: createAdmin._id }, { $set: { authentication } });
 
      return createAdmin;
 };
@@ -123,15 +115,12 @@ const deleteUser = async (id: string) => {
      const result = await User.findByIdAndDelete(id);
 
      if (!result) {
-          throw new AppError(400, "Failed to delete this user")
+          throw new AppError(400, 'Failed to delete this user');
      }
      return result;
-
-
 };
 
-
-export const UserService = {
+export const UserServices = {
      createUserToDB,
      getUserProfileFromDB,
      updateProfileToDB,

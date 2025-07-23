@@ -1,8 +1,5 @@
-
 import figlet from 'figlet';
 import chalk from 'chalk';
-
-
 
 // ASCII Art Title
 figlet('Moshfiqur Rahman', (err, data) => {

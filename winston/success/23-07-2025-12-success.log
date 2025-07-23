@@ -1,0 +1,110 @@
+Wed Jul 23 2025 12:15:27 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:15:28 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:15:28 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:15:28 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:17:41 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:17:42 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:17:42 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:17:42 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:18:35 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:18:36 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:18:37 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:18:37 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:18:37 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:20:9 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:20:10 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:20:10 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:20:10 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:21:57 [SERVER-NAME] info: [34mSIGINT received. Shutting down gracefully...[39m
+Wed Jul 23 2025 12:22:2 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:22:3 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:22:3 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:22:3 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:22:7 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/users 200 - 730.975 ms
+Wed Jul 23 2025 12:22:13 [SERVER-NAME] info: Mail send successfully
+Wed Jul 23 2025 12:23:33 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/verify-email 200 - 282.700 ms
+Wed Jul 23 2025 12:27:25 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/users 200 - 541.334 ms
+Wed Jul 23 2025 12:27:31 [SERVER-NAME] info: Mail send successfully
+Wed Jul 23 2025 12:27:44 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/verify-email 200 - 233.818 ms
+Wed Jul 23 2025 12:30:4 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:30:5 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:30:5 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:30:5 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:31:53 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:31:55 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:31:55 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:31:55 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:32:29 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:32:30 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:32:30 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:32:30 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:33:20 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:33:21 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:33:21 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:33:21 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:43:31 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:43:32 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:43:32 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:43:32 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:43:52 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:43:53 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:43:53 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:43:53 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:44:11 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:44:11 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:44:11 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:44:11 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:44:24 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:44:25 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:44:25 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:44:25 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:44:39 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:44:40 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:44:40 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:44:40 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:45:3 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:45:4 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:45:4 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:45:4 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:45:12 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:45:12 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:45:12 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:45:12 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:45:27 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:45:27 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:45:27 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:45:27 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:45:37 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/users 200 - 488.921 ms
+Wed Jul 23 2025 12:45:43 [SERVER-NAME] info: Mail send successfully
+Wed Jul 23 2025 12:45:55 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/verify-email 200 - 161.768 ms
+Wed Jul 23 2025 12:46:4 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/login 200 - 306.146 ms
+Wed Jul 23 2025 12:47:26 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/resend-otp 200 - 288.611 ms
+Wed Jul 23 2025 12:47:33 [SERVER-NAME] info: Mail send successfully
+Wed Jul 23 2025 12:48:40 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:48:41 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:48:41 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:48:41 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:49:46 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:49:47 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:49:47 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:49:47 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:49:59 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:50:1 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:50:1 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:50:1 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:50:34 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:50:35 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:50:35 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:50:35 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:50:44 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/resend-otp 200 - 188.499 ms
+Wed Jul 23 2025 12:50:50 [SERVER-NAME] info: Mail send successfully
+Wed Jul 23 2025 12:52:56 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/resend-otp 200 - 172.712 ms
+Wed Jul 23 2025 12:53:2 [SERVER-NAME] info: Mail send successfully
+Wed Jul 23 2025 12:53:10 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/verify-email 200 - 253.614 ms
+Wed Jul 23 2025 12:53:51 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 12:53:52 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 12:53:52 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 12:53:52 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m
+Wed Jul 23 2025 12:56:30 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/resend-otp 200 - 199.512 ms
+Wed Jul 23 2025 12:56:36 [SERVER-NAME] info: Mail send successfully
+Wed Jul 23 2025 12:56:50 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/verify-email 200 - 251.175 ms

@@ -10,7 +10,8 @@ export type IChat = {
      readBy: Types.ObjectId[];
      // New fields for additional features
      mutedBy: Types.ObjectId[]; // Users who muted this chat
-     blockedUsers: { // Blocking relationships within this chat
+     blockedUsers: {
+          // Blocking relationships within this chat
           blocker: Types.ObjectId;
           blocked: Types.ObjectId;
           blockedAt: Date;

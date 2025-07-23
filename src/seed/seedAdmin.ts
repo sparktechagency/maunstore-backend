@@ -13,7 +13,7 @@ const usersData = [
           role: USER_ROLES.SUPER_ADMIN,
           password: config.super_admin.password,
           verified: true,
-     }
+     },
 ];
 
 // Function to hash passwords

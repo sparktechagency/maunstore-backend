@@ -1,29 +1,21 @@
 import express from 'express';
 import { USER_ROLES } from '../../../enums/user';
-import { AuthController } from './auth.controller';
+import { AuthControllers } from './auth.controller';
 import { AuthValidation } from './auth.validation';
 import validateRequest from '../../middleware/validateRequest';
 import auth from '../../middleware/auth';
 const router = express.Router();
 
-router.post('/login', validateRequest(AuthValidation.createLoginZodSchema), AuthController.loginUser);
-router.post('/refresh-token', AuthController.refreshToken);
-router.post('/forget-password', validateRequest(AuthValidation.createForgetPasswordZodSchema), AuthController.forgetPassword);
+router.post('/login', validateRequest(AuthValidation.createLoginZodSchema), AuthControllers.loginUser);
 
-router.post('/verify-email', validateRequest(AuthValidation.createVerifyEmailZodSchema), AuthController.verifyEmail);
+router.post('/forget-password', validateRequest(AuthValidation.createForgetPasswordZodSchema), AuthControllers.forgetPassword);
 
-router.post('/reset-password', validateRequest(AuthValidation.createResetPasswordZodSchema), AuthController.resetPassword);
-router.post('/dashboard/forget-password', validateRequest(AuthValidation.createForgetPasswordZodSchema), AuthController.forgetPasswordByUrl);
+router.post('/verify-email', validateRequest(AuthValidation.createVerifyEmailZodSchema), AuthControllers.verifyEmail);
 
-router.post('/dashboard/reset-password', auth(USER_ROLES.ADMIN, USER_ROLES.VENDOR), validateRequest(AuthValidation.createResetPasswordZodSchema), AuthController.resetPasswordByUrl);
+router.post('/resend-otp', AuthControllers.resendOtp);
 
-router.post('/change-password', auth(USER_ROLES.ADMIN, USER_ROLES.USER, USER_ROLES.VENDOR), validateRequest(AuthValidation.createChangePasswordZodSchema), AuthController.changePassword);
-router.post('/resend-otp', AuthController.resendOtp);
+router.post('/reset-password', validateRequest(AuthValidation.createResetPasswordZodSchema), AuthControllers.resetPassword);
 
-// OAuth Routes
-router.get('/google', AuthController.googleAuth);
-router.get('/google/callback', AuthController.googleAuthCallback);
-router.get('/facebook', AuthController.facebookAuth);
-router.get('/facebook/callback', AuthController.facebookAuthCallback);
+router.post('/change-password', auth(USER_ROLES.USER, USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN), validateRequest(AuthValidation.createChangePasswordZodSchema), AuthControllers.changePassword);
 
-export const AuthRouter = router;
+export const AuthRoutes = router;

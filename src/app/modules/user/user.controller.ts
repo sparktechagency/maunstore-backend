@@ -1,13 +1,13 @@
 import { StatusCodes } from 'http-status-codes';
 import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
-import { UserService } from './user.service';
 import config from '../../../config';
 import bcrypt from 'bcrypt';
+import { UserServices } from './user.service';
 
 const createUser = catchAsync(async (req, res) => {
      const { ...userData } = req.body;
-     const result = await UserService.createUserToDB(userData);
+     const result = await UserServices.createUserToDB(userData);
 
      sendResponse(res, {
           success: true,
@@ -17,10 +17,9 @@ const createUser = catchAsync(async (req, res) => {
      });
 });
 
-
 const createAdmin = catchAsync(async (req, res) => {
      const { ...userData } = req.body;
-     const result = await UserService.createAdminToDB(userData);
+     const result = await UserServices.createAdminToDB(userData);
      sendResponse(res, {
           success: true,
           statusCode: StatusCodes.OK,
@@ -31,7 +30,7 @@ const createAdmin = catchAsync(async (req, res) => {
 
 const getUserProfile = catchAsync(async (req, res) => {
      const user: any = req.user;
-     const result = await UserService.getUserProfileFromDB(user);
+     const result = await UserServices.getUserProfileFromDB(user);
 
      sendResponse(res, {
           success: true,
@@ -52,7 +51,7 @@ const updateProfile = catchAsync(async (req, res) => {
           req.body.password = await bcrypt.hash(req.body.password, Number(config.bcrypt_salt_rounds));
      }
 
-     const result = await UserService.updateProfileToDB(user, req.body);
+     const result = await UserServices.updateProfileToDB(user, req.body);
 
      sendResponse(res, {
           success: true,
@@ -66,7 +65,7 @@ const updateProfile = catchAsync(async (req, res) => {
 const deleteProfile = catchAsync(async (req, res) => {
      const { id }: any = req.user;
      const { password } = req.body;
-     const isUserVerified = await UserService.verifyUserPassword(id, password);
+     const isUserVerified = await UserServices.verifyUserPassword(id, password);
      if (!isUserVerified) {
           return sendResponse(res, {
                success: false,
@@ -75,7 +74,7 @@ const deleteProfile = catchAsync(async (req, res) => {
           });
      }
 
-     const result = await UserService.deleteUser(id);
+     const result = await UserServices.deleteUser(id);
 
      sendResponse(res, {
           success: true,
@@ -85,9 +84,7 @@ const deleteProfile = catchAsync(async (req, res) => {
      });
 });
 
-
-
-export const UserController = {
+export const UserControllers = {
      createUser,
      getUserProfile,
      updateProfile,

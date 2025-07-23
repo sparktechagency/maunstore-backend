@@ -26,7 +26,8 @@ const userSchema = new Schema<IUser, UserModel>(
           },
           password: {
                type: String,
-               select: false,
+               required: true,
+               select: 0,
                minlength: 8,
           },
           phone: {
@@ -72,54 +73,33 @@ const userSchema = new Schema<IUser, UserModel>(
      { timestamps: true },
 );
 
-// Exist User Check
+//exist user check
 userSchema.statics.isExistUserById = async (id: string) => {
-     return await User.findById(id);
+     const isExist = await User.findById(id);
+     return isExist;
 };
-
-// db.users.updateOne({email:"tihow91361@linxues.com"},{email:"rakibhassan305@gmail.com"})
 
 userSchema.statics.isExistUserByEmail = async (email: string) => {
-     return await User.findOne({ email });
+     const isExist = await User.findOne({ email });
+     return isExist;
 };
-userSchema.statics.isExistUserByPhone = async (contact: string) => {
-     return await User.findOne({ contact });
-};
-// Password Matching
+
+//is match password
 userSchema.statics.isMatchPassword = async (password: string, hashPassword: string): Promise<boolean> => {
      return await bcrypt.compare(password, hashPassword);
 };
 
-// Pre-Save Hook for Hashing Password & Checking Email Uniqueness
+//check user
 userSchema.pre('save', async function (next) {
-     // Only check email uniqueness if this is a new user or email is being changed
-     if (this.isNew || this.isModified('email')) {
-          const existingUser = await User.findOne({ email: this.get('email') });
-          if (existingUser && existingUser._id.toString() !== this._id.toString()) {
-               throw new AppError(StatusCodes.BAD_REQUEST, 'Email already exists!');
-          }
+     //check user
+     const isExist = await User.findOne({ email: this.email });
+     if (isExist) {
+          throw new AppError(StatusCodes.BAD_REQUEST, 'Email already exist!');
      }
 
-     // Only hash password if it's provided and modified
-     if (this.password && this.isModified('password')) {
-          this.password = await bcrypt.hash(this.password, Number(config.bcrypt_salt_rounds));
-     }
+     //password hash
+     this.password = await bcrypt.hash(this.password, Number(config.bcrypt_salt_rounds));
      next();
 });
 
-// Query Middleware
-userSchema.pre('find', function (next) {
-     this.find({ isDeleted: { $ne: true } });
-     next();
-});
-
-userSchema.pre('findOne', function (next) {
-     this.find({ isDeleted: { $ne: true } });
-     next();
-});
-
-userSchema.pre('aggregate', function (next) {
-     this.pipeline().unshift({ $match: { isDeleted: { $ne: true } } });
-     next();
-});
 export const User = model<IUser, UserModel>('User', userSchema);

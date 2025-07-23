@@ -1,0 +1,17 @@
+Wed Jul 23 2025 14:13:51 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/users 200 - 488.919 ms
+Wed Jul 23 2025 14:13:57 [SERVER-NAME] info: Mail send successfully
+Wed Jul 23 2025 14:14:13 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/verify-email 200 - 165.122 ms
+Wed Jul 23 2025 14:14:59 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/forget-password 200 - 518.006 ms
+Wed Jul 23 2025 14:15:5 [SERVER-NAME] info: Mail send successfully
+Wed Jul 23 2025 14:15:19 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/verify-email 200 - 277.742 ms
+Wed Jul 23 2025 14:18:2 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/resend-otp 200 - 186.815 ms
+Wed Jul 23 2025 14:18:8 [SERVER-NAME] info: Mail send successfully
+Wed Jul 23 2025 14:18:16 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/verify-email 200 - 249.181 ms
+Wed Jul 23 2025 14:19:17 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/reset-password 200 - 639.920 ms
+Wed Jul 23 2025 14:20:12 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/users 200 - 519.346 ms
+Wed Jul 23 2025 14:20:18 [SERVER-NAME] info: Mail send successfully
+Wed Jul 23 2025 14:21:22 [SERVER-NAME] info: [34mSIGINT received. Shutting down gracefully...[39m
+Wed Jul 23 2025 14:21:27 [SERVER-NAME] info: [32mConfig validation successful.[39m
+Wed Jul 23 2025 14:21:28 [SERVER-NAME] info: [46m🚀 Database connected successfully[49m
+Wed Jul 23 2025 14:21:28 [SERVER-NAME] info: [33m♻️  Socket is listening on same port 5000[39m
+Wed Jul 23 2025 14:21:28 [SERVER-NAME] info: [46m♻️  Application listening on http://10.10.7.111:5000[49m

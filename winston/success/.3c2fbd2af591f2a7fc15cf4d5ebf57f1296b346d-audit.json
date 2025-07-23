@@ -1,20 +1,30 @@
 {
-    "keep": {
-        "days": true,
-        "amount": 1
-    },
-    "auditLog": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\.3c2fbd2af591f2a7fc15cf4d5ebf57f1296b346d-audit.json",
-    "files": [
-        {
-            "date": 1753245667329,
-            "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\23-07-2025-10-success.log",
-            "hash": "a38aab168a4bfc66dae69e212c4c4137509dff8d84d8b34e9b3b89edb8f693e5"
-        },
-        {
-            "date": 1753248308347,
-            "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\23-07-2025-11-success.log",
-            "hash": "a0691516342ccce4b16b7d5ec0c8e55b807ae6b02e6ff348531f697e16c8deb9"
-        }
-    ],
-    "hashType": "sha256"
+     "keep": {
+          "days": true,
+          "amount": 1
+     },
+     "auditLog": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\.3c2fbd2af591f2a7fc15cf4d5ebf57f1296b346d-audit.json",
+     "files": [
+          {
+               "date": 1753245667329,
+               "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\23-07-2025-10-success.log",
+               "hash": "a38aab168a4bfc66dae69e212c4c4137509dff8d84d8b34e9b3b89edb8f693e5"
+          },
+          {
+               "date": 1753248308347,
+               "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\23-07-2025-11-success.log",
+               "hash": "a0691516342ccce4b16b7d5ec0c8e55b807ae6b02e6ff348531f697e16c8deb9"
+          },
+          {
+               "date": 1753251326400,
+               "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\23-07-2025-12-success.log",
+               "hash": "807b90782d651031c0d0791363cb62ee3f8ee8c6f9b1f97d981f7ad46316b280"
+          },
+          {
+               "date": 1753258431074,
+               "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\23-07-2025-14-success.log",
+               "hash": "1cf4729e26b2c394f59b6a57964e471ec442b24d5637df2205cbdd923b5b1c59"
+          }
+     ],
+     "hashType": "sha256"
 }
