@@ -140,6 +140,14 @@ const getUsersFromDB = async () => {
      return result;
 }
 
+const getUserByIdFromDB = async (id: string) => {
+     const user = await User.findById(id);
+     if (!user) {
+          throw new AppError(404, "No user is found in the database")
+     };
+     return user;
+}
+
 const updateUserToDB = async (id: string, updatedPayload: Partial<IUser>) => {
      const isExistUser = await User.isExistUserById(id);
      if (!isExistUser) {
@@ -243,4 +251,5 @@ export const UserServices = {
      updateUserStatusToDB,
      updateUserToDB,
      deleteUserFromDB,
+     getUserByIdFromDB,
 };

@@ -6,3 +6,9 @@ Wed Jul 23 2025 17:2:19 [SERVER-NAME] info: [32m🚀 Database connected success
 Wed Jul 23 2025 17:2:22 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
 Wed Jul 23 2025 17:2:27 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
 Wed Jul 23 2025 17:2:30 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 17:2:52 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 17:2:55 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 17:2:58 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/users 200 - 612.041 ms
+Wed Jul 23 2025 17:3:29 [SERVER-NAME] info: 10.10.7.111 - DELETE /api/v1/users/68809b3bc9ab47a4b7a262f5 200 - 921.002 ms
+Wed Jul 23 2025 17:5:46 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 17:5:50 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
