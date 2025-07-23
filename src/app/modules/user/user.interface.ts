@@ -1,18 +1,14 @@
 import { Model } from 'mongoose';
 import { USER_ROLES } from '../../../enums/user';
+import { USER_STATUS } from './user.constant';
 export type IUser = {
      name: string;
      role: USER_ROLES;
      email: string;
      password?: string;
      image?: string;
-     isDeleted: boolean;
-     stripeCustomerId: string;
-     status: 'active' | 'blocked';
+     status: USER_STATUS;
      verified: boolean;
-     googleId?: string;
-     facebookId?: string;
-     oauthProvider?: 'google' | 'facebook';
      authentication?: {
           isResetPassword: boolean;
           oneTimeCode: number;

@@ -5,6 +5,7 @@ import config from '../../../config';
 import { USER_ROLES } from '../../../enums/user';
 import AppError from '../../../errors/AppError';
 import { IUser, UserModel } from './user.interface';
+import { USER_STATUS } from './user.constant';
 
 const userSchema = new Schema<IUser, UserModel>(
      {
@@ -25,10 +26,6 @@ const userSchema = new Schema<IUser, UserModel>(
           },
           password: {
                type: String,
-               required: function() {
-                    // Password is only required for non-OAuth users
-                    return !this.oauthProvider;
-               },
                select: false,
                minlength: 8,
           },
@@ -38,33 +35,12 @@ const userSchema = new Schema<IUser, UserModel>(
           },
           status: {
                type: String,
-               enum: ['active', 'blocked'],
-               default: 'active',
+               enum: Object.values(USER_STATUS),
+               default: USER_STATUS.ACTIVE,
           },
           verified: {
                type: Boolean,
                default: false,
-          },
-          isDeleted: {
-               type: Boolean,
-               default: false,
-          },
-          stripeCustomerId: {
-               type: String,
-               default: '',
-          },
-          // OAuth fields
-          googleId: {
-               type: String,
-               sparse: true,
-          },
-          facebookId: {
-               type: String,
-               sparse: true,
-          },
-          oauthProvider: {
-               type: String,
-               enum: ['google', 'facebook'],
           },
           authentication: {
                type: {
@@ -119,12 +95,6 @@ userSchema.pre('save', async function (next) {
      if (this.password && this.isModified('password')) {
           this.password = await bcrypt.hash(this.password, Number(config.bcrypt_salt_rounds));
      }
-
-     // Auto-verify OAuth users
-     if (this.oauthProvider && !this.verified) {
-          this.verified = true;
-     }
-
      next();
 });
 
