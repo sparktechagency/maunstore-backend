@@ -77,9 +77,13 @@ const getAdminsFromDB = async () => {
 
 const updateAdminToDB = async (id: string, payload: Partial<IUser>) => {
 
-     const admin = await User.findById(id);
-     if (!admin) {
-          throw new AppError(404, "No admin data is found for the id")
+     const isExistUser = await User.isExistUserById(id);
+     if (!isExistUser) {
+          throw new AppError(StatusCodes.BAD_REQUEST, "Admin doesn't exist!");
+     }
+
+     if (payload.profileImage) {
+          unlinkFile(isExistUser?.profileImage);
      }
 
      const result = await User.findByIdAndUpdate(id, payload, { new: true });
@@ -136,6 +140,22 @@ const getUsersFromDB = async () => {
      return result;
 }
 
+const updateUserToDB = async (id: string, updatedPayload: Partial<IUser>) => {
+     const isExistUser = await User.isExistUserById(id);
+     if (!isExistUser) {
+          throw new AppError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
+     }
+
+     if (updatedPayload.profileImage) {
+          unlinkFile(isExistUser?.profileImage);
+     }
+     const result = await User.findByIdAndUpdate(id, updatedPayload, { new: true });
+     if (!result) {
+          throw new AppError(400, "Failed to update user")
+     };
+     return result;
+}
+
 const updateUserStatusToDB = async (id: string, status: USER_STATUS.ACTIVE | USER_STATUS.BLOCKED) => {
      const user = await User.findById(id);
      if (!user) {
@@ -155,7 +175,7 @@ const updateUserStatusToDB = async (id: string, status: USER_STATUS.ACTIVE | USE
 // update user profile
 const updateProfileToDB = async (user: JwtPayload, payload: Partial<IUser>) => {
      const { id } = user;
-     console.log(payload, "Data")
+
      const isExistUser = await User.isExistUserById(id);
      if (!isExistUser) {
           throw new AppError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
@@ -209,4 +229,5 @@ export const UserServices = {
      deleteAdminFromDB,
      getUsersFromDB,
      updateUserStatusToDB,
+     updateUserToDB,
 };

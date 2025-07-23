@@ -50,6 +50,18 @@ const updateAdmin = catchAsync(async (req, res) => {
      })
 })
 
+const updateUser = catchAsync(async (req, res) => {
+     const { id } = req.params;
+     const updatedPayload = req.body;
+     const result = await UserServices.updateUserToDB(id, updatedPayload);
+     sendResponse(res, {
+          success: true,
+          statusCode: 200,
+          message: "User is updated successfully",
+          data: result,
+     })
+})
+
 const getUserProfile = catchAsync(async (req, res) => {
      const user: any = req.user;
      const result = await UserServices.getUserProfileFromDB(user);
@@ -164,4 +176,5 @@ export const UserControllers = {
      deleteAdmin,
      getUsers,
      updateUserStatus,
+     updateUser,
 };

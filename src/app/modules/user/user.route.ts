@@ -24,6 +24,12 @@ router.route('/')
      .post(validateRequest(UserValidation.createUserZodSchema), UserControllers.createUser)
      .get(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), UserControllers.getUsers);
 
+router.route("/:id")
+     .patch(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN,),
+          fileUploadHandler(),
+          parseFileData(FOLDER_NAMES.PROFILEIMAGE),
+          UserControllers.updateUser)
+
 router.route("/status/:id")
      .patch(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), UserControllers.updateUserStatus)
 
