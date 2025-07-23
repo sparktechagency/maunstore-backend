@@ -38,6 +38,18 @@ const getAdmins = catchAsync(async (req, res) => {
      })
 })
 
+const updateAdmin = catchAsync(async (req, res) => {
+     const { id } = req.params;
+     const updatedPayload = req.body;
+     const result = await UserServices.updateAdminToDB(id, updatedPayload);
+     sendResponse(res, {
+          success: true,
+          statusCode: 200,
+          message: "Admin data is updated successfully",
+          data: result,
+     })
+})
+
 const getUserProfile = catchAsync(async (req, res) => {
      const user: any = req.user;
      const result = await UserServices.getUserProfileFromDB(user);
@@ -101,4 +113,5 @@ export const UserControllers = {
      createAdmin,
      deleteProfile,
      getAdmins,
+     updateAdmin,
 };

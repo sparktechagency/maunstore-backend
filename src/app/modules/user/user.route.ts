@@ -23,6 +23,15 @@ router
 router.route('/').post(validateRequest(UserValidation.createUserZodSchema), UserControllers.createUser);
 
 // Admin routes for user management
-router.route('/admin').post(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), validateRequest(UserValidation.createUserZodSchema), UserControllers.createAdmin);
+router.route('/admin')
+     .post(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), validateRequest(UserValidation.createUserZodSchema), UserControllers.createAdmin)
+     .get(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN),
+          UserControllers.getAdmins)
+
+router.route("/admin/:id")
+     .patch(auth(USER_ROLES.SUPER_ADMIN),
+          fileUploadHandler(),
+          parseFileData(FOLDER_NAMES.PROFILEIMAGE),
+          UserControllers.updateAdmin)
 
 export const UserRoutes = router;

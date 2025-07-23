@@ -74,6 +74,20 @@ const getAdminsFromDB = async () => {
      return result;
 }
 
+const updateAdminToDB = async (id: string, payload: Partial<IUser>) => {
+
+     const admin = await User.findById(id);
+     if (!admin) {
+          throw new AppError(404, "No admin data is found for the id")
+     }
+
+     const result = await User.findByIdAndUpdate(id, payload, { new: true });
+     if (!result) {
+          throw new AppError(400, "Failed to updated admin")
+     };
+     return result;
+}
+
 // get user profile
 const getUserProfileFromDB = async (user: JwtPayload): Promise<Partial<IUser>> => {
      const { id } = user;
@@ -137,4 +151,5 @@ export const UserServices = {
      deleteUser,
      verifyUserPassword,
      getAdminsFromDB,
+     updateAdminToDB,
 };

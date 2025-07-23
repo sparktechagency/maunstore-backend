@@ -49,3 +49,25 @@ Wed Jul 23 2025 15:26:54 [SERVER-NAME] info: [32m🚀 Database connected succes
 Wed Jul 23 2025 15:26:55 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
 Wed Jul 23 2025 15:28:18 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
 Wed Jul 23 2025 15:28:19 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 15:28:24 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 15:28:25 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 15:29:38 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 15:29:39 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 15:30:10 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/users/admin 200 - 193.924 ms
+Wed Jul 23 2025 15:34:37 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 15:34:38 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 15:35:30 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 15:35:31 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 15:35:37 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 15:35:38 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 15:37:10 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 15:37:11 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 15:37:17 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 15:37:18 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 15:38:9 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 15:38:10 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 15:38:41 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 15:38:42 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 15:39:1 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 15:39:2 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 15:39:43 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/users/admin 200 - 179.664 ms
