@@ -30,17 +30,5 @@ router
 
 router.route('/status/:id').patch(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), UserControllers.updateUserStatus);
 
-// admin management
-router
-     .route('/admin')
-     .post(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), validateRequest(UserValidation.createUserZodSchema), UserControllers.createAdmin)
-     .get(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), UserControllers.getAdmins);
-
-router
-     .route('/admin/:id')
-     .patch(auth(USER_ROLES.SUPER_ADMIN), fileUploadHandler(), parseFileData(FOLDER_NAMES.PROFILEIMAGE), UserControllers.updateAdmin)
-     .delete(auth(USER_ROLES.SUPER_ADMIN), UserControllers.deleteAdmin);
-
-router.patch('/admin/status/:id', auth(USER_ROLES.SUPER_ADMIN), UserControllers.updateAdminStatus);
 
 export const UserRoutes = router;

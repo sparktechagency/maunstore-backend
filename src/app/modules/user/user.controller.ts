@@ -17,38 +17,7 @@ const createUser = catchAsync(async (req, res) => {
      });
 });
 
-const createAdmin = catchAsync(async (req, res) => {
-     const { ...userData } = req.body;
-     const result = await UserServices.createAdminToDB(userData);
-     sendResponse(res, {
-          success: true,
-          statusCode: StatusCodes.OK,
-          message: 'Admin created successfully',
-          data: result,
-     });
-});
 
-const getAdmins = catchAsync(async (req, res) => {
-     const result = await UserServices.getAdminsFromDB();
-     sendResponse(res, {
-          success: true,
-          statusCode: 200,
-          message: 'Admins are retrieved successfully',
-          data: result,
-     });
-});
-
-const updateAdmin = catchAsync(async (req, res) => {
-     const { id } = req.params;
-     const updatedPayload = req.body;
-     const result = await UserServices.updateAdminToDB(id, updatedPayload);
-     sendResponse(res, {
-          success: true,
-          statusCode: 200,
-          message: 'Admin data is updated successfully',
-          data: result,
-     });
-});
 
 const updateUser = catchAsync(async (req, res) => {
      const { id } = req.params;
@@ -118,29 +87,7 @@ const updateUserStatus = catchAsync(async (req, res) => {
           data: result,
      });
 });
-const updateAdminStatus = catchAsync(async (req, res) => {
-     const { id } = req.params;
-     const { status } = req.body;
 
-     const result = await UserServices.updateAdminStatusToDB(id, status);
-     sendResponse(res, {
-          success: true,
-          statusCode: 200,
-          message: 'Admin status is updated successfully',
-          data: result,
-     });
-});
-
-const deleteAdmin = catchAsync(async (req, res) => {
-     const { id } = req.params;
-     const result = await UserServices.deleteAdminFromDB(id);
-     sendResponse(res, {
-          success: true,
-          statusCode: 200,
-          message: 'Admin is  deleted successfully',
-          data: result,
-     });
-});
 
 //update profile
 const updateProfile = catchAsync(async (req, res) => {
@@ -190,12 +137,7 @@ export const UserControllers = {
      createUser,
      getUserProfile,
      updateProfile,
-     createAdmin,
      deleteProfile,
-     getAdmins,
-     updateAdmin,
-     updateAdminStatus,
-     deleteAdmin,
      getUsers,
      updateUserStatus,
      updateUser,
