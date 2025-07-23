@@ -62,6 +62,16 @@ const getUserProfile = catchAsync(async (req, res) => {
      });
 });
 
+const getUsers = catchAsync(async (req, res) => {
+     const result = await UserServices.getUsersFromDB();
+     sendResponse(res, {
+          success: true,
+          statusCode: 200,
+          message: "Users data are retrieved successfully",
+          data: result,
+     })
+})
+
 const updateAdminStatus = catchAsync(async (req, res) => {
      const { id } = req.params;
      const { status } = req.body;
@@ -140,4 +150,5 @@ export const UserControllers = {
      updateAdmin,
      updateAdminStatus,
      deleteAdmin,
+     getUsers,
 };

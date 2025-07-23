@@ -20,7 +20,9 @@ router
           UserControllers.updateProfile,
      );
 
-router.route('/').post(validateRequest(UserValidation.createUserZodSchema), UserControllers.createUser);
+router.route('/')
+     .post(validateRequest(UserValidation.createUserZodSchema), UserControllers.createUser)
+     .get(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), UserControllers.getUsers);
 
 // admin management
 router.route('/admin')
