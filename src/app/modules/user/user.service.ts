@@ -78,8 +78,9 @@ const getUserProfileFromDB = async (user: JwtPayload): Promise<Partial<IUser>> =
 };
 
 // update user profile
-const updateProfileToDB = async (user: JwtPayload, payload: Partial<IUser>): Promise<Partial<IUser | null>> => {
+const updateProfileToDB = async (user: JwtPayload, payload: Partial<IUser>) => {
      const { id } = user;
+     console.log(payload,"Data")
      const isExistUser = await User.isExistUserById(id);
      if (!isExistUser) {
           throw new AppError(StatusCodes.BAD_REQUEST, "User doesn't exist!");

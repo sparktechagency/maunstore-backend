@@ -1,0 +1,5 @@
+Wed Jul 23 2025 15:5:47 [SERVER-NAME] error: 10.10.7.111 - PATCH /api/v1/users/profile 400 - 451.780 ms
+Wed Jul 23 2025 15:7:18 [SERVER-NAME] error: 10.10.7.111 - GET /profileImage/image-1753261614061.png 404 - 1.982 ms
+Wed Jul 23 2025 15:7:18 [SERVER-NAME] error: 10.10.7.111 - GET /favicon.ico 404 - 0.834 ms
+Wed Jul 23 2025 15:7:37 [SERVER-NAME] error: 10.10.7.111 - GET /profileImage/image-1753261614061.png 404 - 1.299 ms
+Wed Jul 23 2025 15:9:53 [SERVER-NAME] error: 10.10.7.111 - GET /image-1753261776062.png 404 - 2.088 ms

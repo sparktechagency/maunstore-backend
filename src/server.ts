@@ -1,66 +1,69 @@
-import { createServer, Server as HttpServer } from 'http';
-import { Server as SocketServer } from 'socket.io';
 import colors from 'colors';
-import { validateConfig } from './DB/configValidation';
-import { connectToDatabase } from './DB/db';
+import mongoose from 'mongoose';
+import { Server } from 'socket.io';
 import app from './app';
-import config from './config';
-import { logger } from './shared/logger';
+import { seedSuperAdmin } from './DB/seedAdmin';
 import { socketHelper } from './helpers/socketHelper';
-import { setupProcessHandlers } from './DB/processHandlers';
-import { setupSecurity } from './DB/security';
-import { setupCluster } from './DB/cluster';
+import { errorLogger, logger } from './shared/logger';
+import config from './config';
 
-// Define the types for the servers
-let httpServer: HttpServer;
-let socketServer: SocketServer;
+//uncaught exception
+process.on('uncaughtException', error => {
+  errorLogger.error('UnhandleException Detected', error);
+  process.exit(1);
+});
 
-// Function to start the server
-export async function startServer() {
-     try {
-          // Validate config
-          validateConfig();
-          // Connect to the database
-          await connectToDatabase();
-          // Create HTTP server
-          httpServer = createServer(app);
-          const httpPort = Number(config.port);
-          const ipAddress = config.ip_address as string;
+let server: any;
+async function main() {
+  try {
+    mongoose.connect(config.database_url as string);
+    logger.info(colors.green('🚀 Database connected successfully'));
 
-          // Set timeouts
-          httpServer.timeout = 120000;
-          httpServer.keepAliveTimeout = 5000;
-          httpServer.headersTimeout = 60000;
+    //Seed Super Admin after database connection is successful
+    await seedSuperAdmin();
 
-          // Start HTTP server
-          httpServer.listen(httpPort, ipAddress, () => {
-               logger.info(colors.bgCyan(`♻️  Application listening on http://${ipAddress}:${httpPort}`));
-          });
+    const port =
+      typeof config.port === 'number' ? config.port : Number(config.port);
 
-          // Set up Socket.io server on same port as HTTP server
-          socketServer = new SocketServer(httpServer, {
-               cors: {
-                    origin: config.allowed_origins || '*',
-               },
-          });
+    server = app.listen(port, config.ip_address as string, () => {
+      logger.info(
+        colors.yellow(`♻️  Application listening on port:${config.port}`),
+      );
+    });
 
-          socketHelper.socket(socketServer);
-          //@ts-ignore
-          global.io = socketServer;
-          logger.info(colors.yellow(`♻️  Socket is listening on same port ${httpPort}`));
-     } catch (error) {
-          logger.error(colors.red('Failed to start server'), error);
-          process.exit(1);
-     }
+    //socket
+    const io = new Server(server, {
+      pingTimeout: 60000,
+      cors: {
+        origin: '*',
+      },
+    });
+    socketHelper.socket(io);
+    //@ts-ignore
+    global.io = io;
+  } catch (error) {
+    errorLogger.error(colors.red('🤢 Failed to connect Database'));
+  }
+
+  //handle unhandleRejection
+  process.on('unhandledRejection', error => {
+    if (server) {
+      server.close(() => {
+        errorLogger.error('UnhandleRejection Detected', error);
+        process.exit(1);
+      });
+    } else {
+      process.exit(1);
+    }
+  });
 }
-// Set up error handlers
-setupProcessHandlers();
-// Set up security middleware
-setupSecurity();
-if (config.node_env === 'production') {
-     setupCluster();
-} else {
-     startServer();
-}
-// Export server instances
-export { httpServer, socketServer };
+
+main();
+
+//SIGTERM
+process.on('SIGTERM', () => {
+  logger.info('SIGTERM IS RECEIVE');
+  if (server) {
+    server.close();
+  }
+});

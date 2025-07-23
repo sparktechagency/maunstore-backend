@@ -4,16 +4,19 @@ import { getSingleFilePath, IFolderName } from '../../shared/getFilePath';
 const parseFileData = (fieldName: IFolderName) => {
      return async (req: Request, res: Response, next: NextFunction) => {
           try {
-               // Use dynamic fieldName to get the file path
                const filePath = getSingleFilePath(req.files, fieldName);
 
-               // Handle additional data if present
+               let parsedData = {};
                if (req.body && req.body.data) {
-                    const data = JSON.parse(req.body.data);
-                    req.body = { [fieldName]: filePath, ...data };
-               } else {
-                    req.body = { [fieldName]: filePath };
+                    parsedData = JSON.parse(req.body.data);
                }
+
+               // ✅ merge everything properly
+               req.body = {
+                    ...parsedData,
+                    ...req.body, // overwrite with raw form fields if duplicate
+                    [fieldName]: filePath,
+               };
 
                next();
           } catch (error) {

@@ -2,29 +2,34 @@ import fs from 'fs';
 import path from 'path';
 
 const unlinkFile = (file: string | string[]) => {
-     // Check if the file parameter is a string or an array
-     if (typeof file === 'string') {
-          // If it's a single string (file path), unlink the file
-          const filePath = path.join('uploads', file);
-          if (fs.existsSync(filePath)) {
-               fs.unlinkSync(filePath);
-               console.log(`File ${file} deleted successfully.`);
-          } else {
-               console.log(`File ${file} not found.`);
-          }
-     } else if (Array.isArray(file)) {
-          // If it's an array of file paths, loop through the array and unlink each file
-          file.forEach((singleFile) => {
-               const filePath = path.join('uploads', singleFile);
-               if (fs.existsSync(filePath)) {
-                    fs.unlinkSync(filePath);
-                    console.log(`File ${singleFile} deleted successfully.`);
+     const basePath = path.join(process.cwd(), 'uploads');
+
+     const handleUnlink = (relativePath: string) => {
+          const fullPath = path.join(basePath, relativePath);
+
+          try {
+               if (fs.existsSync(fullPath)) {
+                    const stat = fs.lstatSync(fullPath);
+                    if (stat.isFile()) {
+                         fs.unlinkSync(fullPath);
+                         console.log(`✅ File ${relativePath} deleted successfully.`);
+                    } else {
+                         console.warn(`⚠️ Skipped ${relativePath}: Not a file.`);
+                    }
                } else {
-                    console.log(`File ${singleFile} not found.`);
+                    console.warn(`⚠️ File ${relativePath} not found.`);
                }
-          });
+          } catch (err) {
+               console.error(`❌ Error deleting file ${relativePath}:`, err);
+          }
+     };
+
+     if (typeof file === 'string') {
+          handleUnlink(file);
+     } else if (Array.isArray(file)) {
+          file.forEach(handleUnlink);
      } else {
-          console.log('Invalid input. Expected a string or an array of strings.');
+          console.error('❌ Invalid input. Expected a string or an array of strings.');
      }
 };
 

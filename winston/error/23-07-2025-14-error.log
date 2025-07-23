@@ -1,3 +1,5 @@
 Wed Jul 23 2025 14:13:57 [SERVER-NAME] error: 10.10.7.111 - POST /api/v1/auth/login 400 - 89.180 ms
 Wed Jul 23 2025 14:17:50 [SERVER-NAME] error: 10.10.7.111 - POST /api/v1/auth/verify-email 400 - 82.626 ms
 Wed Jul 23 2025 14:19:3 [SERVER-NAME] error: 10.10.7.111 - POST /api/v1/auth/reset-password 401 - 81.239 ms
+Wed Jul 23 2025 14:36:5 [SERVER-NAME] error: 10.10.7.111 - POST /api/v1/users/admin 401 - 11.618 ms
+Wed Jul 23 2025 14:51:26 [SERVER-NAME] error: 10.10.7.111 - PATCH /api/v1/users/profile 400 - 179.270 ms
