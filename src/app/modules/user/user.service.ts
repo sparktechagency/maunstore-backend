@@ -66,6 +66,14 @@ const createAdminToDB = async (payload: Partial<IUser>): Promise<IUser> => {
      return createAdmin;
 };
 
+const getAdminsFromDB = async () => {
+     const result = await User.find({ role: USER_ROLES.ADMIN });
+     if (!result || result.length === 0) {
+          throw new AppError(404, "No admins data are found in the database")
+     };
+     return result;
+}
+
 // get user profile
 const getUserProfileFromDB = async (user: JwtPayload): Promise<Partial<IUser>> => {
      const { id } = user;
@@ -80,7 +88,7 @@ const getUserProfileFromDB = async (user: JwtPayload): Promise<Partial<IUser>> =
 // update user profile
 const updateProfileToDB = async (user: JwtPayload, payload: Partial<IUser>) => {
      const { id } = user;
-     console.log(payload,"Data")
+     console.log(payload, "Data")
      const isExistUser = await User.isExistUserById(id);
      if (!isExistUser) {
           throw new AppError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
@@ -128,4 +136,5 @@ export const UserServices = {
      createAdminToDB,
      deleteUser,
      verifyUserPassword,
+     getAdminsFromDB,
 };

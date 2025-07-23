@@ -35,3 +35,13 @@ Wed Jul 23 2025 15:21:44 [SERVER-NAME] info: [33m♻️  Application listening 
 Wed Jul 23 2025 15:21:45 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
 Wed Jul 23 2025 15:21:46 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
 Wed Jul 23 2025 15:21:50 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/users/profile 200 - 292.986 ms
+Wed Jul 23 2025 15:21:59 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 15:22:0 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 15:22:1 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/users/profile 200 - 280.657 ms
+Wed Jul 23 2025 15:22:15 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/users/profile 200 - 263.194 ms
+Wed Jul 23 2025 15:22:20 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/users/profile 200 - 263.860 ms
+Wed Jul 23 2025 15:22:46 [SERVER-NAME] info: 10.10.7.111 - GET /profileImage/image-1753262540176.png 200 - 2.954 ms
+Wed Jul 23 2025 15:26:38 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 15:26:39 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Wed Jul 23 2025 15:26:43 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Jul 23 2025 15:26:44 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
