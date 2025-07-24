@@ -1,10 +1,10 @@
 import express from 'express';
-import SettingsRouter from '../app/modules/settings/settings.route';
 import { AuthRoutes } from '../app/modules/auth/auth.route';
 import { UserRoutes } from '../app/modules/user/user.route';
 import { AdminRoutes } from '../app/modules/admin/admin.route';
 import { FaqRoutes } from '../app/modules/faq/faq.route';
 import { BannerRoutes } from '../app/modules/banner/banner.routes';
+import { RuleRoutes } from '../app/modules/rule/rule.route';
 
 const router = express.Router();
 const routes = [
@@ -21,8 +21,8 @@ const routes = [
           route: AdminRoutes,
      },
      {
-          path: '/settings',
-          route: SettingsRouter,
+          path: '/rules',
+          route: RuleRoutes,
      },
      {
           path: "/faqs",

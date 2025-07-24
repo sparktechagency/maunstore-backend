@@ -2,12 +2,13 @@ import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
-import { RuleService } from './rule.service';
+import { RuleServices } from './rule.service';
+
 
 //privacy policy
 const createPrivacyPolicy = catchAsync(async (req: Request, res: Response) => {
      const { ...privacyData } = req.body;
-     const result = await RuleService.createPrivacyPolicyToDB(privacyData);
+     const result = await RuleServices.createPrivacyPolicyToDB(privacyData);
 
      sendResponse(res, {
           success: true,
@@ -18,7 +19,7 @@ const createPrivacyPolicy = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getPrivacyPolicy = catchAsync(async (req: Request, res: Response) => {
-     const result = await RuleService.getPrivacyPolicyFromDB();
+     const result = await RuleServices.getPrivacyPolicyFromDB();
 
      sendResponse(res, {
           success: true,
@@ -31,7 +32,7 @@ const getPrivacyPolicy = catchAsync(async (req: Request, res: Response) => {
 //terms and conditions
 const createTermsAndCondition = catchAsync(async (req: Request, res: Response) => {
      const { ...termsData } = req.body;
-     const result = await RuleService.createTermsAndConditionToDB(termsData);
+     const result = await RuleServices.createTermsAndConditionToDB(termsData);
 
      sendResponse(res, {
           success: true,
@@ -42,7 +43,7 @@ const createTermsAndCondition = catchAsync(async (req: Request, res: Response) =
 });
 
 const getTermsAndCondition = catchAsync(async (req: Request, res: Response) => {
-     const result = await RuleService.getTermsAndConditionFromDB();
+     const result = await RuleServices.getTermsAndConditionFromDB();
 
      sendResponse(res, {
           success: true,
@@ -55,7 +56,7 @@ const getTermsAndCondition = catchAsync(async (req: Request, res: Response) => {
 //about
 const createAbout = catchAsync(async (req: Request, res: Response) => {
      const { ...aboutData } = req.body;
-     const result = await RuleService.createAboutToDB(aboutData);
+     const result = await RuleServices.createAboutToDB(aboutData);
 
      sendResponse(res, {
           success: true,
@@ -66,7 +67,7 @@ const createAbout = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAbout = catchAsync(async (req: Request, res: Response) => {
-     const result = await RuleService.getAboutFromDB();
+     const result = await RuleServices.getAboutFromDB();
 
      sendResponse(res, {
           success: true,
@@ -76,7 +77,7 @@ const getAbout = catchAsync(async (req: Request, res: Response) => {
      });
 });
 
-export const RuleController = {
+export const RuleControllers = {
      createPrivacyPolicy,
      getPrivacyPolicy,
      createTermsAndCondition,

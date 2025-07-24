@@ -73,7 +73,7 @@ const getAboutFromDB = async () => {
      return result;
 };
 
-export const RuleService = {
+export const RuleServices = {
      createPrivacyPolicyToDB,
      getPrivacyPolicyFromDB,
      createTermsAndConditionToDB,

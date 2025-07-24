@@ -57,3 +57,18 @@ Thu Jul 24 2025 9:34:21 [SERVER-NAME] info: [33m♻️  Application listening o
 Thu Jul 24 2025 9:34:24 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
 Thu Jul 24 2025 9:34:26 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
 Thu Jul 24 2025 9:34:28 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 9:35:15 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 9:35:16 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 9:35:28 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/banners/all-banners 200 - 257.737 ms
+Thu Jul 24 2025 9:35:37 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/banners 200 - 82.884 ms
+Thu Jul 24 2025 9:35:48 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/banners/6881a680d772f4744cf52c3d/status 200 - 526.487 ms
+Thu Jul 24 2025 9:36:0 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/banners/all-banners 200 - 165.826 ms
+Thu Jul 24 2025 9:36:59 [SERVER-NAME] info: 10.10.7.111 - DELETE /api/v1/banners/6881a680d772f4744cf52c3d 200 - 348.943 ms
+Thu Jul 24 2025 9:57:23 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 9:57:24 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 9:57:29 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 9:57:30 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 9:58:51 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/rules/terms-and-conditions 200 - 289.475 ms
+Thu Jul 24 2025 9:59:17 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 9:59:18 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 9:59:26 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/rules/terms-and-conditions 200 - 263.619 ms
