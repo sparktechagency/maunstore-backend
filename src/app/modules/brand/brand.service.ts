@@ -15,13 +15,22 @@ const createBrandToDB = async (payload: TBrand) => {
 const getBrandsFromDB = async () => {
     const result = await Brand.find();
     if (!result || result.length === 0) {
-        throw new AppError(404, "No brands data are founds");
+        throw new AppError(404, "No brands data are founds in the database");
     }
 
+    return result;
+}
+
+const getBrandByIdFromDB = async (id: string) => {
+    const result = await Brand.findById(id);
+    if (!result) {
+        throw new AppError(404, "No brand data is found in the database")
+    };
     return result;
 }
 
 export const BrandServices = {
     createBrandToDB,
     getBrandsFromDB,
+    getBrandByIdFromDB,
 }
