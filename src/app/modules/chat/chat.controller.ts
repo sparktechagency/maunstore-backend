@@ -1,16 +1,15 @@
-import httpStatus from 'http-status';
-import catchAsync from '../../utils/catchAsync';
-import sendResponse from '../../utils/sendResponse';
+import catchAsync from '../../../shared/catchAsync';
+import sendResponse from '../../../shared/sendResponse';
 import { ChatService } from './chat.service';
 
 const createChat = catchAsync(async (req, res) => {
      const participant = req.body.participant;
-     const { userId }: any = req.user;
+     const { id: userId }: any = req.user;
      const participants = [userId, participant];
      const result = await ChatService.createChatIntoDB(participants);
 
      sendResponse(res, {
-          statusCode: httpStatus.OK,
+          statusCode: 200,
           success: true,
           message: 'Chat created successfully',
           data: result,
@@ -23,7 +22,7 @@ const markChatAsRead = catchAsync(async (req, res) => {
 
      const result = await ChatService.markChatAsRead(user.id, id);
      sendResponse(res, {
-          statusCode: httpStatus.OK,
+          statusCode: 200,
           success: true,
           message: 'Chat marked as read',
           data: result,
@@ -31,11 +30,11 @@ const markChatAsRead = catchAsync(async (req, res) => {
 });
 
 const getChats = catchAsync(async (req, res) => {
-     const { userId }: any = req.user;
+     const { id: userId }: any = req.user;
      const result = await ChatService.getAllChatsFromDB(userId, req.query);
 
      sendResponse(res, {
-          statusCode: httpStatus.OK,
+          statusCode: 200,
           success: true,
           message: 'Chats retrieved successfully',
           data: {
@@ -49,11 +48,11 @@ const getChats = catchAsync(async (req, res) => {
 });
 
 const deleteChat = catchAsync(async (req, res) => {
-     const { userId }: any = req.user;
+     const { id: userId }: any = req.user;
      const { chatId } = req.params;
      const result = await ChatService.softDeleteChatForUser(chatId, userId);
      sendResponse(res, {
-          statusCode: httpStatus.OK,
+          statusCode: 200,
           success: true,
           message: 'Chat deleted successfully',
           data: result,
@@ -62,13 +61,13 @@ const deleteChat = catchAsync(async (req, res) => {
 
 // New controller: Mute/Unmute chat
 const muteUnmuteChat = catchAsync(async (req, res) => {
-     const { userId }: any = req.user;
+     const { id: userId }: any = req.user;
      const { chatId } = req.params;
      const { action } = req.body; // 'mute' or 'unmute'
 
      const result = await ChatService.muteUnmuteChat(userId, chatId, action);
      sendResponse(res, {
-          statusCode: httpStatus.OK,
+          statusCode: 200,
           success: true,
           message: `Chat ${action}d successfully`,
           data: result,
@@ -77,13 +76,13 @@ const muteUnmuteChat = catchAsync(async (req, res) => {
 
 // New controller: Block/Unblock user
 const blockUnblockUser = catchAsync(async (req, res) => {
-     const { userId }: any = req.user;
+     const { id: userId }: any = req.user;
      const { chatId, targetUserId } = req.params;
      const { action } = req.body; // 'block' or 'unblock'
 
      const result = await ChatService.blockUnblockUser(userId, targetUserId, chatId, action);
      sendResponse(res, {
-          statusCode: httpStatus.OK,
+          statusCode: 200,
           success: true,
           message: `User ${action}ed successfully`,
           data: result,

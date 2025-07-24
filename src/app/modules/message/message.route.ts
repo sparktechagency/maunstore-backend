@@ -19,4 +19,4 @@ router.delete('/delete/:messageId', auth(USER_ROLES.USER, USER_ROLES.SUPER_ADMIN
 // New route for pin/unpin message
 router.patch('/pin-unpin/:messageId', auth(USER_ROLES.USER, USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), MessageController.pinUnpinMessage);
 
-export const messageRoutes = router;
+export const MessageRoutes = router;

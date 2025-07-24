@@ -1,11 +1,12 @@
-import httpStatus from 'http-status';
-import AppError from '../../error/AppError';
 import { Chat } from './chat.model';
 import { Message } from '../message/message.model';
 import mongoose from 'mongoose';
-import { User } from '../user/user.models';
+import { User } from '../user/user.model';
+import AppError from '../../../errors/AppError';
+
 
 const createChatIntoDB = async (participants: string[]) => {
+
      const isExistChat = await Chat.findOne({
           participants: { $all: participants },
      });
@@ -20,6 +21,8 @@ const createChatIntoDB = async (participants: string[]) => {
      if (!newChat) {
           throw new Error('Failed to create chat');
      }
+
+     
 
      //@ts-ignore
      const io = global.io;
@@ -90,7 +93,7 @@ const getAllChatsFromDB = async (userId: string, query: Record<string, any>) => 
           );
 
           const filteredChats = allChatLists.filter((chat) => {
-               return chat.participants.some((participant) => participant.fullName.toLowerCase().includes(searchTerm));
+               return chat.participants.some((participant) => participant.name.toLowerCase().includes(searchTerm));
           });
 
           totalChats = filteredChats.length;
@@ -155,11 +158,11 @@ const softDeleteChatForUser = async (chatId: string, id: string) => {
      const userId = new mongoose.Types.ObjectId(id);
      const chat = await Chat.findById(chatId);
      if (!chat) {
-          throw new AppError(httpStatus.NOT_FOUND, 'Chat not found');
+          throw new AppError(404, 'Chat not found');
      }
 
      if (!chat.participants.some((id) => id.toString() === userId.toString())) {
-          throw new AppError(httpStatus.UNAUTHORIZED, 'User is not authorized');
+          throw new AppError(401, 'User is not authorized');
      }
 
      // If already deleted by this user, just return
@@ -191,11 +194,11 @@ const softDeleteChatForUser = async (chatId: string, id: string) => {
 const muteUnmuteChat = async (userId: string, chatId: string, action: 'mute' | 'unmute') => {
      const chat = await Chat.findById(chatId);
      if (!chat) {
-          throw new AppError(httpStatus.NOT_FOUND, 'Chat not found');
+          throw new AppError(404, 'Chat not found');
      }
 
      if (!chat.participants.some((id) => id.toString() === userId)) {
-          throw new AppError(httpStatus.UNAUTHORIZED, 'User is not authorized');
+          throw new AppError(401, 'User is not authorized');
      }
 
      if (action === 'mute') {
@@ -224,13 +227,13 @@ const muteUnmuteChat = async (userId: string, chatId: string, action: 'mute' | '
 const blockUnblockUser = async (blockerId: string, blockedId: string, chatId: string, action: 'block' | 'unblock') => {
      const chat = await Chat.findById(chatId);
      if (!chat) {
-          throw new AppError(httpStatus.NOT_FOUND, 'Chat not found');
+          throw new AppError(404, 'Chat not found');
      }
 
      // Check if both users are participants
      const participants = chat.participants.map((p) => p.toString());
      if (!participants.includes(blockerId) || !participants.includes(blockedId)) {
-          throw new AppError(httpStatus.UNAUTHORIZED, 'One or both users are not participants in this chat');
+          throw new AppError(401, 'One or both users are not participants in this chat');
      }
 
      if (action === 'block') {
@@ -238,7 +241,7 @@ const blockUnblockUser = async (blockerId: string, blockedId: string, chatId: st
           const existingBlock = chat.blockedUsers?.find((block: any) => block.blocker.toString() === blockerId && block.blocked.toString() === blockedId);
 
           if (existingBlock) {
-               throw new AppError(httpStatus.BAD_REQUEST, 'User is already blocked');
+               throw new AppError(400, 'User is already blocked');
           }
 
           // Add to blocked users

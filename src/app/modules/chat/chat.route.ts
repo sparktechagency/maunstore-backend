@@ -6,8 +6,8 @@ import { USER_ROLES } from '../../../enums/user';
 const router = Router();
 
 // Existing routes
-router.get('/', auth(USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN, USER_ROLES.USER), ChatController.getChats);
 router.post('/create-chat', auth(USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN, USER_ROLES.USER), ChatController.createChat);
+router.get('/', auth(USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN, USER_ROLES.USER), ChatController.getChats);
 router.patch('/mark-chat-as-read/:id', auth(USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN, USER_ROLES.USER), ChatController.markChatAsRead);
 router.delete('/delete/:chatId', auth(USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN, USER_ROLES.USER), ChatController.deleteChat);
 
@@ -15,4 +15,4 @@ router.delete('/delete/:chatId', auth(USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN, 
 router.patch('/mute-unmute/:chatId', auth(USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN, USER_ROLES.USER), ChatController.muteUnmuteChat);
 router.patch('/block-unblock/:chatId/:targetUserId', auth(USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN, USER_ROLES.USER), ChatController.blockUnblockUser);
 
-export const chatRoutes = router;
+export const ChatRoutes = router;

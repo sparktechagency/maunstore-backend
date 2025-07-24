@@ -10,6 +10,7 @@ export type IMessage = {
      chatId: Types.ObjectId;
      sender: Types.ObjectId;
      text?: string;
+     productId?: Types.ObjectId;
      images?: string[];
      reactions: IReaction[];
      read: boolean;

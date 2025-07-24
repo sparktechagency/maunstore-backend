@@ -1,0 +1,64 @@
+Thu Jul 24 2025 17:0:38 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 17:0:39 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 17:0:50 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/chats/create-chat 200 - 285.411 ms
+Thu Jul 24 2025 17:1:15 [SERVER-NAME] info: [34mA user connected[39m
+Thu Jul 24 2025 17:1:18 [SERVER-NAME] info: [34mA user connected[39m
+Thu Jul 24 2025 17:1:23 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/chats/create-chat 200 - 281.639 ms
+Thu Jul 24 2025 17:2:11 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 17:2:12 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 17:22:14 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 17:22:15 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 17:23:14 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 17:23:15 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 17:28:48 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/messages/send-message/68821283265cadca5520a4d9 200 - 722.385 ms
+Thu Jul 24 2025 17:31:30 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 17:31:31 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 17:31:37 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/messages/send-message/68821283265cadca5520a4d9 200 - 704.241 ms
+Thu Jul 24 2025 17:32:36 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/messages/send-message/68821283265cadca5520a4d9 200 - 677.974 ms
+Thu Jul 24 2025 17:33:10 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/messages/send-message/68821283265cadca5520a4d9 200 - 659.966 ms
+Thu Jul 24 2025 17:34:25 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/messages/68821283265cadca5520a4d9 200 - 518.399 ms
+Thu Jul 24 2025 17:35:48 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/chats 200 - 461.804 ms
+Thu Jul 24 2025 17:37:14 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/chats/mark-chat-as-read/68821283265cadca5520a4d9 200 - 170.583 ms
+Thu Jul 24 2025 17:38:30 [SERVER-NAME] info: 10.10.7.111 - DELETE /api/v1/chats/delete/68821283265cadca5520a4d9 200 - 238.712 ms
+Thu Jul 24 2025 17:38:39 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/chats 200 - 242.853 ms
+Thu Jul 24 2025 17:39:11 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 17:39:12 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 17:47:24 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 17:47:25 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 17:47:47 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 17:47:48 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 17:48:15 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 17:48:16 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 17:49:2 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/chats/create-chat 200 - 175.981 ms
+Thu Jul 24 2025 17:49:13 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/chats 200 - 244.397 ms
+Thu Jul 24 2025 17:49:25 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/chats 200 - 239.341 ms
+Thu Jul 24 2025 17:49:36 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/messages/send-message/68821283265cadca5520a4d9 200 - 674.045 ms
+Thu Jul 24 2025 17:50:5 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products 200 - 243.138 ms
+Thu Jul 24 2025 17:50:22 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/messages/send-message/68821283265cadca5520a4d9 200 - 663.539 ms
+Thu Jul 24 2025 17:51:24 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/messages/68821283265cadca5520a4d9 200 - 481.783 ms
+Thu Jul 24 2025 17:52:21 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 17:52:23 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 17:53:5 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 17:53:6 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 17:53:14 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/messages/68821283265cadca5520a4d9 200 - 527.831 ms
+Thu Jul 24 2025 17:53:34 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/chats 200 - 252.530 ms
+Thu Jul 24 2025 17:54:59 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/chats 200 - 245.345 ms
+Thu Jul 24 2025 17:55:7 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/chats 200 - 243.812 ms
+Thu Jul 24 2025 17:55:31 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 17:55:32 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 17:55:43 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 17:55:44 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 17:55:46 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/chats 200 - 248.845 ms
+Thu Jul 24 2025 17:55:52 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 17:55:53 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 17:56:57 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/chats 200 - 521.938 ms
+Thu Jul 24 2025 17:57:23 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/chats 200 - 249.842 ms
+Thu Jul 24 2025 17:57:44 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/chats/create-chat 200 - 170.068 ms
+Thu Jul 24 2025 17:57:53 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/chats 200 - 249.725 ms
+Thu Jul 24 2025 17:58:27 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/chats/create-chat 200 - 165.821 ms
+Thu Jul 24 2025 17:58:54 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/login 200 - 300.494 ms
+Thu Jul 24 2025 17:59:2 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/chats/create-chat 200 - 166.150 ms
+Thu Jul 24 2025 17:59:15 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/chats/create-chat 200 - 271.803 ms
+Thu Jul 24 2025 17:59:24 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/chats 200 - 413.567 ms
+Thu Jul 24 2025 17:59:38 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/messages/send-message/6882201336e3e16045e5eab6 200 - 692.657 ms
+Thu Jul 24 2025 17:59:47 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/messages/6882201336e3e16045e5eab6 200 - 502.563 ms

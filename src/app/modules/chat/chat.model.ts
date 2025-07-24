@@ -1,11 +1,12 @@
 import mongoose, { Schema } from 'mongoose';
 import { IChat } from './chat.interface';
+import { CHAT_STATUS } from './chat.constant';
 
 const chatSchema = new Schema<IChat>(
      {
           participants: [{ type: Schema.Types.ObjectId, ref: 'User' }],
           lastMessage: { type: Schema.Types.ObjectId, ref: 'Message' },
-          status: { type: String, enum: ['active', 'deleted'], default: 'active' },
+          status: { type: String, enum: Object.values(CHAT_STATUS), default: CHAT_STATUS.ACTIVE },
           isDeleted: { type: Boolean, default: false },
           deletedBy: [{ type: Schema.Types.ObjectId, ref: 'User' }],
           readBy: [{ type: Schema.Types.ObjectId, ref: 'User' }],
@@ -22,6 +23,7 @@ const chatSchema = new Schema<IChat>(
      },
      {
           timestamps: true,
+          versionKey: false
      },
 );
 

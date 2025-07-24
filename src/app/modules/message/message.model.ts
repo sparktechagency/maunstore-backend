@@ -16,6 +16,10 @@ const messageSchema = new Schema<IMessage, MessageModel>(
           text: {
                type: String,
           },
+          productId: {
+               type: Schema.Types.ObjectId,
+               ref: "Product"
+          },
           images: {
                type: [String],
                default: [],

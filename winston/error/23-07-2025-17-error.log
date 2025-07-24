@@ -1,7 +1,0 @@
-Wed Jul 23 2025 17:3:35 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/users 404 - 484.192 ms
-Wed Jul 23 2025 17:27:41 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/users 404 - 407.728 ms
-Wed Jul 23 2025 17:28:31 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/users/6880c73b6122f67328209ad0 401 - 2.552 ms
-Wed Jul 23 2025 17:30:25 [SERVER-NAME] error: 10.10.7.111 - POST /api/v1/auth/change-password 404 - 79.862 ms
-Wed Jul 23 2025 17:30:36 [SERVER-NAME] error: 10.10.7.111 - POST /api/v1/auth/change-password 404 - 77.292 ms
-Wed Jul 23 2025 17:31:24 [SERVER-NAME] error: 10.10.7.111 - POST /api/v1/auth/login 400 - 331.480 ms
-Wed Jul 23 2025 17:46:45 [SERVER-NAME] error: 10.10.7.111 - PATCH /api/v1/admin/6880b43b6cba574889548dbf 403 - 85.836 ms

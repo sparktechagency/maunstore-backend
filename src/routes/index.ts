@@ -9,6 +9,8 @@ import { NewsRoutes } from '../app/modules/news/news.route';
 import { BrandRoutes } from '../app/modules/brand/brand.route';
 import { ProductRoutes } from '../app/modules/product/product.route';
 import { ReviewRoutes } from '../app/modules/review/review.routes';
+import { ChatRoutes } from '../app/modules/chat/chat.route';
+import { MessageRoutes } from '../app/modules/message/message.route';
 
 const router = express.Router();
 const routes = [
@@ -52,6 +54,14 @@ const routes = [
           path: '/reviews',
           route: ReviewRoutes,
      },
+     {
+          path: "/chats",
+          route: ChatRoutes
+     },
+     {
+          path: "/messages",
+          route: MessageRoutes
+     }
 ];
 
 routes.forEach((element) => {

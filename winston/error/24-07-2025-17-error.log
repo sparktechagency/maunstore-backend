@@ -1,0 +1,4 @@
+Thu Jul 24 2025 17:28:40 [SERVER-NAME] error: 10.10.7.111 - POST /api/v1/messages/send-message/68821283265cadca5520a4d9 401 - 8.057 ms
+Thu Jul 24 2025 17:35:42 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/chats 401 - 12.374 ms
+Thu Jul 24 2025 17:37:0 [SERVER-NAME] error: 10.10.7.111 - PATCH /api/v1/chats/mark-chat-as-read 404 - 1.228 ms
+Thu Jul 24 2025 17:55:4 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/chat 404 - 1.237 ms
