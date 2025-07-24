@@ -4,21 +4,23 @@ import { StatusCodes } from 'http-status-codes';
 import AppError from '../../../errors/AppError';
 import mongoose from 'mongoose';
 
-const createReviewToDB = async (payload: IReview) => {
-     const { user, product, rating } = payload;
+const createReviewToDB = async (userId: any, payload: IReview) => {
+     const { product, rating } = payload;
 
      // rating must be between 1 and 5
      if (rating < 1 || rating > 5) {
           throw new AppError(StatusCodes.BAD_REQUEST, 'Rating must be between 1 and 5');
      }
 
+  
+     payload.user = userId;
 
-     const existingReview = await Review.findOne({ user, product });
+     // check duplicate review
+     const existingReview = await Review.findOne({ user: userId, product });
 
      if (existingReview) {
           throw new AppError(StatusCodes.CONFLICT, 'You have already reviewed this product.');
      }
-
 
      const result = await Review.create(payload);
      return result;

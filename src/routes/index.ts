@@ -8,6 +8,7 @@ import { RuleRoutes } from '../app/modules/rule/rule.route';
 import { NewsRoutes } from '../app/modules/news/news.route';
 import { BrandRoutes } from '../app/modules/brand/brand.route';
 import { ProductRoutes } from '../app/modules/product/product.route';
+import { ReviewRoutes } from '../app/modules/review/review.routes';
 
 const router = express.Router();
 const routes = [
@@ -46,6 +47,10 @@ const routes = [
      {
           path: "/products",
           route: ProductRoutes
+     },
+     {
+          path: "/reviews",
+          route: ReviewRoutes
      }
 ];
 
