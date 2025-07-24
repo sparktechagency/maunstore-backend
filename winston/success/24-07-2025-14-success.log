@@ -21,3 +21,6 @@ Thu Jul 24 2025 14:22:11 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products/
 Thu Jul 24 2025 14:27:46 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
 Thu Jul 24 2025 14:27:47 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
 Thu Jul 24 2025 14:27:49 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products/6881d16c854a88339b5f8a07/products 200 - 171.097 ms
+Thu Jul 24 2025 14:28:12 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 14:28:13 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 14:28:15 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products/6881d16c854a88339b5f8a07/products 200 - 169.507 ms
