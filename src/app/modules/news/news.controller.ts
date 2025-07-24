@@ -23,7 +23,19 @@ const getNews = catchAsync(async (req, res) => {
     })
 })
 
+const getNewsByd=catchAsync(async(req ,res)=>{
+    const {id}=req.params;
+    const result=await NewsServices.getNewsById(id);
+    sendResponse(res,{
+        success:true,
+        statusCode:200,
+        message:"News is retrieved successfully",
+        data:result,
+    })
+})
+
 export const NewsControllers = {
     createNews,
     getNews,
+    getNewsByd,
 }
