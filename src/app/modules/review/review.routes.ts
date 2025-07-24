@@ -8,4 +8,10 @@ const router = express.Router();
 router.route("/")
      .post(auth(USER_ROLES.USER), ReviewControllers.createReview)
 
+router.get("/product/:productId", ReviewControllers.getReviewsByProduct);
+
+router.route("/:reviewId")
+     .patch(auth(USER_ROLES.USER), ReviewControllers.updateReview)
+     .delete(auth(USER_ROLES.USER), ReviewControllers.deleteReview)
+
 export const ReviewRoutes = router;
