@@ -14,7 +14,7 @@ const createBrand = catchAsync(async (req, res) => {
 });
 
 const getBrands = catchAsync(async (req, res) => {
-     const result = await BrandServices.getBrandsFromDB();
+     const result = await BrandServices.getBrandsFromDB(req.query);
      sendResponse(res, {
           success: true,
           statusCode: 200,

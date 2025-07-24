@@ -5,6 +5,7 @@ import { TBrand } from './brand.interface';
 import { Brand } from './brand.model';
 import { StatusCodes } from 'http-status-codes';
 import { Product } from '../product/product.model';
+import QueryBuilder from '../../builder/QueryBuilder';
 
 const createBrandToDB = async (payload: TBrand) => {
      const result = await Brand.create(payload);
@@ -15,23 +16,44 @@ const createBrandToDB = async (payload: TBrand) => {
      return result;
 };
 
-const getBrandsFromDB = async () => {
-     const result = await Brand.find();
-     if (!result || result.length === 0) {
-          throw new AppError(404, 'No brands data are founds in the database');
+const getBrandsFromDB = async (query: any) => {
+
+     const brandQuery = Brand.find();
+     const queryBuilder = new QueryBuilder(brandQuery, query);
+
+
+     queryBuilder
+          .search(['name'])
+          .filter()
+          .sort()
+          .paginate()
+          .fields();
+
+
+     const brands = await queryBuilder.modelQuery;
+
+     if (!brands.length) {
+          throw new AppError(StatusCodes.NOT_FOUND, 'No brands are found in the database');
      }
 
+
      const brandsWithProductCount = await Promise.all(
-          result.map(async (brand) => {
+          brands.map(async (brand) => {
                const totalProducts = await Product.countDocuments({ brand: brand._id });
                return {
                     ...brand.toObject(),
                     totalProducts,
                };
-          }),
+          })
      );
 
-     return brandsWithProductCount;
+
+     const meta = await queryBuilder.countTotal();
+
+     return {
+          meta,
+          data: brandsWithProductCount,
+     };
 };
 
 const getBrandByIdFromDB = async (id: string) => {
