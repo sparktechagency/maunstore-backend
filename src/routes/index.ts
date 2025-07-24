@@ -6,6 +6,7 @@ import { FaqRoutes } from '../app/modules/faq/faq.route';
 import { BannerRoutes } from '../app/modules/banner/banner.routes';
 import { RuleRoutes } from '../app/modules/rule/rule.route';
 import { NewsRoutes } from '../app/modules/news/news.route';
+import { BrandRoutes } from '../app/modules/brand/brand.route';
 
 const router = express.Router();
 const routes = [
@@ -36,6 +37,10 @@ const routes = [
      {
           path: "/news",
           route: NewsRoutes
+     },
+     {
+          path: "/brands",
+          route: BrandRoutes
      }
 ];
 
