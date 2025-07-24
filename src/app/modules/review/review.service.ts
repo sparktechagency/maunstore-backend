@@ -43,7 +43,51 @@ const getReviewsByProductFromDB = async (productId: string) => {
      };
 };
 
+const updateReviewToDB = async (
+     reviewId: string,
+     userId: string,
+     updatePayload: { rating?: number; comment?: string }
+) => {
+     if (!mongoose.Types.ObjectId.isValid(reviewId)) {
+          throw new AppError(StatusCodes.BAD_REQUEST, 'Invalid review ID');
+     }
+
+     if (updatePayload.rating && (updatePayload.rating < 1 || updatePayload.rating > 5)) {
+          throw new AppError(StatusCodes.BAD_REQUEST, 'Rating must be between 1 and 5');
+     }
+
+
+     const updatedReview = await Review.findOneAndUpdate(
+          { _id: reviewId, user: userId },
+          updatePayload,
+          { new: true }
+     );
+
+     if (!updatedReview) {
+          throw new AppError(StatusCodes.NOT_FOUND, 'Review not found or not authorized');
+     }
+
+     return updatedReview;
+};
+
+const deleteReviewToDB = async (reviewId: string, userId: string) => {
+     if (!mongoose.Types.ObjectId.isValid(reviewId)) {
+          throw new AppError(StatusCodes.BAD_REQUEST, 'Invalid review ID');
+     }
+
+
+     const deletedReview = await Review.findOneAndDelete({ _id: reviewId, user: userId });
+
+     if (!deletedReview) {
+          throw new AppError(StatusCodes.NOT_FOUND, 'Review not found or you are not authorized to delete it');
+     }
+
+     return deletedReview;
+};
+
 export const ReviewServices = {
      createReviewToDB,
      getReviewsByProductFromDB,
+     updateReviewToDB,
+     deleteReviewToDB,
 }
