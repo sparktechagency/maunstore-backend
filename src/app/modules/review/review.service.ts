@@ -1,10 +1,10 @@
-import { IReview } from './review.interface';
+import { TReview } from './review.interface';
 import { Review } from './review.model';
 import { StatusCodes } from 'http-status-codes';
 import AppError from '../../../errors/AppError';
 import mongoose from 'mongoose';
 
-const createReviewToDB = async (userId: any, payload: IReview) => {
+const createReviewToDB = async (userId: any, payload: TReview) => {
      const { product, rating } = payload;
 
      // rating must be between 1 and 5
@@ -12,7 +12,6 @@ const createReviewToDB = async (userId: any, payload: IReview) => {
           throw new AppError(StatusCodes.BAD_REQUEST, 'Rating must be between 1 and 5');
      }
 
-  
      payload.user = userId;
 
      // check duplicate review
@@ -31,9 +30,7 @@ const getReviewsByProductFromDB = async (productId: string) => {
           throw new AppError(StatusCodes.BAD_REQUEST, 'Invalid product ID');
      }
 
-     const reviews = await Review.find({ product: productId })
-          .populate({ path: 'user', select: 'name email profileImage' })
-          .sort({ createdAt: -1 });
+     const reviews = await Review.find({ product: productId }).populate({ path: 'user', select: 'name email profileImage' }).populate({ path: 'product' }).sort({ createdAt: -1 });
 
      if (!reviews || reviews.length === 0) {
           throw new AppError(StatusCodes.NOT_FOUND, 'No reviews found for this product');
@@ -45,25 +42,20 @@ const getReviewsByProductFromDB = async (productId: string) => {
      };
 };
 
-const updateReviewToDB = async (
-     reviewId: string,
-     userId: string,
-     updatePayload: { rating?: number; comment?: string }
-) => {
+const updateReviewToDB = async (reviewId: string, userId: string, updatePayload: Partial<TReview>) => {
      if (!mongoose.Types.ObjectId.isValid(reviewId)) {
           throw new AppError(StatusCodes.BAD_REQUEST, 'Invalid review ID');
+     }
+
+     if (updatePayload?.product) {
+          delete updatePayload.product;
      }
 
      if (updatePayload.rating && (updatePayload.rating < 1 || updatePayload.rating > 5)) {
           throw new AppError(StatusCodes.BAD_REQUEST, 'Rating must be between 1 and 5');
      }
 
-
-     const updatedReview = await Review.findOneAndUpdate(
-          { _id: reviewId, user: userId },
-          updatePayload,
-          { new: true }
-     );
+     const updatedReview = await Review.findOneAndUpdate({ _id: reviewId, user: userId }, updatePayload, { new: true });
 
      if (!updatedReview) {
           throw new AppError(StatusCodes.NOT_FOUND, 'Review not found or not authorized');
@@ -76,7 +68,6 @@ const deleteReviewToDB = async (reviewId: string, userId: string) => {
      if (!mongoose.Types.ObjectId.isValid(reviewId)) {
           throw new AppError(StatusCodes.BAD_REQUEST, 'Invalid review ID');
      }
-
 
      const deletedReview = await Review.findOneAndDelete({ _id: reviewId, user: userId });
 
@@ -92,4 +83,4 @@ export const ReviewServices = {
      getReviewsByProductFromDB,
      updateReviewToDB,
      deleteReviewToDB,
-}
+};

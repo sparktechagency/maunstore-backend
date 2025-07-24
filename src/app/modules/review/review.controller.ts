@@ -1,6 +1,6 @@
-import catchAsync from "../../../shared/catchAsync";
-import sendResponse from "../../../shared/sendResponse";
-import { ReviewServices } from "./review.service";
+import catchAsync from '../../../shared/catchAsync';
+import sendResponse from '../../../shared/sendResponse';
+import { ReviewServices } from './review.service';
 
 const createReview = catchAsync(async (req, res) => {
      const { id } = req.user;
@@ -9,10 +9,10 @@ const createReview = catchAsync(async (req, res) => {
      sendResponse(res, {
           success: true,
           statusCode: 200,
-          message: "Review is created successfully",
+          message: 'Review is created successfully',
           data: result,
-     })
-})
+     });
+});
 
 const getReviewsByProduct = catchAsync(async (req, res) => {
      const { productId } = req.params;
@@ -20,10 +20,10 @@ const getReviewsByProduct = catchAsync(async (req, res) => {
      sendResponse(res, {
           success: true,
           statusCode: 200,
-          message: "Product reviews are retrieved successfully",
+          message: 'Product reviews are retrieved successfully',
           data: result,
-     })
-})
+     });
+});
 
 const updateReview = catchAsync(async (req, res) => {
      const { reviewId } = req.params;
@@ -33,11 +33,10 @@ const updateReview = catchAsync(async (req, res) => {
      sendResponse(res, {
           success: true,
           statusCode: 200,
-          message: "Review updated successfully",
-          data: result
-     })
-
-})
+          message: 'Review updated successfully',
+          data: result,
+     });
+});
 
 const deleteReview = catchAsync(async (req, res) => {
      const { reviewId } = req.params;
@@ -46,14 +45,14 @@ const deleteReview = catchAsync(async (req, res) => {
      sendResponse(res, {
           success: true,
           statusCode: 200,
-          message: "Review is deleted successfully",
+          message: 'Review is deleted successfully',
           data: result,
-     })
-})
+     });
+});
 
 export const ReviewControllers = {
      createReview,
      getReviewsByProduct,
      updateReview,
      deleteReview,
-}
+};

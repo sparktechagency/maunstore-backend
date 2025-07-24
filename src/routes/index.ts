@@ -45,13 +45,13 @@ const routes = [
           route: BrandRoutes,
      },
      {
-          path: "/products",
-          route: ProductRoutes
+          path: '/products',
+          route: ProductRoutes,
      },
      {
-          path: "/reviews",
-          route: ReviewRoutes
-     }
+          path: '/reviews',
+          route: ReviewRoutes,
+     },
 ];
 
 routes.forEach((element) => {

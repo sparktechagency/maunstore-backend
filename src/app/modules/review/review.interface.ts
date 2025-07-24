@@ -1,10 +1,8 @@
-import { Model, Types } from 'mongoose';
+import { Types } from 'mongoose';
 
-export type IReview = {
+export type TReview = {
      user: Types.ObjectId;
      product: Types.ObjectId;
      comment: string;
      rating: number;
 };
-
-export type ReviewModel = Model<IReview>;
