@@ -1,0 +1,5 @@
+Thu Jul 24 2025 12:23:36 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/brands 404 - 93.237 ms
+Thu Jul 24 2025 12:26:47 [SERVER-NAME] error: 10.10.7.111 - POST /api/v1/products 400 - 88.983 ms
+Thu Jul 24 2025 12:31:39 [SERVER-NAME] error: 10.10.7.111 - POST /api/v1/products 400 - 116.598 ms
+Thu Jul 24 2025 12:39:9 [SERVER-NAME] error: 10.10.7.111 - DELETE /api/v1/products/6881d364854a88339b5f8a0f 404 - 114.591 ms
+Thu Jul 24 2025 12:39:35 [SERVER-NAME] error: 10.10.7.111 - DELETE /api/v1/products/6881d364854a88339b5f8a0f 404 - 111.841 ms

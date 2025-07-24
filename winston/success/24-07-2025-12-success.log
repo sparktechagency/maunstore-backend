@@ -1,0 +1,11 @@
+Thu Jul 24 2025 12:20:50 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 12:20:52 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 12:23:40 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/brands 200 - 198.569 ms
+Thu Jul 24 2025 12:23:43 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/brands 200 - 82.733 ms
+Thu Jul 24 2025 12:32:4 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/products 200 - 243.963 ms
+Thu Jul 24 2025 12:33:15 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products 200 - 228.834 ms
+Thu Jul 24 2025 12:35:11 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products 200 - 225.068 ms
+Thu Jul 24 2025 12:36:18 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products/6881d364854a88339b5f8a0f 200 - 225.907 ms
+Thu Jul 24 2025 12:37:26 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/products/6881d364854a88339b5f8a0f 200 - 475.610 ms
+Thu Jul 24 2025 12:38:19 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/products/6881d364854a88339b5f8a0f 200 - 458.323 ms
+Thu Jul 24 2025 12:39:27 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products/6881d364854a88339b5f8a0f 200 - 227.024 ms

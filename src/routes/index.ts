@@ -7,6 +7,7 @@ import { BannerRoutes } from '../app/modules/banner/banner.routes';
 import { RuleRoutes } from '../app/modules/rule/rule.route';
 import { NewsRoutes } from '../app/modules/news/news.route';
 import { BrandRoutes } from '../app/modules/brand/brand.route';
+import { ProductRoutes } from '../app/modules/product/product.route';
 
 const router = express.Router();
 const routes = [
@@ -42,6 +43,10 @@ const routes = [
           path: '/brands',
           route: BrandRoutes,
      },
+     {
+          path: "/products",
+          route: ProductRoutes
+     }
 ];
 
 routes.forEach((element) => {
