@@ -5,33 +5,60 @@ import unlinkFile from '../../../shared/unlinkFile';
 import mongoose from 'mongoose';
 import AppError from '../../../errors/AppError';
 
-const createBannerToDB = async (payload: IBanner): Promise<IBanner> => {
+const createBannerToDB = async (payload: IBanner) => {
      const createBanner: any = await Banner.create(payload);
      if (!createBanner) {
-          unlinkFile(payload.image);
+          unlinkFile(payload.banner);
           throw new AppError(StatusCodes.OK, 'Failed to created banner');
      }
 
      return createBanner;
 };
 
-const getAllBannerFromDB = async (): Promise<IBanner[]> => {
-     return await Banner.find({});
+const getBannersFromDB = async () => {
+     const result = await Banner.find({ status: true });
+     if (result.length === 0) {
+          throw new AppError(StatusCodes.NOT_FOUND, 'No banner found in database');
+     }
+     return result;
 };
 
-const updateBannerToDB = async (id: string, payload: IBanner): Promise<IBanner | {}> => {
+const getAllBannersFromDB = async () => {
+     const result = await Banner.find();
+     if (!result || result.length === 0) {
+          throw new AppError(StatusCodes.NOT_FOUND, 'No banners found in database');
+     }
+     return result;
+};
+
+const updateBannerToDB = async (id: string, payload: IBanner) => {
      if (!mongoose.Types.ObjectId.isValid(id)) {
           throw new AppError(StatusCodes.NOT_ACCEPTABLE, 'Invalid ');
      }
 
      const isBannerExist: any = await Banner.findById(id);
 
-     if (payload.image && isBannerExist?.image) {
-          unlinkFile(isBannerExist?.image);
+     if (payload.banner && isBannerExist?.banner) {
+          unlinkFile(isBannerExist?.banner);
      }
 
      const banner: any = await Banner.findOneAndUpdate({ _id: id }, payload, { new: true });
      return banner;
+};
+
+const updateBannerStatusToDB = async (id: string, status: string) => {
+     const result = await Banner.findByIdAndUpdate(
+          { _id: id },
+          { status },
+          { new: true },
+     );
+     if (!result) {
+          throw new AppError(
+               StatusCodes.BAD_REQUEST,
+               'Failed to updated banner status',
+          );
+     }
+     return result;
 };
 
 const deleteBannerToDB = async (id: string): Promise<IBanner | undefined> => {
@@ -43,7 +70,7 @@ const deleteBannerToDB = async (id: string): Promise<IBanner | undefined> => {
 
      //delete from folder
      if (isBannerExist) {
-          unlinkFile(isBannerExist?.image);
+          unlinkFile(isBannerExist?.banner);
      }
 
      //delete from database
@@ -51,9 +78,11 @@ const deleteBannerToDB = async (id: string): Promise<IBanner | undefined> => {
      return;
 };
 
-export const BannerService = {
+export const BannerServices = {
      createBannerToDB,
-     getAllBannerFromDB,
+     getAllBannersFromDB,
+     getBannersFromDB,
      updateBannerToDB,
+     updateBannerStatusToDB,
      deleteBannerToDB,
 };

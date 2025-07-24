@@ -1,1 +1,2 @@
 Wed Jul 23 2025 18:15:22 [SERVER-NAME] error: 10.10.7.111 - POST /api/v1/faq 404 - 13.270 ms
+Wed Jul 23 2025 18:21:23 [SERVER-NAME] error: 10.10.7.111 - DELETE /api/v1/faq/multiple-delete 404 - 0.694 ms

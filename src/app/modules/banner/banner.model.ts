@@ -3,16 +3,26 @@ import { BannerModel, IBanner } from './banner.interface';
 
 const bannerSchema = new Schema<IBanner, BannerModel>(
      {
-          name: {
+          banner: {
                type: String,
                required: true,
           },
-          image: {
+          title: {
                type: String,
                required: true,
           },
+          description: {
+               type: String,
+               required: true,
+          },
+          status: {
+               type: Boolean,
+          }
      },
-     { timestamps: true },
+     {
+          timestamps: true,
+          versionKey: false
+     },
 );
 
 export const Banner = model<IBanner, BannerModel>('Banner', bannerSchema);
