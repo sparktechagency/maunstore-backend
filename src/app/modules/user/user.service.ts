@@ -50,7 +50,7 @@ const getUserProfileFromDB = async (user: JwtPayload): Promise<Partial<IUser>> =
 };
 
 const getUsersFromDB = async () => {
-     const result = await User.find({ role: USER_ROLES.USER });
+     const result = await User.find();
      if (!result || result.length === 0) {
           throw new AppError(404, 'No users are found in the database');
      }
@@ -94,6 +94,7 @@ const updateUserStatusToDB = async (id: string, status: USER_STATUS.ACTIVE | USE
 
      return result;
 };
+
 
 const deleteUserFromDB = async (id: string) => {
      const isExistUser = await User.isExistUserById(id);

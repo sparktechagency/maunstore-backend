@@ -18,7 +18,8 @@ router
           parseFileData(FOLDER_NAMES.PROFILEIMAGE),
           validateRequest(UserValidation.updateUserZodSchema),
           UserControllers.updateProfile,
-     );
+     )
+     .delete(auth(USER_ROLES.USER, USER_ROLES.ADMIN), UserControllers.deleteProfile);
 
 router.route('/').post(validateRequest(UserValidation.createUserZodSchema), UserControllers.createUser).get(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), UserControllers.getUsers);
 
@@ -29,5 +30,7 @@ router
      .delete(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), UserControllers.deleteUser);
 
 router.route('/status/:id').patch(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), UserControllers.updateUserStatus);
+
+
 
 export const UserRoutes = router;

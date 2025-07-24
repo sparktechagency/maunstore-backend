@@ -35,3 +35,19 @@ Thu Jul 24 2025 15:21:40 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/reviews
 Thu Jul 24 2025 15:22:15 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/reviews/product/6881d7dd306a3e92763da7be 200 - 183.125 ms
 Thu Jul 24 2025 15:22:43 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/reviews/6881f611d3d0cd27c5b0b345 200 - 196.225 ms
 Thu Jul 24 2025 15:25:40 [SERVER-NAME] info: 10.10.7.111 - DELETE /api/v1/reviews/6881f611d3d0cd27c5b0b345 200 - 291.073 ms
+Thu Jul 24 2025 15:27:5 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 15:27:6 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 15:29:51 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 15:29:53 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 15:30:5 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/users 200 - 207.317 ms
+Thu Jul 24 2025 15:30:55 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/users/6880a01f226e8a02d151aed4 200 - 187.827 ms
+Thu Jul 24 2025 15:31:20 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/users/6880a01f226e8a02d151aed4 200 - 186.945 ms
+Thu Jul 24 2025 15:31:55 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/users/6880a01f226e8a02d151aed4 200 - 308.549 ms
+Thu Jul 24 2025 15:32:48 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/users/status/6880a01f226e8a02d151aed4 200 - 257.768 ms
+Thu Jul 24 2025 15:32:57 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/users/status/6880a01f226e8a02d151aed4 200 - 241.280 ms
+Thu Jul 24 2025 15:34:17 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 15:34:18 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 15:35:29 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 15:35:30 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 15:35:56 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 15:35:57 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
