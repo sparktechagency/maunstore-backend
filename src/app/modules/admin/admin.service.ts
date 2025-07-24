@@ -1,13 +1,13 @@
-import { StatusCodes } from "http-status-codes";
-import { USER_ROLES } from "../../../enums/user";
-import AppError from "../../../errors/AppError";
-import { IUser } from "../user/user.interface";
-import { User } from "../user/user.model";
-import generateOTP from "../../../utils/generateOTP";
-import { emailTemplate } from "../../../shared/emailTemplate";
-import { emailHelper } from "../../../helpers/emailHelper";
-import unlinkFile from "../../../shared/unlinkFile";
-import { USER_STATUS } from "../user/user.constant";
+import { StatusCodes } from 'http-status-codes';
+import { USER_ROLES } from '../../../enums/user';
+import AppError from '../../../errors/AppError';
+import { IUser } from '../user/user.interface';
+import { User } from '../user/user.model';
+import generateOTP from '../../../utils/generateOTP';
+import { emailTemplate } from '../../../shared/emailTemplate';
+import { emailHelper } from '../../../helpers/emailHelper';
+import unlinkFile from '../../../shared/unlinkFile';
+import { USER_STATUS } from '../user/user.constant';
 
 // create Admin
 const createAdminToDB = async (payload: Partial<IUser>): Promise<IUser> => {
@@ -95,4 +95,4 @@ export const AdminServices = {
      updateAdminToDB,
      updateAdminStatusToDB,
      deleteAdminFromDB,
-}
+};

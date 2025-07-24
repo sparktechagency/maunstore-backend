@@ -4,7 +4,6 @@ import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
 import { RuleServices } from './rule.service';
 
-
 //privacy policy
 const createPrivacyPolicy = catchAsync(async (req: Request, res: Response) => {
      const { ...privacyData } = req.body;

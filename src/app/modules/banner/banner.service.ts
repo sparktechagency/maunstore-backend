@@ -47,21 +47,14 @@ const updateBannerToDB = async (id: string, payload: IBanner) => {
 };
 
 const updateBannerStatusToDB = async (id: string, status: string) => {
-     const result = await Banner.findByIdAndUpdate(
-          { _id: id },
-          { status },
-          { new: true },
-     );
+     const result = await Banner.findByIdAndUpdate({ _id: id }, { status }, { new: true });
      if (!result) {
-          throw new AppError(
-               StatusCodes.BAD_REQUEST,
-               'Failed to updated banner status',
-          );
+          throw new AppError(StatusCodes.BAD_REQUEST, 'Failed to updated banner status');
      }
      return result;
 };
 
-const deleteBannerToDB = async (id: string): Promise<IBanner | undefined> => {
+const deleteBannerToDB = async (id: string) => {
      if (!mongoose.Types.ObjectId.isValid(id)) {
           throw new AppError(StatusCodes.NOT_ACCEPTABLE, 'Invalid ');
      }
@@ -74,8 +67,8 @@ const deleteBannerToDB = async (id: string): Promise<IBanner | undefined> => {
      }
 
      //delete from database
-     await Banner.findByIdAndDelete(id);
-     return;
+     const result = await Banner.findByIdAndDelete(id);
+     return result;
 };
 
 export const BannerServices = {

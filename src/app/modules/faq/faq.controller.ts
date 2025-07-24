@@ -63,7 +63,6 @@ const deleteMultipleFaqs = catchAsync(async (req, res) => {
      });
 });
 
-
 export const FaqControllers = {
      createFaq,
      updateFaq,

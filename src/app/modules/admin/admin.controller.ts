@@ -1,7 +1,7 @@
-import { StatusCodes } from "http-status-codes";
-import catchAsync from "../../../shared/catchAsync";
-import sendResponse from "../../../shared/sendResponse";
-import { AdminServices } from "./admin.service";
+import { StatusCodes } from 'http-status-codes';
+import catchAsync from '../../../shared/catchAsync';
+import sendResponse from '../../../shared/sendResponse';
+import { AdminServices } from './admin.service';
 
 const createAdmin = catchAsync(async (req, res) => {
      const { ...userData } = req.body;
@@ -60,11 +60,10 @@ const deleteAdmin = catchAsync(async (req, res) => {
      });
 });
 
-
 export const AdminControllers = {
      createAdmin,
      getAdmins,
      updateAdmin,
      updateAdminStatus,
      deleteAdmin,
-}
+};

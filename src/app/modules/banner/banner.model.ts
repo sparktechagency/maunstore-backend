@@ -17,11 +17,11 @@ const bannerSchema = new Schema<IBanner, BannerModel>(
           },
           status: {
                type: Boolean,
-          }
+          },
      },
      {
           timestamps: true,
-          versionKey: false
+          versionKey: false,
      },
 );
 

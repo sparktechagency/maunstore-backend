@@ -27,21 +27,21 @@ const routes = [
           route: RuleRoutes,
      },
      {
-          path: "/faqs",
-          route: FaqRoutes
+          path: '/faqs',
+          route: FaqRoutes,
      },
      {
-          path: "/banners",
-          route: BannerRoutes
+          path: '/banners',
+          route: BannerRoutes,
      },
      {
-          path: "/news",
-          route: NewsRoutes
+          path: '/news',
+          route: NewsRoutes,
      },
      {
-          path: "/brands",
-          route: BrandRoutes
-     }
+          path: '/brands',
+          route: BrandRoutes,
+     },
 ];
 
 routes.forEach((element) => {

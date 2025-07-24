@@ -8,21 +8,11 @@ const router = express.Router();
 
 router
      .route('/')
-     .post(validateRequest(FaqValidation.createFaqZodSchema),
-          auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN),
-          FaqControllers.createFaq
-     )
+     .post(validateRequest(FaqValidation.createFaqZodSchema), auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), FaqControllers.createFaq)
      .get(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), FaqControllers.getFaqs);
 
-router.delete(
-     '/multiple-delete',
-     auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN),
-     FaqControllers.deleteMultipleFaqs,
-);
+router.delete('/multiple-delete', auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), FaqControllers.deleteMultipleFaqs);
 
-router.route('/:id')
-     .delete(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN),
-          FaqControllers.deleteFaq)
-     .patch(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), FaqControllers.updateFaq);
+router.route('/:id').delete(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), FaqControllers.deleteFaq).patch(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), FaqControllers.updateFaq);
 
 export const FaqRoutes = router;

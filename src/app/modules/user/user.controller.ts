@@ -17,8 +17,6 @@ const createUser = catchAsync(async (req, res) => {
      });
 });
 
-
-
 const updateUser = catchAsync(async (req, res) => {
      const { id } = req.params;
      const updatedPayload = req.body;
@@ -87,7 +85,6 @@ const updateUserStatus = catchAsync(async (req, res) => {
           data: result,
      });
 });
-
 
 //update profile
 const updateProfile = catchAsync(async (req, res) => {
