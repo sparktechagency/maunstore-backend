@@ -34,8 +34,21 @@ const getNewsByd=catchAsync(async(req ,res)=>{
     })
 })
 
+const updateNewsById=catchAsync(async(req ,res)=>{
+    const {id}=req.params;
+    const updatedPayload=req.body;
+    const result=await NewsServices.updateNewsById(id,updatedPayload);
+    sendResponse(res,{
+        success:true,
+        statusCode:200,
+        message:"News is updated successfully",
+        data:result,
+    })
+})
+
 export const NewsControllers = {
     createNews,
     getNews,
     getNewsByd,
+    updateNewsById,
 }
