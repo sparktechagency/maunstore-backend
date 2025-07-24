@@ -12,6 +12,8 @@ router.route("/")
     .post(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), fileUploadHandler(), parseMultipleFileData(FOLDER_NAMES.IMAGES), ProductControllers.createProduct)
     .get(ProductControllers.getProducts)
 
+router.get("/:brandId/products", ProductControllers.getProductsByBrand)
+
 router.route("/:id")
     .get(ProductControllers.getProductById)
     .patch(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), fileUploadHandler(), parseMultipleFileData(FOLDER_NAMES.IMAGES), ProductControllers.updateProductById)
