@@ -22,7 +22,7 @@ const getNewsFromDB = async () => {
     return result;
 }
 
-const getNewsById = async (id: string) => {
+const getNewsByIdFromDB = async (id: string) => {
     const result = await News.findById(id);
     if (!result) {
         throw new AppError(404, "No news is found for this ID")
@@ -30,7 +30,7 @@ const getNewsById = async (id: string) => {
     return result;
 }
 
-const updateNewsById = async (id: string, updatedPayload: Partial<TNews>) => {
+const updateNewsByIdToDB = async (id: string, updatedPayload: Partial<TNews>) => {
     const isBannerExist: any = await News.findById(id);
 
     if (updatedPayload.image && isBannerExist?.image) {
@@ -42,7 +42,7 @@ const updateNewsById = async (id: string, updatedPayload: Partial<TNews>) => {
     return news;
 }
 
-const deleteNewsById = async (id: string) => {
+const deleteNewsByIdFromDB = async (id: string) => {
     if (!mongoose.Types.ObjectId.isValid(id)) {
         throw new AppError(StatusCodes.NOT_ACCEPTABLE, 'Invalid ');
     }
@@ -61,7 +61,7 @@ const deleteNewsById = async (id: string) => {
 export const NewsServices = {
     createNewsToDB,
     getNewsFromDB,
-    getNewsById,
-    updateNewsById,
-    deleteNewsById,
+    getNewsByIdFromDB,
+    updateNewsByIdToDB,
+    deleteNewsByIdFromDB,
 }

@@ -23,26 +23,37 @@ const getNews = catchAsync(async (req, res) => {
     })
 })
 
-const getNewsByd=catchAsync(async(req ,res)=>{
-    const {id}=req.params;
-    const result=await NewsServices.getNewsById(id);
-    sendResponse(res,{
-        success:true,
-        statusCode:200,
-        message:"News is retrieved successfully",
-        data:result,
+const getNewsByd = catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const result = await NewsServices.getNewsByIdFromDB(id);
+    sendResponse(res, {
+        success: true,
+        statusCode: 200,
+        message: "News is retrieved successfully",
+        data: result,
     })
 })
 
-const updateNewsById=catchAsync(async(req ,res)=>{
-    const {id}=req.params;
-    const updatedPayload=req.body;
-    const result=await NewsServices.updateNewsById(id,updatedPayload);
-    sendResponse(res,{
-        success:true,
-        statusCode:200,
-        message:"News is updated successfully",
-        data:result,
+const updateNewsById = catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const updatedPayload = req.body;
+    const result = await NewsServices.updateNewsByIdToDB(id, updatedPayload);
+    sendResponse(res, {
+        success: true,
+        statusCode: 200,
+        message: "News is updated successfully",
+        data: result,
+    })
+})
+
+const deleteNewsById = catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const result = await NewsServices.deleteNewsByIdFromDB(id);
+    sendResponse(res, {
+        success: true,
+        statusCode: 200,
+        message: "News is deleted successfully",
+        data: result,
     })
 })
 
@@ -51,4 +62,5 @@ export const NewsControllers = {
     getNews,
     getNewsByd,
     updateNewsById,
+    deleteNewsById,
 }
