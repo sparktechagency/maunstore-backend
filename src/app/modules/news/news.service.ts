@@ -12,6 +12,15 @@ const createNewsToDB = async (payload: TNews) => {
     return result;
 }
 
+const getNewsFromDB = async () => {
+    const result = await News.find();
+    if (!result || result.length === 0) {
+        throw new AppError(404, "No news found in the database")
+    };
+    return result;
+}
+
 export const NewsServices = {
     createNewsToDB,
+    getNewsFromDB,
 }
