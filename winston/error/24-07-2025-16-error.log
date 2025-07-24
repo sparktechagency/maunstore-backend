@@ -1,0 +1,5 @@
+Thu Jul 24 2025 16:1:24 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/users?searchTerm=bokhari 404 - 202.282 ms
+Thu Jul 24 2025 16:1:43 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/users?searchTerm=emam 404 - 188.970 ms
+Thu Jul 24 2025 16:2:32 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/users?searchTerm=emam 404 - 188.107 ms
+Thu Jul 24 2025 16:3:37 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/users?searchTerm=emam 404 - 186.729 ms
+Thu Jul 24 2025 16:4:20 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/users?searchTerm=user@gmail.com%22 404 - 201.806 ms

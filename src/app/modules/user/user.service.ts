@@ -9,6 +9,7 @@ import { User } from './user.model';
 import AppError from '../../../errors/AppError';
 import generateOTP from '../../../utils/generateOTP';
 import { USER_STATUS } from './user.constant';
+import QueryBuilder from '../../builder/QueryBuilder';
 
 // create user
 const createUserToDB = async (payload: Partial<IUser>): Promise<IUser> => {
@@ -49,12 +50,31 @@ const getUserProfileFromDB = async (user: JwtPayload): Promise<Partial<IUser>> =
      return isExistUser;
 };
 
-const getUsersFromDB = async () => {
-     const result = await User.find();
-     if (!result || result.length === 0) {
-          throw new AppError(404, 'No users are found in the database');
-     }
-     return result;
+const getUsersFromDB = async (query: any) => {
+     const userQuery = User.find();
+
+     const queryBuilder = new QueryBuilder(userQuery, query)
+          .search(["name", "email"])
+          .filter()
+          .sort()
+          .paginate()
+          .fields()
+
+     const users = await queryBuilder.modelQuery;
+
+     if (!users.length) {
+          throw new AppError(404, "No users are found in the database")
+     };
+
+     const meta = await queryBuilder.countTotal();
+
+     return {
+          meta,
+          data: users,
+     };
+
+
+
 };
 
 const getUserByIdFromDB = async (id: string) => {

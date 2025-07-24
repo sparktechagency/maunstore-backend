@@ -53,7 +53,7 @@ const getUserProfile = catchAsync(async (req, res) => {
 });
 
 const getUsers = catchAsync(async (req, res) => {
-     const result = await UserServices.getUsersFromDB();
+     const result = await UserServices.getUsersFromDB(req.query);
      sendResponse(res, {
           success: true,
           statusCode: 200,

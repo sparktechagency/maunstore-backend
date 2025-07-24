@@ -66,3 +66,22 @@ Thu Jul 24 2025 15:50:1 [SERVER-NAME] info: [32m🚀 Database connected success
 Thu Jul 24 2025 15:50:2 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
 Thu Jul 24 2025 15:50:8 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
 Thu Jul 24 2025 15:50:9 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 15:50:11 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 15:50:13 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 15:50:18 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/brands 200 - 290.361 ms
+Thu Jul 24 2025 15:50:37 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/brands?limit=1&page=1 200 - 351.141 ms
+Thu Jul 24 2025 15:50:44 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/brands?limit=1&page=2 200 - 281.556 ms
+Thu Jul 24 2025 15:50:50 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/brands 200 - 281.949 ms
+Thu Jul 24 2025 15:51:27 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/brands?searchTerm=leather 200 - 281.529 ms
+Thu Jul 24 2025 15:51:33 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/brands?searchTerm= 200 - 281.099 ms
+Thu Jul 24 2025 15:51:41 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/brands?searchTerm=casio 200 - 281.654 ms
+Thu Jul 24 2025 15:54:27 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 15:54:28 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 15:54:37 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 15:54:38 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 15:58:43 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 15:58:44 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 15:58:50 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 15:58:51 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 15:59:44 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 15:59:45 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m

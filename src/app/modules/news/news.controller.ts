@@ -14,7 +14,7 @@ const createNews = catchAsync(async (req, res) => {
 });
 
 const getNews = catchAsync(async (req, res) => {
-     const result = await NewsServices.getNewsFromDB();
+     const result = await NewsServices.getNewsFromDB(req.query);
      sendResponse(res, {
           success: true,
           statusCode: 200,

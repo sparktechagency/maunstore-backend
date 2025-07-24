@@ -4,6 +4,7 @@ import unlinkFile from '../../../shared/unlinkFile';
 import { TProduct } from './product.interface';
 import { Product } from './product.model';
 import { StatusCodes } from 'http-status-codes';
+import QueryBuilder from '../../builder/QueryBuilder';
 
 const createProductToDB = async (payload: TProduct) => {
      const result = await Product.create(payload);
@@ -13,13 +14,30 @@ const createProductToDB = async (payload: TProduct) => {
      return result;
 };
 
-const getProductsFromDB = async () => {
-     const result = await Product.find().populate({ path: 'brand' });
-     if (!result || result.length === 0) {
+const getProductsFromDB = async (query: any) => {
+     const productQuery = Product.find().populate({ path: 'brand' });
+
+     const queryBuilder = new QueryBuilder(productQuery, query)
+          .search(['name', 'modelNumber'])
+          .filter()
+          .sort()
+          .paginate()
+          .fields();
+
+     const products = await queryBuilder.modelQuery;
+
+     if (!products.length) {
           throw new AppError(404, 'No products are found in the database');
      }
-     return result;
+
+     const meta = await queryBuilder.countTotal();
+
+     return {
+          meta,
+          data: products,
+     };
 };
+
 
 const getProductByIdFromDB = async (id: string) => {
      const result = await Product.findById(id).populate({ path: 'brand' });

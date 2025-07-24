@@ -4,6 +4,7 @@ import unlinkFile from '../../../shared/unlinkFile';
 import { TNews } from './news.interface';
 import { News } from './news.model';
 import { StatusCodes } from 'http-status-codes';
+import QueryBuilder from '../../builder/QueryBuilder';
 
 const createNewsToDB = async (payload: TNews) => {
      const result = await News.create(payload);
@@ -14,12 +15,28 @@ const createNewsToDB = async (payload: TNews) => {
      return result;
 };
 
-const getNewsFromDB = async () => {
-     const result = await News.find();
-     if (!result || result.length === 0) {
-          throw new AppError(404, 'No news are found in the database');
+const getNewsFromDB = async (query: any) => {
+     const newsQuery = News.find();
+
+     const queryBuilder = new QueryBuilder(newsQuery, query)
+          .search(['title'])
+          .filter()
+          .sort()
+          .paginate()
+          .fields();
+
+     const news = await queryBuilder.modelQuery;
+
+     if (!news.length) {
+          throw new AppError(StatusCodes.NOT_FOUND, 'No news are found in the database');
      }
-     return result;
+
+     const meta = await queryBuilder.countTotal();
+
+     return {
+          meta,
+          data: news,
+     };
 };
 
 const getNewsByIdFromDB = async (id: string) => {
