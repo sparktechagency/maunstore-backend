@@ -22,6 +22,10 @@ const productSchema = new Schema<TProduct>({
         type: String,
         required: true,
     },
+    images: {
+        type: [String],
+        required: true,
+    },
     // specefication fields
     gender: {
         type: String,

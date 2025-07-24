@@ -7,6 +7,7 @@ export type TProduct = {
     stock?: number;
     brand: Types.ObjectId;
     description: string;
+    images: string[];
 
     // specefication fields
     gender: GENDER;
