@@ -37,7 +37,7 @@ const updateNewsByIdToDB = async (id: string, updatedPayload: Partial<TNews>) =>
         unlinkFile(isBannerExist?.image);
     }
 
-    const news = await News.findByIdAndUpdate(id, updatedPayload);
+    const news = await News.findByIdAndUpdate(id, updatedPayload, { new: true });
 
     return news;
 }

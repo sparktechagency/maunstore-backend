@@ -5,6 +5,7 @@ import { AdminRoutes } from '../app/modules/admin/admin.route';
 import { FaqRoutes } from '../app/modules/faq/faq.route';
 import { BannerRoutes } from '../app/modules/banner/banner.routes';
 import { RuleRoutes } from '../app/modules/rule/rule.route';
+import { NewsRoutes } from '../app/modules/news/news.route';
 
 const router = express.Router();
 const routes = [
@@ -31,6 +32,10 @@ const routes = [
      {
           path: "/banners",
           route: BannerRoutes
+     },
+     {
+          path: "/news",
+          route: NewsRoutes
      }
 ];
 
