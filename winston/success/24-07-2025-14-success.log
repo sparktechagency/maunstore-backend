@@ -1,0 +1,23 @@
+Thu Jul 24 2025 14:13:36 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 14:13:37 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 14:17:55 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 14:17:56 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 14:18:8 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/brands 200 - 165.682 ms
+Thu Jul 24 2025 14:18:28 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/brands 200 - 160.061 ms
+Thu Jul 24 2025 14:18:45 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 14:18:46 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 14:18:47 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/brands 200 - 166.834 ms
+Thu Jul 24 2025 14:21:24 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 14:21:25 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 14:21:34 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 14:21:35 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 14:21:44 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products/6881d16c854a88339b5f8a07/products 200 - 177.091 ms
+Thu Jul 24 2025 14:21:59 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 14:22:0 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 14:22:1 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products/6881d16c854a88339b5f8a07/products 200 - 90.239 ms
+Thu Jul 24 2025 14:22:7 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 14:22:8 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 14:22:11 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products/6881d16c854a88339b5f8a07/products 200 - 167.066 ms
+Thu Jul 24 2025 14:27:46 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Jul 24 2025 14:27:47 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Thu Jul 24 2025 14:27:49 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products/6881d16c854a88339b5f8a07/products 200 - 171.097 ms
