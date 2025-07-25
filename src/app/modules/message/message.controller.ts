@@ -8,7 +8,7 @@ import sendResponse from '../../../shared/sendResponse';
 const sendMessage = catchAsync(async (req, res) => {
      const { files } = req as Request & { files: any };
      const chatId: any = req.params.chatId;
-     const { id:userId }: any = req.user;
+     const { id: userId }: any = req.user;
 
      const images = files.images?.map((photo: any) => updateFileName('images', photo.filename));
      req.body.images = images;
@@ -26,7 +26,7 @@ const sendMessage = catchAsync(async (req, res) => {
 
 const getMessages = catchAsync(async (req, res) => {
      const { chatId } = req.params;
-     const { id:userId } = req.user;
+     const { id: userId } = req.user;
 
      // Mark messages as read when user opens the chat
      await ChatService.markChatAsRead(userId, chatId);
@@ -51,7 +51,7 @@ const getMessages = catchAsync(async (req, res) => {
 });
 
 const addReaction = catchAsync(async (req, res) => {
-     const { id:userId }: any = req.user;
+     const { id: userId }: any = req.user;
      const { messageId } = req.params;
      const { reactionType } = req.body;
      const messages = await MessageService.addReactionToMessage(userId, messageId, reactionType);
@@ -64,7 +64,7 @@ const addReaction = catchAsync(async (req, res) => {
 });
 
 const deleteMessage = catchAsync(async (req, res) => {
-     const { id:userId }: any = req.user;
+     const { id: userId }: any = req.user;
      const { messageId } = req.params;
      const messages = await MessageService.deleteMessage(userId, messageId);
      sendResponse(res, {
@@ -77,7 +77,7 @@ const deleteMessage = catchAsync(async (req, res) => {
 
 // New controller: Pin/Unpin message
 const pinUnpinMessage = catchAsync(async (req, res) => {
-     const { id:userId }: any = req.user;
+     const { id: userId }: any = req.user;
      const { messageId } = req.params;
      const { action } = req.body; // 'pin' or 'unpin'
 

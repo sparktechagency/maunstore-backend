@@ -18,12 +18,7 @@ const createNewsToDB = async (payload: TNews) => {
 const getNewsFromDB = async (query: any) => {
      const newsQuery = News.find();
 
-     const queryBuilder = new QueryBuilder(newsQuery, query)
-          .search(['title'])
-          .filter()
-          .sort()
-          .paginate()
-          .fields();
+     const queryBuilder = new QueryBuilder(newsQuery, query).search(['title']).filter().sort().paginate().fields();
 
      const news = await queryBuilder.modelQuery;
 

@@ -17,12 +17,7 @@ const createProductToDB = async (payload: TProduct) => {
 const getProductsFromDB = async (query: any) => {
      const productQuery = Product.find().populate({ path: 'brand' });
 
-     const queryBuilder = new QueryBuilder(productQuery, query)
-          .search(['name', 'modelNumber'])
-          .filter()
-          .sort()
-          .paginate()
-          .fields();
+     const queryBuilder = new QueryBuilder(productQuery, query).search(['name', 'modelNumber']).filter().sort().paginate().fields();
 
      const products = await queryBuilder.modelQuery;
 
@@ -37,7 +32,6 @@ const getProductsFromDB = async (query: any) => {
           data: products,
      };
 };
-
 
 const getProductByIdFromDB = async (id: string) => {
      const result = await Product.findById(id).populate({ path: 'brand' });

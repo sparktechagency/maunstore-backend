@@ -55,7 +55,7 @@ const sendMessageToDB = async (payload: IMessage): Promise<IMessage> => {
      );
 
      // Get populated message for socket
-     const populatedMessage = await Message.findById(response._id).populate('sender', 'fullName email profile').populate({ path: "productId" }).lean();
+     const populatedMessage = await Message.findById(response._id).populate('sender', 'fullName email profile').populate({ path: 'productId' }).lean();
 
      // Get updated chat with populated data for chat list update
      const populatedChat = await Chat.findById(response?.chatId).populate('participants', 'fullName email profile').populate('lastMessage').lean();
@@ -129,7 +129,7 @@ const getMessagesFromDB = async (
           })
           .populate({ path: 'reactions.userId', select: 'fullName' })
           .populate({ path: 'pinnedBy', select: 'fullName' })
-          .populate({ path: "productId" })
+          .populate({ path: 'productId' })
           .skip(skip)
           .limit(limitInt)
           .sort({ createdAt: -1 });

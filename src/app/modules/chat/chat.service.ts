@@ -4,9 +4,7 @@ import mongoose from 'mongoose';
 import { User } from '../user/user.model';
 import AppError from '../../../errors/AppError';
 
-
 const createChatIntoDB = async (participants: string[]) => {
-
      const isExistChat = await Chat.findOne({
           participants: { $all: participants },
      });
@@ -21,8 +19,6 @@ const createChatIntoDB = async (participants: string[]) => {
      if (!newChat) {
           throw new Error('Failed to create chat');
      }
-
-     
 
      //@ts-ignore
      const io = global.io;

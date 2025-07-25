@@ -18,7 +18,7 @@ const messageSchema = new Schema<IMessage, MessageModel>(
           },
           productId: {
                type: Schema.Types.ObjectId,
-               ref: "Product"
+               ref: 'Product',
           },
           images: {
                type: [String],

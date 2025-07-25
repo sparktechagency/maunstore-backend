@@ -23,7 +23,7 @@ const chatSchema = new Schema<IChat>(
      },
      {
           timestamps: true,
-          versionKey: false
+          versionKey: false,
      },
 );
 

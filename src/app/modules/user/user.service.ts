@@ -53,18 +53,13 @@ const getUserProfileFromDB = async (user: JwtPayload): Promise<Partial<IUser>> =
 const getUsersFromDB = async (query: any) => {
      const userQuery = User.find();
 
-     const queryBuilder = new QueryBuilder(userQuery, query)
-          .search(["name", "email"])
-          .filter()
-          .sort()
-          .paginate()
-          .fields()
+     const queryBuilder = new QueryBuilder(userQuery, query).search(['name', 'email']).filter().sort().paginate().fields();
 
      const users = await queryBuilder.modelQuery;
 
      if (!users.length) {
-          throw new AppError(404, "No users are found in the database")
-     };
+          throw new AppError(404, 'No users are found in the database');
+     }
 
      const meta = await queryBuilder.countTotal();
 
@@ -72,9 +67,6 @@ const getUsersFromDB = async (query: any) => {
           meta,
           data: users,
      };
-
-
-
 };
 
 const getUserByIdFromDB = async (id: string) => {
@@ -114,7 +106,6 @@ const updateUserStatusToDB = async (id: string, status: USER_STATUS.ACTIVE | USE
 
      return result;
 };
-
 
 const deleteUserFromDB = async (id: string) => {
      const isExistUser = await User.isExistUserById(id);

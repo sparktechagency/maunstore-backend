@@ -55,13 +55,13 @@ const routes = [
           route: ReviewRoutes,
      },
      {
-          path: "/chats",
-          route: ChatRoutes
+          path: '/chats',
+          route: ChatRoutes,
      },
      {
-          path: "/messages",
-          route: MessageRoutes
-     }
+          path: '/messages',
+          route: MessageRoutes,
+     },
 ];
 
 routes.forEach((element) => {
