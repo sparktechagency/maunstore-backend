@@ -1,0 +1,3 @@
+Fri Jul 25 2025 9:41:20 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/products?filter=man 404 - 110.629 ms
+Fri Jul 25 2025 9:41:31 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/products?gender=man 404 - 81.016 ms
+Fri Jul 25 2025 9:41:36 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/products?gender=MAN 404 - 96.548 ms

@@ -31,9 +31,25 @@ class QueryBuilder<T> {
           const queryObj = { ...this.query };
           excludeFields.forEach((el) => delete queryObj[el]);
 
-          this.modelQuery = this.modelQuery.find(queryObj as FilterQuery<T>);
+          const filterQuery: Record<string, any> = {};
+
+          // gender handle
+          if (queryObj.gender) {
+               filterQuery.gender = queryObj.gender;
+          }
+
+          // other filters
+          Object.entries(queryObj).forEach(([key, value]) => {
+               if (key !== 'gender') {
+                    filterQuery[key] = value;
+               }
+          });
+
+          this.modelQuery = this.modelQuery.find(filterQuery as FilterQuery<T>);
           return this;
      }
+
+
 
      sort() {
           const sort = (this.query?.sort as string)?.split(',')?.join(' ') || '-createdAt';

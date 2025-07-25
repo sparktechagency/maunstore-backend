@@ -1,0 +1,13 @@
+Fri Jul 25 2025 9:11:45 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Fri Jul 25 2025 9:11:46 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Fri Jul 25 2025 9:15:19 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Fri Jul 25 2025 9:15:20 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Fri Jul 25 2025 9:41:49 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products 200 - 253.202 ms
+Fri Jul 25 2025 9:42:59 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Fri Jul 25 2025 9:43:1 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Fri Jul 25 2025 9:43:35 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Fri Jul 25 2025 9:43:36 [SERVER-NAME] info: [33m♻️  Application listening on port:5000[39m
+Fri Jul 25 2025 9:43:51 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products?gender=MALE 200 - 248.928 ms
+Fri Jul 25 2025 9:44:19 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products?gender=MALE 200 - 227.536 ms
+Fri Jul 25 2025 9:44:27 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products?gender=FEMALE 200 - 230.153 ms
+Fri Jul 25 2025 9:44:46 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products 200 - 235.604 ms
