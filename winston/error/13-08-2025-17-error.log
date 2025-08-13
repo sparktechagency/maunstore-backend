@@ -1,0 +1,8 @@
+Wed Aug 13 2025 17:10:8 [SERVER-NAME] error: 10.10.7.111 - POST /api/v1/products 400 - 257.085 ms
+Wed Aug 13 2025 17:10:49 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/products 400 - 99.403 ms
+Wed Aug 13 2025 17:11:7 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/products 400 - 98.105 ms
+Wed Aug 13 2025 17:14:29 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/products/6881d8c2af82b77d62a2c270/products 404 - 49.357 ms
+Wed Aug 13 2025 17:14:42 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/products/689c6d3c1de2973dfca2c05e/products 404 - 45.812 ms
+Wed Aug 13 2025 17:14:57 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/products/689c6d3c1de2973dfca2c05e/products 404 - 45.932 ms
+Wed Aug 13 2025 17:15:33 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/products/689c6d3c1de2973dfca2c05e/products 400 - 50.872 ms
+Wed Aug 13 2025 17:15:46 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/products/689c6d3c1de2973dfca2c05e/products 400 - 50.126 ms

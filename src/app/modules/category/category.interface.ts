@@ -1,8 +1,8 @@
-import { Types } from "mongoose";
+import { Types } from 'mongoose';
 
 export type TCategory = {
-    name: string;
-    description?: string;
-    image?: string;
-    brandId: Types.ObjectId;
-}
+     name: string;
+     description?: string;
+     image?: string;
+     brandId: Types.ObjectId;
+};

@@ -24,13 +24,13 @@ const getProducts = catchAsync(async (req, res) => {
 });
 
 const getProductsByBrand = catchAsync(async (req, res) => {
-     const { brandId } = req.params;
-     const result = await ProductServices.getProductsByBrandFromDB(brandId);
+     const { categoryId } = req.params;
+     const result = await ProductServices.getProductsByCategoryFromDB(categoryId);
 
      sendResponse(res, {
           statusCode: 200,
           success: true,
-          message: 'Products retrieved by brand successfully',
+          message: 'Products retrieved by category successfully',
           data: result,
      });
 });

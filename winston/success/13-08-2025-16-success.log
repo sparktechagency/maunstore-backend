@@ -28,3 +28,14 @@ Wed Aug 13 2025 16:53:6 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/categori
 Wed Aug 13 2025 16:55:4 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/categories 200 - 80.429 ms
 Wed Aug 13 2025 16:55:46 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
 Wed Aug 13 2025 16:55:47 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 16:55:59 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 16:56:0 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 16:56:0 [SERVER-NAME] info: 10.10.7.111 - DELETE /api/v1/categories/689c6d1f1b6ebc982cbd94aa 200 - 156.514 ms
+Wed Aug 13 2025 16:57:32 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 16:57:33 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 16:57:43 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 16:57:45 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 16:58:1 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 16:58:4 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 16:58:6 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/categories 200 - 1058.447 ms
+Wed Aug 13 2025 16:58:41 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/categories/689c6d3c1de2973dfca2c05e 200 - 152.756 ms

@@ -15,10 +15,6 @@ const productSchema = new Schema<TProduct>(
           stock: {
                type: Number,
           },
-          brand: {
-               type: Schema.Types.ObjectId,
-               ref: 'Brand',
-          },
           description: {
                type: String,
                required: true,
@@ -26,6 +22,10 @@ const productSchema = new Schema<TProduct>(
           images: {
                type: [String],
                required: true,
+          },
+          category: {
+               type: Schema.Types.ObjectId,
+               ref: 'Category',
           },
           // specefication fields
           gender: {

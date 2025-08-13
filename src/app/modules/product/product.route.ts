@@ -13,7 +13,7 @@ router
      .post(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), fileUploadHandler(), parseMultipleFileData(FOLDER_NAMES.IMAGES), ProductControllers.createProduct)
      .get(auth(USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN), ProductControllers.getProducts);
 
-router.get('/:brandId/products', ProductControllers.getProductsByBrand);
+router.get('/:categoryId/products', ProductControllers.getProductsByBrand);
 
 router
      .route('/:id')

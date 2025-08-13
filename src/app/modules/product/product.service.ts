@@ -15,7 +15,7 @@ const createProductToDB = async (payload: TProduct) => {
 };
 
 const getProductsFromDB = async (query: any) => {
-     const productQuery = Product.find().populate({ path: 'brand' });
+     const productQuery = Product.find().populate({ path: 'category' });
 
      const queryBuilder = new QueryBuilder(productQuery, query).search(['name', 'modelNumber']).filter().sort().paginate().fields();
 
@@ -34,22 +34,22 @@ const getProductsFromDB = async (query: any) => {
 };
 
 const getProductByIdFromDB = async (id: string) => {
-     const result = await Product.findById(id).populate({ path: 'brand' });
+     const result = await Product.findById(id).populate({ path: 'category' });
      if (!result) {
           throw new AppError(404, 'No product is found in the database');
      }
      return result;
 };
 
-const getProductsByBrandFromDB = async (brandId: string) => {
-     if (!mongoose.Types.ObjectId.isValid(brandId)) {
-          throw new AppError(StatusCodes.NOT_ACCEPTABLE, 'Invalid brand id');
+const getProductsByCategoryFromDB = async (categoryId: string) => {
+     if (!mongoose.Types.ObjectId.isValid(categoryId)) {
+          throw new AppError(StatusCodes.NOT_ACCEPTABLE, 'Invalid category id');
      }
 
-     const products = await Product.find({ brand: brandId }).populate({ path: 'brand' });
+     const products = await Product.find({ category: categoryId }).populate({ path: 'category' });
 
      if (!products || products.length === 0) {
-          throw new AppError(StatusCodes.NOT_FOUND, 'No products found for this brand');
+          throw new AppError(StatusCodes.NOT_FOUND, 'No products found for this category');
      }
 
      return {
@@ -69,7 +69,7 @@ const updateProductByIdToDB = async (id: string, updatedPayload: Partial<TProduc
           unlinkFile(isProductExist?.images);
      }
 
-     const news = await Product.findByIdAndUpdate(id, updatedPayload, { new: true }).populate({ path: 'brand' });
+     const news = await Product.findByIdAndUpdate(id, updatedPayload, { new: true }).populate({ path: 'category' });
 
      return news;
 };
@@ -93,7 +93,7 @@ const deleteNewsByIdFromDB = async (id: string) => {
 export const ProductServices = {
      createProductToDB,
      getProductsFromDB,
-     getProductsByBrandFromDB,
+     getProductsByCategoryFromDB,
      getProductByIdFromDB,
      updateProductByIdToDB,
      deleteNewsByIdFromDB,

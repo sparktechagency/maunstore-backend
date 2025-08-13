@@ -1,0 +1,52 @@
+Wed Aug 13 2025 17:0:50 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/categories/brands/6881d8c2af82b77d62a2c270 200 - 253.998 ms
+Wed Aug 13 2025 17:1:26 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/categories 200 - 100.316 ms
+Wed Aug 13 2025 17:1:31 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/categories/brands/6881d8c2af82b77d62a2c270 200 - 85.493 ms
+Wed Aug 13 2025 17:4:10 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:4:11 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:4:58 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:4:59 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:5:39 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:5:40 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:5:47 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:5:48 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:5:59 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:6:0 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:6:21 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:6:22 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:6:29 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:6:30 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:6:38 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:6:38 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:7:15 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/categories/brands/6881d8c2af82b77d62a2c270 200 - 100.321 ms
+Wed Aug 13 2025 17:9:21 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:9:22 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:10:17 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/products 200 - 143.856 ms
+Wed Aug 13 2025 17:10:27 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/products 200 - 102.225 ms
+Wed Aug 13 2025 17:11:4 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:11:5 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:11:21 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:11:22 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:11:24 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products 200 - 143.747 ms
+Wed Aug 13 2025 17:11:44 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:11:45 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:11:46 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products 200 - 177.152 ms
+Wed Aug 13 2025 17:12:5 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:12:6 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:12:13 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:12:14 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:13:13 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products/689c7298b0c0c2dc1f2c6a67 200 - 95.672 ms
+Wed Aug 13 2025 17:13:48 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:13:48 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:14:4 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products/689c7298b0c0c2dc1f2c6a67 200 - 104.899 ms
+Wed Aug 13 2025 17:14:48 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products 200 - 185.358 ms
+Wed Aug 13 2025 17:15:26 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:15:27 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:15:31 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:15:31 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:15:45 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:15:46 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:15:57 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:15:57 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:16:1 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 17:16:2 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 17:16:2 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products/689c6d3c1de2973dfca2c05e/products 200 - 162.476 ms

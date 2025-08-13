@@ -5,9 +5,9 @@ export type TProduct = {
      name: string;
      price: number;
      stock?: number;
-     brand: Types.ObjectId;
      description: string;
      images: string[];
+     category: Types.ObjectId;
 
      // specefication fields
      gender: GENDER;

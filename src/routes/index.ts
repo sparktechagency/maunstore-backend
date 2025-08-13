@@ -69,9 +69,9 @@ const routes = [
           route: BookmarkRoutes,
      },
      {
-          path: "/categories",
+          path: '/categories',
           route: CategoryRoutes,
-     }
+     },
 ];
 
 routes.forEach((element) => {
