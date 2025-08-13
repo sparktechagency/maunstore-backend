@@ -8,9 +8,7 @@ import { FOLDER_NAMES } from '../../../enums/files';
 
 const router = express.Router();
 
-router.route('/')
-.post(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), fileUploadHandler(), parseFileData(FOLDER_NAMES.IMAGE), BrandControllers.createBrand)
-.get(BrandControllers.getBrands);
+router.route('/').post(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), fileUploadHandler(), parseFileData(FOLDER_NAMES.IMAGE), BrandControllers.createBrand).get(BrandControllers.getBrands);
 
 router
      .route('/:id')

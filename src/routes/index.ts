@@ -64,9 +64,9 @@ const routes = [
           route: MessageRoutes,
      },
      {
-          path: "/bookmarks",
-          route: BookmarkRoutes
-     }
+          path: '/bookmarks',
+          route: BookmarkRoutes,
+     },
 ];
 
 routes.forEach((element) => {
