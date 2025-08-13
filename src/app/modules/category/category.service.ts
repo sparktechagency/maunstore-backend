@@ -45,7 +45,13 @@ const updateCategoryById = async (categoryId: string, updatedPayload: Partial<TC
     return result;
 }
 
-
+const deleteCategoryByIdFromDB = async (categoryId: string) => {
+    const result = await Category.findByIdAndDelete(categoryId);
+    if (!result) {
+        throw new AppError(400, "Failed to delete this category")
+    };
+    return result;
+}
 
 export const CategoryServices = {
     createCategoryToDB,
@@ -53,4 +59,5 @@ export const CategoryServices = {
     getCategoryByIdFromDB,
     getCategoryByBrandsFromDB,
     updateCategoryById,
+    deleteCategoryByIdFromDB,
 }
