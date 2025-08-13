@@ -23,7 +23,21 @@ const getAllCategories = catchAsync(async (req, res) => {
     })
 })
 
+const getCategoryById = catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const result = await CategoryServices.getCategoryByIdFromDB(id);
+    sendResponse(res, {
+        success: true,
+        statusCode: 200,
+        message: "Category is retrieved successfully",
+        data: result,
+    })
+})
+
+
+
 export const CategoryControllers = {
     createCategory,
     getAllCategories,
+    getCategoryById,
 }
