@@ -1,5 +1,5 @@
 {
-     "name": "assignment-2-l2",
+     "name": "muanstore-watch",
      "version": "1.0.0",
      "main": "index.js",
      "scripts": {
@@ -14,7 +14,7 @@
           "start": "node dist/server.ts"
      },
      "keywords": [],
-     "author": "",
+     "author": "Moshfiqur Rahman",
      "license": "ISC",
      "description": "",
      "dependencies": {

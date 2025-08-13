@@ -1,9 +1,0 @@
-Thu Jul 24 2025 9:21:13 [SERVER-NAME] error: 10.10.7.111 - GET /favicon.ico 404 - 1.016 ms
-Thu Jul 24 2025 9:22:35 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/banners 401 - 3.778 ms
-Thu Jul 24 2025 9:31:24 [SERVER-NAME] error: 10.10.7.111 - PATCH /api/v1/banner/6836dee8b1d85a15de5d8f89/status 404 - 12.215 ms
-Thu Jul 24 2025 9:31:29 [SERVER-NAME] error: 10.10.7.111 - PATCH /api/v1/banners/6836dee8b1d85a15de5d8f89/status 400 - 175.687 ms
-Thu Jul 24 2025 9:34:48 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/banners/all-banners 401 - 9.704 ms
-Thu Jul 24 2025 9:35:3 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/banners/all-banners 401 - 2.571 ms
-Thu Jul 24 2025 9:35:51 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/banners 404 - 174.431 ms
-Thu Jul 24 2025 9:36:55 [SERVER-NAME] error: 10.10.7.111 - DELETE /api/v1/banner/6881a680d772f4744cf52c3d 404 - 0.503 ms
-Thu Jul 24 2025 9:38:8 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/banners/all-banners 404 - 411.315 ms

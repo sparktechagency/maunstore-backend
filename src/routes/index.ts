@@ -11,6 +11,7 @@ import { ProductRoutes } from '../app/modules/product/product.route';
 import { ReviewRoutes } from '../app/modules/review/review.routes';
 import { ChatRoutes } from '../app/modules/chat/chat.route';
 import { MessageRoutes } from '../app/modules/message/message.route';
+import { BookmarkRoutes } from '../app/modules/bookmark/bookmark.route';
 
 const router = express.Router();
 const routes = [
@@ -62,6 +63,10 @@ const routes = [
           path: '/messages',
           route: MessageRoutes,
      },
+     {
+          path: "/bookmarks",
+          route: BookmarkRoutes
+     }
 ];
 
 routes.forEach((element) => {
