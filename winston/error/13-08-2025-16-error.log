@@ -1,0 +1,5 @@
+Wed Aug 13 2025 16:46:0 [SERVER-NAME] error: 10.10.7.111 - POST /api/v1/categories 401 - 4.999 ms
+Wed Aug 13 2025 16:46:9 [SERVER-NAME] error: 10.10.7.111 - POST /api/v1/categories 400 - 119.101 ms
+Wed Aug 13 2025 16:51:31 [SERVER-NAME] error: 10.10.7.111 - PATCH /api/v1/categories/689c6d1f1b6ebc982cbd94aa 401 - 4.470 ms
+Wed Aug 13 2025 16:55:13 [SERVER-NAME] error: 10.10.7.111 - DELETE /api/v1/categories/689c6d1f1b6ebc982cbd94aa 401 - 4.028 ms
+Wed Aug 13 2025 16:55:17 [SERVER-NAME] error: 10.10.7.111 - DELETE /api/v1/categories/689c6d1f1b6ebc982cbd94aa 404 - 78.218 ms

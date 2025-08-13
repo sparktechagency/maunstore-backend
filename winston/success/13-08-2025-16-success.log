@@ -1,0 +1,30 @@
+Wed Aug 13 2025 16:43:33 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 16:43:34 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 16:43:38 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 16:43:39 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 16:43:42 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 16:43:43 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 16:43:45 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 16:43:46 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 16:45:39 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/brands 200 - 239.984 ms
+Wed Aug 13 2025 16:46:51 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 16:46:53 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 16:46:55 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/categories 200 - 1592.880 ms
+Wed Aug 13 2025 16:47:20 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 16:47:22 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 16:47:24 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/categories 200 - 251.204 ms
+Wed Aug 13 2025 16:48:4 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/categories 200 - 216.010 ms
+Wed Aug 13 2025 16:48:42 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/categories/689c6d1f1b6ebc982cbd94aa 200 - 130.080 ms
+Wed Aug 13 2025 16:51:37 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/categories/689c6d1f1b6ebc982cbd94aa 200 - 159.858 ms
+Wed Aug 13 2025 16:52:11 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 16:52:12 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 16:52:14 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/categories/689c6d1f1b6ebc982cbd94aa 200 - 168.225 ms
+Wed Aug 13 2025 16:52:24 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/categories/689c6d1f1b6ebc982cbd94aa 200 - 155.377 ms
+Wed Aug 13 2025 16:52:30 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/categories/689c6d1f1b6ebc982cbd94aa 200 - 152.728 ms
+Wed Aug 13 2025 16:52:55 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/categories/689c6d1f1b6ebc982cbd94aa 200 - 151.493 ms
+Wed Aug 13 2025 16:53:5 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 16:53:6 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Wed Aug 13 2025 16:53:6 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/categories/689c6d1f1b6ebc982cbd94aa 200 - 359.692 ms
+Wed Aug 13 2025 16:55:4 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/categories 200 - 80.429 ms
+Wed Aug 13 2025 16:55:46 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 16:55:47 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m

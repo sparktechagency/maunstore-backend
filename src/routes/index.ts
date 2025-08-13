@@ -12,6 +12,7 @@ import { ReviewRoutes } from '../app/modules/review/review.routes';
 import { ChatRoutes } from '../app/modules/chat/chat.route';
 import { MessageRoutes } from '../app/modules/message/message.route';
 import { BookmarkRoutes } from '../app/modules/bookmark/bookmark.route';
+import { CategoryRoutes } from '../app/modules/category/category.route';
 
 const router = express.Router();
 const routes = [
@@ -67,6 +68,10 @@ const routes = [
           path: '/bookmarks',
           route: BookmarkRoutes,
      },
+     {
+          path: "/categories",
+          route: CategoryRoutes,
+     }
 ];
 
 routes.forEach((element) => {

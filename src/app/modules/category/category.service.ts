@@ -11,6 +11,7 @@ const createCategoryToDB = async (payload: TCategory) => {
         };
         throw new AppError(400, "Failed to create category")
     }
+    return result;
 };
 
 const getAllCategoriesFromDB = async () => {
@@ -38,7 +39,7 @@ const getCategoryByBrandsFromDB = async (brandId: string) => {
 }
 
 const updateCategoryById = async (id: string, updatedPayload: Partial<TCategory>) => {
-    const result = await Category.findByIdAndUpdate(id, { updatedPayload }, { new: true });
+    const result = await Category.findByIdAndUpdate(id, updatedPayload , { new: true });
     if (!result) {
         throw new AppError(400, "Failed to update category")
     };
