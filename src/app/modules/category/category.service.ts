@@ -21,7 +21,16 @@ const getAllCategoriesFromDB = async () => {
     return data;
 }
 
+const getCategoryByIdFromDB = async (id: string) => {
+    const category = await Category.findById(id);
+    if (!category) {
+        throw new AppError(404, "No category is found in the database")
+    };
+    return category;
+}
+
 export const CategoryServices = {
     createCategoryToDB,
     getAllCategoriesFromDB,
+    getCategoryByIdFromDB,
 }
