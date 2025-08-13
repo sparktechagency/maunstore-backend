@@ -13,6 +13,15 @@ const createCategoryToDB = async (payload: TCategory) => {
     }
 };
 
+const getAllCategoriesFromDB = async () => {
+    const data = await Category.find();
+    if (!data || data.length === 0) {
+        throw new AppError(404, "No category are found in the database")
+    };
+    return data;
+}
+
 export const CategoryServices = {
     createCategoryToDB,
+    getAllCategoriesFromDB,
 }
