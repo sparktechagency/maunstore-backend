@@ -37,16 +37,16 @@ const getCategoryByBrandsFromDB = async (brandId: string) => {
     return result;
 }
 
-const updateCategoryById = async (categoryId: string, updatedPayload: Partial<TCategory>) => {
-    const result = await Category.findByIdAndUpdate(categoryId, { updatedPayload }, { new: true });
+const updateCategoryById = async (id: string, updatedPayload: Partial<TCategory>) => {
+    const result = await Category.findByIdAndUpdate(id, { updatedPayload }, { new: true });
     if (!result) {
         throw new AppError(400, "Failed to update category")
     };
     return result;
 }
 
-const deleteCategoryByIdFromDB = async (categoryId: string) => {
-    const result = await Category.findByIdAndDelete(categoryId);
+const deleteCategoryByIdFromDB = async (id: string) => {
+    const result = await Category.findByIdAndDelete(id);
     if (!result) {
         throw new AppError(400, "Failed to delete this category")
     };

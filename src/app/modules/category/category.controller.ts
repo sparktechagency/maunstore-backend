@@ -45,9 +45,22 @@ const getCategoryByBrands = catchAsync(async (req, res) => {
     })
 })
 
+const updateCategoryById = catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const updatedData = req.body;
+    const result = await CategoryServices.updateCategoryById(id, updatedData);
+    sendResponse(res, {
+        success: true,
+        statusCode: 200,
+        message: "Category is updated successfully",
+        data: result,
+    })
+})
+
 export const CategoryControllers = {
     createCategory,
     getAllCategories,
     getCategoryById,
     getCategoryByBrands,
+    updateCategoryById,
 }
