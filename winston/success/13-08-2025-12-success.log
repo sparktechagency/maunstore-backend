@@ -6,3 +6,4 @@ Wed Aug 13 2025 12:18:25 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/chats 200
 Wed Aug 13 2025 12:19:34 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/messages/6882201336e3e16045e5eab6 200 - 492.996 ms
 Wed Aug 13 2025 12:23:8 [SERVER-NAME] info: 10.10.7.111 - PATCH /api/v1/chats//mark-chat-as-read/6882201336e3e16045e5eab6 200 - 159.695 ms
 Wed Aug 13 2025 12:26:49 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Wed Aug 13 2025 12:26:50 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
