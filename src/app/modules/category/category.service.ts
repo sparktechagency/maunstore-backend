@@ -37,9 +37,20 @@ const getCategoryByBrandsFromDB = async (brandId: string) => {
     return result;
 }
 
+const updateCategoryById = async (categoryId: string, updatedPayload: Partial<TCategory>) => {
+    const result = await Category.findByIdAndUpdate(categoryId, { updatedPayload }, { new: true });
+    if (!result) {
+        throw new AppError(400, "Failed to update category")
+    };
+    return result;
+}
+
+
+
 export const CategoryServices = {
     createCategoryToDB,
     getAllCategoriesFromDB,
     getCategoryByIdFromDB,
     getCategoryByBrandsFromDB,
+    updateCategoryById,
 }
