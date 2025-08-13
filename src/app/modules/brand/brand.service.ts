@@ -16,6 +16,7 @@ const createBrandToDB = async (payload: TBrand) => {
      return result;
 };
 
+
 const getBrandsFromDB = async (query: any) => {
      const brandQuery = Brand.find();
      const queryBuilder = new QueryBuilder(brandQuery, query);
