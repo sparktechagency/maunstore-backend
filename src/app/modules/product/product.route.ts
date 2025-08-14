@@ -13,11 +13,11 @@ router
      .post(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), fileUploadHandler(), parseMultipleFileData(FOLDER_NAMES.IMAGES), ProductControllers.createProduct)
      .get(auth(USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN), ProductControllers.getProducts);
 
-router.get('/:categoryId/products', ProductControllers.getProductsByBrand);
+router.get('/:categoryId/products', auth(USER_ROLES.USER, USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN), ProductControllers.getProductsByBrand);
 
 router
      .route('/:id')
-     .get(ProductControllers.getProductById)
+     .get(auth(USER_ROLES.USER, USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN), ProductControllers.getProductById)
      .patch(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), fileUploadHandler(), parseMultipleFileData(FOLDER_NAMES.IMAGES), ProductControllers.updateProductById)
      .delete(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), fileUploadHandler(), parseMultipleFileData(FOLDER_NAMES.IMAGES), ProductControllers.deleteProductById);
 

@@ -25,7 +25,8 @@ const getProducts = catchAsync(async (req, res) => {
 
 const getProductsByBrand = catchAsync(async (req, res) => {
      const { categoryId } = req.params;
-     const result = await ProductServices.getProductsByCategoryFromDB(categoryId);
+     const { id: userId } = req.user;
+     const result = await ProductServices.getProductsByCategoryFromDB(categoryId, userId);
 
      sendResponse(res, {
           statusCode: 200,
@@ -37,7 +38,8 @@ const getProductsByBrand = catchAsync(async (req, res) => {
 
 const getProductById = catchAsync(async (req, res) => {
      const { id } = req.params;
-     const result = await ProductServices.getProductByIdFromDB(id);
+     const { id: userId } = req.user;
+     const result = await ProductServices.getProductByIdFromDB(id, userId);
      sendResponse(res, {
           success: true,
           statusCode: 200,
