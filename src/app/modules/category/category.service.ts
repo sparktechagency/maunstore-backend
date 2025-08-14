@@ -1,5 +1,6 @@
 import AppError from '../../../errors/AppError';
 import unlinkFile from '../../../shared/unlinkFile';
+import { Product } from '../product/product.model';
 import { TCategory } from './category.interface';
 import { Category } from './category.model';
 
@@ -31,11 +32,24 @@ const getCategoryByIdFromDB = async (id: string) => {
 };
 
 const getCategoryByBrandsFromDB = async (brandId: string) => {
-     const result = await Category.find({ brandId }).populate({ path: 'brandId' });
-     if (!result || result.length === 0) {
-          throw new AppError(404, 'No category are founds for this brand');
-     }
-     return result;
+  const result = await Category.find({ brandId }).populate({ path: 'brandId' });
+
+  if (!result || result.length === 0) {
+    throw new AppError(404, 'No categories are found for this brand');
+  }
+
+ 
+  const categoriesWithProductCount = await Promise.all(
+    result.map(async (category) => {
+      const totalProducts = await Product.countDocuments({ category: category._id });
+      return {
+        ...category.toObject(),
+        totalProducts,
+      };
+    })
+  );
+
+  return categoriesWithProductCount;
 };
 
 const updateCategoryById = async (id: string, updatedPayload: Partial<TCategory>) => {

@@ -1,0 +1,6 @@
+Thu Aug 14 2025 11:0:2 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Aug 14 2025 11:0:4 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Thu Aug 14 2025 11:0:8 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Aug 14 2025 11:0:8 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Thu Aug 14 2025 11:0:13 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/categories/brands/6881d8c2af82b77d62a2c270 200 - 158.709 ms
+Thu Aug 14 2025 11:0:28 [SERVER-NAME] info: 10.10.7.111 - GET /api/v1/products/689c6d3c1de2973dfca2c05e/products 200 - 213.895 ms
