@@ -17,36 +17,34 @@ const createBrandToDB = async (payload: TBrand) => {
      return result;
 };
 
-
 const getBrandsFromDB = async (query: any) => {
-  const brandQuery = Brand.find();
-  const queryBuilder = new QueryBuilder(brandQuery, query);
+     const brandQuery = Brand.find();
+     const queryBuilder = new QueryBuilder(brandQuery, query);
 
-  queryBuilder.search(['name']).filter().sort().paginate().fields();
+     queryBuilder.search(['name']).filter().sort().paginate().fields();
 
-  const brands = await queryBuilder.modelQuery;
+     const brands = await queryBuilder.modelQuery;
 
-  if (!brands.length) {
-    throw new AppError(StatusCodes.NOT_FOUND, 'No brands are found in the database');
-  }
+     if (!brands.length) {
+          throw new AppError(StatusCodes.NOT_FOUND, 'No brands are found in the database');
+     }
 
- 
-  const brandsWithCategoryCount = await Promise.all(
-    brands.map(async (brand) => {
-      const totalCategories = await Category.countDocuments({ brandId: brand._id });
-      return {
-        ...brand.toObject(),
-        totalCategories, 
-      };
-    }),
-  );
+     const brandsWithCategoryCount = await Promise.all(
+          brands.map(async (brand) => {
+               const totalCategories = await Category.countDocuments({ brandId: brand._id });
+               return {
+                    ...brand.toObject(),
+                    totalCategories,
+               };
+          }),
+     );
 
-  const meta = await queryBuilder.countTotal();
+     const meta = await queryBuilder.countTotal();
 
-  return {
-    meta,
-    data: brandsWithCategoryCount,
-  };
+     return {
+          meta,
+          data: brandsWithCategoryCount,
+     };
 };
 
 const getBrandByIdFromDB = async (id: string) => {

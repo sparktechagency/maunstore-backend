@@ -6,9 +6,9 @@ import { Bookmark } from './bookmark.model';
 const createBookmarkToDB = async (payload: TBookmark, userId: any) => {
      payload.userId = userId;
 
-     const product=await Product.findById(payload.productId);
-     if(!product){
-          throw new AppError(404,"No product is found for this ID")
+     const product = await Product.findById(payload.productId);
+     if (!product) {
+          throw new AppError(404, 'No product is found for this ID');
      }
 
      // check if bookmark already exists
