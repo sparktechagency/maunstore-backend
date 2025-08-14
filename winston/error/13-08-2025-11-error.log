@@ -1,2 +1,0 @@
-Wed Aug 13 2025 11:0:49 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/chats/create-chat 404 - 12.000 ms
-Wed Aug 13 2025 11:1:8 [SERVER-NAME] error: 10.10.7.111 - POST /api/v1/chats/create-chat 400 - 252.786 ms

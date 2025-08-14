@@ -1,0 +1,8 @@
+Thu Aug 14 2025 16:35:54 [SERVER-NAME] error: 10.10.7.38 - GET /api/v1/categories/brands/6881d16c854a88339b5f8a07 404 - 60.385 ms
+Thu Aug 14 2025 16:36:30 [SERVER-NAME] error: 10.10.7.38 - GET /api/v1/categories/brands/6881d16c854a88339b5f8a07 404 - 44.805 ms
+Thu Aug 14 2025 16:36:30 [SERVER-NAME] error: 10.10.7.38 - GET /api/v1/categories/brands/6881d16c854a88339b5f8a07 404 - 45.745 ms
+Thu Aug 14 2025 16:36:31 [SERVER-NAME] error: 10.10.7.38 - GET /api/v1/categories/brands/6881d16c854a88339b5f8a07 404 - 55.994 ms
+Thu Aug 14 2025 16:36:32 [SERVER-NAME] error: 10.10.7.38 - GET /api/v1/categories/brands/6881d16c854a88339b5f8a07 404 - 44.957 ms
+Thu Aug 14 2025 16:36:32 [SERVER-NAME] error: 10.10.7.38 - GET /api/v1/categories/brands/6881d16c854a88339b5f8a07 404 - 44.647 ms
+Thu Aug 14 2025 16:38:2 [SERVER-NAME] error: 10.10.7.38 - GET /api/v1/products/689c708605ba51a097f3cf47/products 404 - 115.732 ms
+Thu Aug 14 2025 16:58:6 [SERVER-NAME] error: 10.10.7.38 - GET /api/v1/bookmarks 401 - 3.745 ms
