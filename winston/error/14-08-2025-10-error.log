@@ -1,2 +1,0 @@
-Thu Aug 14 2025 10:42:54 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/products/689c6d3c1de2973dfca2c05e/products 401 - 7.958 ms
-Thu Aug 14 2025 10:46:7 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/products/689c7298b0c0c2dc1f2c6a67 401 - 6.480 ms
