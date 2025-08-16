@@ -15,4 +15,5 @@ export type TProduct = {
      movement: string;
      caseDiameter: string;
      caseThickness: string;
+     createdBy?: Types.ObjectId;
 };

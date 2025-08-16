@@ -7,7 +7,8 @@ import { StatusCodes } from 'http-status-codes';
 import QueryBuilder from '../../builder/QueryBuilder';
 import { Bookmark } from '../bookmark/bookmark.model';
 
-const createProductToDB = async (payload: TProduct) => {
+const createProductToDB = async (payload: TProduct, id: any) => {
+     payload.createdBy = id;
      const result = await Product.create(payload);
      if (!result) {
           unlinkFile(payload.images);

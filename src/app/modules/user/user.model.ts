@@ -43,6 +43,10 @@ const userSchema = new Schema<IUser, UserModel>(
                type: String,
                default: '',
           },
+          enterprise: {
+               type: String,
+               required: false,
+          },
           status: {
                type: String,
                enum: Object.values(USER_STATUS),

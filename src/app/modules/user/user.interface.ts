@@ -10,6 +10,7 @@ export type IUser = {
      address?: string;
      countryCode?: string;
      profileImage?: string;
+     enterprise?: string;
      status: USER_STATUS;
      verified: boolean;
      authentication?: {

@@ -1,0 +1,20 @@
+Sat Aug 16 2025 16:11:1 [SERVER-NAME] info: 119.148.20.81 - GET /api/v1/bookmarks 200 - 173.153 ms
+Sat Aug 16 2025 16:11:6 [SERVER-NAME] info: 119.148.20.81 - GET /api/v1/news?page=1&limit=10 200 - 165.007 ms
+Sat Aug 16 2025 16:11:6 [SERVER-NAME] info: 119.148.20.81 - GET /image/image-1753351935104.png 200 - 5.245 ms
+Sat Aug 16 2025 16:11:6 [SERVER-NAME] info: 119.148.20.81 - GET /image/image-1753351926298.png 200 - 4.613 ms
+Sat Aug 16 2025 16:22:19 [SERVER-NAME] info: 119.148.20.81 - GET /api/v1/products/689c7298b0c0c2dc1f2c6a67 200 - 347.598 ms
+Sat Aug 16 2025 16:40:32 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Sat Aug 16 2025 16:40:33 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Sat Aug 16 2025 16:40:34 [SERVER-NAME] info: [34mA user connected[39m
+Sat Aug 16 2025 16:43:9 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Sat Aug 16 2025 16:43:10 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Sat Aug 16 2025 16:43:11 [SERVER-NAME] info: [34mA user connected[39m
+Sat Aug 16 2025 16:44:10 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Sat Aug 16 2025 16:44:11 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Sat Aug 16 2025 16:44:12 [SERVER-NAME] info: [34mA user connected[39m
+Sat Aug 16 2025 16:44:39 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Sat Aug 16 2025 16:44:40 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Sat Aug 16 2025 16:44:41 [SERVER-NAME] info: [34mA user connected[39m
+Sat Aug 16 2025 16:44:56 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Sat Aug 16 2025 16:44:57 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Sat Aug 16 2025 16:44:58 [SERVER-NAME] info: [34mA user connected[39m

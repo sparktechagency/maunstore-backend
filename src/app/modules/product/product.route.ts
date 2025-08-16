@@ -10,7 +10,10 @@ const router = express.Router();
 
 router
      .route('/')
-     .post(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), fileUploadHandler(), parseMultipleFileData(FOLDER_NAMES.IMAGES), ProductControllers.createProduct)
+     .post(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN),
+          fileUploadHandler(),
+          parseMultipleFileData(FOLDER_NAMES.IMAGES),
+          ProductControllers.createProduct)
      .get(auth(USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN), ProductControllers.getProducts);
 
 router.get('/:categoryId/products', auth(USER_ROLES.USER, USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN), ProductControllers.getProductsByBrand);

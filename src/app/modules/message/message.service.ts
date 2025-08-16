@@ -55,10 +55,10 @@ const sendMessageToDB = async (payload: IMessage): Promise<IMessage> => {
      );
 
      // Get populated message for socket
-     const populatedMessage = await Message.findById(response._id).populate('sender', 'fullName email profile').populate({ path: 'productId' }).lean();
+     const populatedMessage = await Message.findById(response._id).populate('sender', 'name email profileImage').populate({ path: 'productId' }).lean();
 
      // Get updated chat with populated data for chat list update
-     const populatedChat = await Chat.findById(response?.chatId).populate('participants', 'fullName email profile').populate('lastMessage').lean();
+     const populatedChat = await Chat.findById(response?.chatId).populate('participants', 'name email profileImage').populate('lastMessage').lean();
 
      // Socket emissions
      //@ts-ignore
@@ -125,10 +125,10 @@ const getMessagesFromDB = async (
      const response = await Message.find({ chatId })
           .populate({
                path: 'sender',
-               select: 'fullName email profile',
+               select: 'name email profileImage',
           })
-          .populate({ path: 'reactions.userId', select: 'fullName' })
-          .populate({ path: 'pinnedBy', select: 'fullName' })
+          .populate({ path: 'reactions.userId', select: 'name' })
+          .populate({ path: 'pinnedBy', select: 'name' })
           .populate({ path: 'productId' })
           .skip(skip)
           .limit(limitInt)
@@ -157,9 +157,9 @@ const getMessagesFromDB = async (
      })
           .populate({
                path: 'sender',
-               select: 'fullName email profile',
+               select: 'name email profileImage',
           })
-          .populate({ path: 'pinnedBy', select: 'fullName' })
+          .populate({ path: 'pinnedBy', select: 'name' })
           .sort({ pinnedAt: -1 });
 
      const formattedMessages = response.map((message) => ({
