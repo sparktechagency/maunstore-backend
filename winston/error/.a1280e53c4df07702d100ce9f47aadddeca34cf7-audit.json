@@ -1,20 +1,25 @@
 {
-     "keep": {
-          "days": true,
-          "amount": 1
-     },
-     "auditLog": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\error\\.a1280e53c4df07702d100ce9f47aadddeca34cf7-audit.json",
-     "files": [
-          {
-               "date": 1755180902389,
-               "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\error\\14-08-2025-20-error.log",
-               "hash": "f79cef42515624efc718750def91b54c8a51fc2a0dfd9af2cd43ba917b4bd8bb"
-          },
-          {
-               "date": 1755255231439,
-               "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\error\\15-08-2025-16-error.log",
-               "hash": "de054bb68f9da4ebda63e348f068dbc85cb905b685d0da6aeaec1bd880aa7e74"
-          }
-     ],
-     "hashType": "sha256"
+    "keep": {
+        "days": true,
+        "amount": 1
+    },
+    "auditLog": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\error\\.a1280e53c4df07702d100ce9f47aadddeca34cf7-audit.json",
+    "files": [
+        {
+            "date": 1755255231439,
+            "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\error\\15-08-2025-16-error.log",
+            "hash": "de054bb68f9da4ebda63e348f068dbc85cb905b685d0da6aeaec1bd880aa7e74"
+        },
+        {
+            "date": 1755332920023,
+            "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\error\\16-08-2025-14-error.log",
+            "hash": "3dd1b621467b79b0a4baccafc5384cf8726c4c53f24a8915b65eb5a04a2a862b"
+        },
+        {
+            "date": 1755335113655,
+            "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\error\\16-08-2025-15-error.log",
+            "hash": "a7d278efc0ae28787cc8aaf0fb5c8b337a18645fdce2bc8394291bf311ecbb96"
+        }
+    ],
+    "hashType": "sha256"
 }

@@ -1,45 +1,40 @@
 {
-     "keep": {
-          "days": true,
-          "amount": 1
-     },
-     "auditLog": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\.3c2fbd2af591f2a7fc15cf4d5ebf57f1296b346d-audit.json",
-     "files": [
-          {
-               "date": 1755169921569,
-               "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\14-08-2025-17-success.log",
-               "hash": "4070f0f23a3ab919318e297a4c15bafa23d089474034d4ecc3eb35dd5cd38cf3"
-          },
-          {
-               "date": 1755173037389,
-               "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\14-08-2025-18-success.log",
-               "hash": "57d05ff9a81564dc420391da8c43728c0f3a50f1ce0892aba002884c7393f9b1"
-          },
-          {
-               "date": 1755179241548,
-               "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\14-08-2025-19-success.log",
-               "hash": "fe207cf8b0de237ce378bb2ade80e08e3a45b86d6e7dedccacc512fb413bfa11"
-          },
-          {
-               "date": 1755180220723,
-               "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\14-08-2025-20-success.log",
-               "hash": "3a92eae4c8bcbed5479588833ce5766282e929bc5519b6ab3740d212bfafbd9f"
-          },
-          {
-               "date": 1755230365027,
-               "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\15-08-2025-09-success.log",
-               "hash": "99a3b72460b04ddd8c05260b8b809b766ee41bf75e1b11eaa4f6f857f31b84d4"
-          },
-          {
-               "date": 1755249900739,
-               "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\15-08-2025-15-success.log",
-               "hash": "fa7d0915c7b9eb993b87038b55cf515c83588dca142075abbf6647d6c1c6584e"
-          },
-          {
-               "date": 1755255231437,
-               "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\15-08-2025-16-success.log",
-               "hash": "9078ca1ffdecefc1444e084e1d0f14971769ab99ea7d3f6d16b1939f09e082bd"
-          }
-     ],
-     "hashType": "sha256"
+    "keep": {
+        "days": true,
+        "amount": 1
+    },
+    "auditLog": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\.3c2fbd2af591f2a7fc15cf4d5ebf57f1296b346d-audit.json",
+    "files": [
+        {
+            "date": 1755249900739,
+            "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\15-08-2025-15-success.log",
+            "hash": "fa7d0915c7b9eb993b87038b55cf515c83588dca142075abbf6647d6c1c6584e"
+        },
+        {
+            "date": 1755255231437,
+            "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\15-08-2025-16-success.log",
+            "hash": "9078ca1ffdecefc1444e084e1d0f14971769ab99ea7d3f6d16b1939f09e082bd"
+        },
+        {
+            "date": 1755327272215,
+            "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\16-08-2025-12-success.log",
+            "hash": "c6e25d651b910411a057c046d1732b953f5eefce6218451b05e91d2abbea5283"
+        },
+        {
+            "date": 1755328872488,
+            "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\16-08-2025-13-success.log",
+            "hash": "113b4b6a8da321fe092d0b1600ec16c48518856b470a08708e7e8f1ad9cfa10c"
+        },
+        {
+            "date": 1755332906761,
+            "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\16-08-2025-14-success.log",
+            "hash": "7cb57d64416eec1a3c56c7aaaa148bd37023d32f4871da5236af6c7d776d2430"
+        },
+        {
+            "date": 1755335002247,
+            "name": "D:\\Moshfiqur Rahman\\Muanstore_Raconli_Group_Watch\\winston\\success\\16-08-2025-15-success.log",
+            "hash": "6b73ae12dad61e170830768194333304c740b8cddaf95fc5df72520eca946e85"
+        }
+    ],
+    "hashType": "sha256"
 }

@@ -7,6 +7,6 @@ const router = express.Router();
 
 router.route('/').post(auth(USER_ROLES.USER), BookmarkControllers.createBookmark).get(auth(USER_ROLES.USER), BookmarkControllers.getBookmarks);
 
-router.route('/:bookmarkId').delete(auth(USER_ROLES.USER), BookmarkControllers.deleteBookmarkById);
+router.route('/:productId').delete(auth(USER_ROLES.USER), BookmarkControllers.deleteBookmarkById);
 
 export const BookmarkRoutes = router;

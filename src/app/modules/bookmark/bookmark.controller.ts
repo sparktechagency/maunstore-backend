@@ -25,8 +25,8 @@ const getBookmarks = catchAsync(async (req, res) => {
 });
 
 const deleteBookmarkById = catchAsync(async (req, res) => {
-     const { bookmarkId } = req.params;
-     const result = await BookmarkServices.deleteBookmarkByIdFromDB(bookmarkId);
+     const { productId } = req.params;
+     const result = await BookmarkServices.deleteBookmarkByIdFromDB(productId);
      sendResponse(res, {
           success: true,
           statusCode: 200,

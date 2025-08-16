@@ -87,8 +87,8 @@ const getBookmarksFromDB = async () => {
      return result;
 };
 
-const deleteBookmarkByIdFromDB = async (bookmarkId: string) => {
-     const result = await Bookmark.findByIdAndDelete(bookmarkId);
+const deleteBookmarkByIdFromDB = async (productId: string) => {
+     const result = await Bookmark.findOneAndDelete({ productId });
      if (!result) {
           throw new AppError(400, 'Failed to delete bookmark');
      }
