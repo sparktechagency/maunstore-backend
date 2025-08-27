@@ -4,22 +4,22 @@ import { IMessage } from './message.interface';
 import { Message } from './message.model';
 import { Types } from 'mongoose';
 
-// Enhanced version with better error handling and logging
+// enhanced version with better error handling and logging
 const sendMessageToDB = async (payload: IMessage): Promise<IMessage> => {
-     // Check if chat exists
+     // check if chat exists
      const chat = await Chat.findById(payload.chatId);
      if (!chat) {
           throw new AppError(404, 'Chat not found');
      }
 
-     // Verify sender is participant
+     // verify sender is participant
      const isSenderParticipant = chat.participants.some((p) => p.toString() === payload.sender.toString());
 
      if (!isSenderParticipant) {
           throw new AppError(403, 'Sender is not a participant in this chat');
      }
 
-     // Check if sender is blocked
+     // check if sender is blocked
      const isBlocked = chat.blockedUsers?.some(
           (block: any) =>
                (block.blocker.toString() === payload.sender.toString() && chat.participants.some((p) => p.toString() === block.blocked.toString())) ||
@@ -30,20 +30,19 @@ const sendMessageToDB = async (payload: IMessage): Promise<IMessage> => {
           throw new AppError(403, 'Cannot send message to blocked user');
      }
 
-     // Create message with proper defaults
+     // create message with proper defaults
      const messagePayload = {
           ...payload,
           read: false, // Always false for new messages
           readAt: null,
-          productId: payload.productId || null,
           isDeleted: false,
           createdAt: new Date(),
      };
 
      const response = await Message.create(messagePayload);
 
-     // Update chat - remove ALL participants from readBy except sender
-     // This ensures unread count is calculated correctly
+     // update chat - remove ALL participants from readBy except sender
+     // this ensures unread count is calculated correctly
      await Chat.findByIdAndUpdate(
           response?.chatId,
           {
@@ -54,33 +53,33 @@ const sendMessageToDB = async (payload: IMessage): Promise<IMessage> => {
           { new: true },
      );
 
-     // Get populated message for socket
-     const populatedMessage = await Message.findById(response._id).populate('sender', 'name email profileImage').populate({ path: 'productId' }).lean();
+     // get populated message for socket
+     const populatedMessage = await Message.findById(response._id).populate('sender', 'name email profileImage').lean();
 
-     // Get updated chat with populated data for chat list update
+     // get updated chat with populated data for chat list update
      const populatedChat = await Chat.findById(response?.chatId).populate('participants', 'name email profileImage').populate('lastMessage').lean();
 
-     // Socket emissions
+     // socket emissions
      //@ts-ignore
      const io = global.io;
 
      if (chat.participants && io) {
           const otherParticipants = chat.participants.filter((participant) => participant && participant.toString() !== payload.sender.toString());
 
-          // Emit to each participant
+          // emit to each participant
           otherParticipants.forEach((participantId) => {
                const participantIdStr = participantId.toString();
 
-               // Emit new message
+               // emit new message
                io.emit(`newMessage::${participantIdStr}`, populatedMessage);
 
-               // Emit unread count update - let frontend handle the increment
+               // emit unread count update - let frontend handle the increment
                io.emit(`unreadCountUpdate::${participantIdStr}`, {
                     chatId: payload.chatId,
-                    action: 'increment', // Frontend should increment its local count
+                    action: 'increment', // frontend should increment its local count
                });
 
-               // Emit chat list update to move this chat to top
+               // emit chat list update to move this chat to top
                io.emit(`chatListUpdate::${participantIdStr}`, {
                     chatId: payload.chatId,
                     chat: populatedChat,
@@ -90,7 +89,7 @@ const sendMessageToDB = async (payload: IMessage): Promise<IMessage> => {
                });
           });
 
-          // Also emit chat list update to sender (to update their own chat list)
+          // also emit chat list update to sender (to update their own chat list)
           const senderIdStr = payload.sender.toString();
           io.emit(`chatListUpdate::${senderIdStr}`, {
                chatId: payload.chatId,
@@ -129,7 +128,6 @@ const getMessagesFromDB = async (
           })
           .populate({ path: 'reactions.userId', select: 'name' })
           .populate({ path: 'pinnedBy', select: 'name' })
-          .populate({ path: 'productId' })
           .skip(skip)
           .limit(limitInt)
           .sort({ createdAt: -1 });

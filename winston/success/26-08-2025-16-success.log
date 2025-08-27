@@ -1,0 +1,90 @@
+Tue Aug 26 2025 16:6:53 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/auth/resend-otp 204 - 0.137 ms
+Tue Aug 26 2025 16:6:54 [SERVER-NAME] info: 10.10.7.21 - POST /api/v1/auth/resend-otp 200 - 204.421 ms
+Tue Aug 26 2025 16:7:0 [SERVER-NAME] info: Mail send successfully
+Tue Aug 26 2025 16:7:39 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/auth/login 204 - 0.082 ms
+Tue Aug 26 2025 16:7:39 [SERVER-NAME] info: 10.10.7.21 - POST /api/v1/auth/login 200 - 504.731 ms
+Tue Aug 26 2025 16:7:39 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/users/profile 204 - 0.089 ms
+Tue Aug 26 2025 16:7:39 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/categories?limit=1000 204 - 0.063 ms
+Tue Aug 26 2025 16:7:40 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/products?page=1&limit=10 204 - 0.041 ms
+Tue Aug 26 2025 16:7:40 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/users/profile 200 - 187.018 ms
+Tue Aug 26 2025 16:7:40 [SERVER-NAME] info: 10.10.7.21 - GET /profileImage/20250820_084710-1756202019960.jpg 304 - 0.622 ms
+Tue Aug 26 2025 16:7:40 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/categories?limit=1000 304 - 283.944 ms
+Tue Aug 26 2025 16:7:40 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/products?page=1&limit=10 304 - 405.520 ms
+Tue Aug 26 2025 16:7:40 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/categories?page=1&limit=10 204 - 0.091 ms
+Tue Aug 26 2025 16:7:40 [SERVER-NAME] info: 10.10.7.21 - GET //images/6333055-1756096498745.png 200 - 2.539 ms
+Tue Aug 26 2025 16:7:40 [SERVER-NAME] info: 10.10.7.21 - GET //images/6333211-1756002754018.png 200 - 2.674 ms
+Tue Aug 26 2025 16:7:40 [SERVER-NAME] info: 10.10.7.21 - GET //images/6333211-1756017712839.png 200 - 2.037 ms
+Tue Aug 26 2025 16:7:40 [SERVER-NAME] info: 10.10.7.21 - GET //images/6333211-1755942207159.png 200 - 3.035 ms
+Tue Aug 26 2025 16:7:40 [SERVER-NAME] info: 10.10.7.21 - GET //images/6333211-1756016449369.png 200 - 2.843 ms
+Tue Aug 26 2025 16:7:40 [SERVER-NAME] info: 10.10.7.21 - GET //images/6333211-1756019303071.png 200 - 3.267 ms
+Tue Aug 26 2025 16:7:40 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/categories?page=1&limit=10 304 - 431.241 ms
+Tue Aug 26 2025 16:7:49 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/users/profile 204 - 0.242 ms
+Tue Aug 26 2025 16:7:49 [SERVER-NAME] info: 10.10.7.21 - GET //profileImage/20250820_084710-1756202019960.jpg 304 - 2.472 ms
+Tue Aug 26 2025 16:7:49 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/users/profile 304 - 232.099 ms
+Tue Aug 26 2025 16:7:54 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/news?page=1&limit=10 204 - 0.044 ms
+Tue Aug 26 2025 16:7:54 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/news?page=1&limit=10 304 - 206.887 ms
+Tue Aug 26 2025 16:7:54 [SERVER-NAME] info: 10.10.7.21 - GET //image/6333055-1756035321448.png 200 - 4.025 ms
+Tue Aug 26 2025 16:7:54 [SERVER-NAME] info: 10.10.7.21 - GET //image/6333055-1756033501057.png 200 - 4.493 ms
+Tue Aug 26 2025 16:7:54 [SERVER-NAME] info: 10.10.7.21 - GET //image/6333055-1756032223258.png 200 - 4.824 ms
+Tue Aug 26 2025 16:7:54 [SERVER-NAME] info: 10.10.7.21 - GET //image/image-1753351935104.png 200 - 5.117 ms
+Tue Aug 26 2025 16:7:54 [SERVER-NAME] info: 10.10.7.21 - GET //image/image-1753351926298.png 200 - 5.085 ms
+Tue Aug 26 2025 16:7:56 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/users/profile 204 - 0.043 ms
+Tue Aug 26 2025 16:7:56 [SERVER-NAME] info: 10.10.7.21 - GET //profileImage/20250820_084710-1756202019960.jpg 304 - 0.598 ms
+Tue Aug 26 2025 16:7:56 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/users/profile 304 - 194.611 ms
+Tue Aug 26 2025 16:8:8 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/brands?page=1&limit=10 204 - 0.117 ms
+Tue Aug 26 2025 16:8:8 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/categories?page=1&limit=10 204 - 0.067 ms
+Tue Aug 26 2025 16:8:8 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/categories?page=1&limit=10 304 - 319.338 ms
+Tue Aug 26 2025 16:8:8 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/brands?page=1&limit=10 304 - 325.142 ms
+Tue Aug 26 2025 16:8:8 [SERVER-NAME] info: 10.10.7.21 - GET //image/6333055-1756019516537.png 200 - 1.921 ms
+Tue Aug 26 2025 16:8:8 [SERVER-NAME] info: 10.10.7.21 - GET //image/untitled-1753340098502.png 200 - 2.434 ms
+Tue Aug 26 2025 16:8:8 [SERVER-NAME] info: 10.10.7.21 - GET //image/6333211-1756019565562.png 200 - 2.151 ms
+Tue Aug 26 2025 16:8:8 [SERVER-NAME] info: 10.10.7.21 - GET //image/6333211-1756019473965.png 200 - 2.593 ms
+Tue Aug 26 2025 16:8:8 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/brands?page=1&limit=10 304 - 310.597 ms
+Tue Aug 26 2025 16:8:9 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/users?page=1&limit=10 204 - 0.132 ms
+Tue Aug 26 2025 16:8:9 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/users?page=1&limit=10 200 - 300.003 ms
+Tue Aug 26 2025 16:8:9 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/users?page=1&limit=10 304 - 328.997 ms
+Tue Aug 26 2025 16:8:12 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/users/profile 204 - 0.040 ms
+Tue Aug 26 2025 16:8:12 [SERVER-NAME] info: 10.10.7.21 - GET //profileImage/20250820_084710-1756202019960.jpg 304 - 0.505 ms
+Tue Aug 26 2025 16:8:13 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/users/profile 304 - 253.356 ms
+Tue Aug 26 2025 16:11:3 [SERVER-NAME] info: [34mA user connected[39m
+Tue Aug 26 2025 16:11:14 [SERVER-NAME] info: [34mA user connected[39m
+Tue Aug 26 2025 16:12:3 [SERVER-NAME] info: [31mA user disconnect[39m
+Tue Aug 26 2025 16:13:11 [SERVER-NAME] info: [31mA user disconnect[39m
+Tue Aug 26 2025 16:25:11 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/users/profile 204 - 0.184 ms
+Tue Aug 26 2025 16:25:11 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/users/profile 304 - 167.873 ms
+Tue Aug 26 2025 16:25:15 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/users/profile 304 - 165.422 ms
+Tue Aug 26 2025 16:25:16 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/users/profile 204 - 0.045 ms
+Tue Aug 26 2025 16:25:16 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/users/profile 304 - 169.097 ms
+Tue Aug 26 2025 16:35:43 [SERVER-NAME] info: [34mA user connected[39m
+Tue Aug 26 2025 16:35:51 [SERVER-NAME] info: [31mA user disconnect[39m
+Tue Aug 26 2025 16:35:51 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/users/profile 204 - 0.126 ms
+Tue Aug 26 2025 16:35:51 [SERVER-NAME] info: [34mA user connected[39m
+Tue Aug 26 2025 16:35:51 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/users/profile 304 - 165.660 ms
+Tue Aug 26 2025 16:35:51 [SERVER-NAME] info: 10.10.7.21 - GET /profileImage/20250820_084710-1756202019960.jpg 304 - 0.418 ms
+Tue Aug 26 2025 16:36:7 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/users/profile 204 - 0.046 ms
+Tue Aug 26 2025 16:36:7 [SERVER-NAME] info: [34mA user connected[39m
+Tue Aug 26 2025 16:36:7 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/users/profile 304 - 164.875 ms
+Tue Aug 26 2025 16:36:7 [SERVER-NAME] info: 10.10.7.21 - GET /profileImage/20250820_084710-1756202019960.jpg 304 - 0.355 ms
+Tue Aug 26 2025 16:39:35 [SERVER-NAME] info: [34mA user connected[39m
+Tue Aug 26 2025 16:39:57 [SERVER-NAME] info: [31mA user disconnect[39m
+Tue Aug 26 2025 16:39:58 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/users/profile 204 - 0.162 ms
+Tue Aug 26 2025 16:39:58 [SERVER-NAME] info: [34mA user connected[39m
+Tue Aug 26 2025 16:39:58 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/users/profile 304 - 170.778 ms
+Tue Aug 26 2025 16:39:58 [SERVER-NAME] info: 10.10.7.21 - GET /profileImage/20250820_084710-1756202019960.jpg 304 - 1.291 ms
+Tue Aug 26 2025 16:42:56 [SERVER-NAME] info: [31mA user disconnect[39m
+Tue Aug 26 2025 16:49:1 [SERVER-NAME] info: [31mA user disconnect[39m
+Tue Aug 26 2025 16:49:1 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/users/profile 204 - 0.149 ms
+Tue Aug 26 2025 16:49:1 [SERVER-NAME] info: [34mA user connected[39m
+Tue Aug 26 2025 16:49:1 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/users/profile 304 - 172.302 ms
+Tue Aug 26 2025 16:49:1 [SERVER-NAME] info: 10.10.7.21 - GET /profileImage/20250820_084710-1756202019960.jpg 304 - 0.801 ms
+Tue Aug 26 2025 16:49:6 [SERVER-NAME] info: [31mA user disconnect[39m
+Tue Aug 26 2025 16:49:29 [SERVER-NAME] info: [31mA user disconnect[39m
+Tue Aug 26 2025 16:49:41 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/users/profile 204 - 0.132 ms
+Tue Aug 26 2025 16:49:41 [SERVER-NAME] info: [34mA user connected[39m
+Tue Aug 26 2025 16:49:41 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/users/profile 304 - 168.225 ms
+Tue Aug 26 2025 16:49:41 [SERVER-NAME] info: 10.10.7.21 - GET /profileImage/20250820_084710-1756202019960.jpg 304 - 1.326 ms
+Tue Aug 26 2025 16:49:49 [SERVER-NAME] info: [31mA user disconnect[39m
+Tue Aug 26 2025 16:49:49 [SERVER-NAME] info: 10.10.7.21 - OPTIONS /api/v1/users/profile 204 - 0.158 ms
+Tue Aug 26 2025 16:49:49 [SERVER-NAME] info: [34mA user connected[39m
+Tue Aug 26 2025 16:49:49 [SERVER-NAME] info: 10.10.7.21 - GET /api/v1/users/profile 304 - 170.604 ms
+Tue Aug 26 2025 16:49:49 [SERVER-NAME] info: 10.10.7.21 - GET /profileImage/20250820_084710-1756202019960.jpg 304 - 1.286 ms

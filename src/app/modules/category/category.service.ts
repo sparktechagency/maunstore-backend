@@ -1,5 +1,7 @@
+import { Types } from 'mongoose';
 import AppError from '../../../errors/AppError';
 import unlinkFile from '../../../shared/unlinkFile';
+import QueryBuilder from '../../builder/QueryBuilder';
 import { Product } from '../product/product.model';
 import { TCategory } from './category.interface';
 import { Category } from './category.model';
@@ -15,12 +17,25 @@ const createCategoryToDB = async (payload: TCategory) => {
      return result;
 };
 
-const getAllCategoriesFromDB = async () => {
-     const data = await Category.find().populate('brandId');
-     if (!data || data.length === 0) {
+const getAllCategoriesFromDB = async (query: any) => {
+
+     const categoryQuery = Category.find().populate("brandId");
+
+     const queryBuilder = new QueryBuilder(categoryQuery, query).search(["name"]).filter().sort().paginate().fields();
+
+     const categories = await queryBuilder.modelQuery;
+
+     if (!categories || categories.length === 0) {
           throw new AppError(404, 'No category are found in the database');
      }
-     return data;
+
+     const meta = await queryBuilder.countTotal();
+
+     return {
+          meta,
+          data: categories,
+     }
+
 };
 
 const getCategoryByIdFromDB = async (id: string) => {
@@ -31,15 +46,48 @@ const getCategoryByIdFromDB = async (id: string) => {
      return category;
 };
 
-const getCategoryByBrandsFromDB = async (brandId: string) => {
-     const result = await Category.find({ brandId }).populate({ path: 'brandId' });
+// const getCategoryByBrandsFromDB = async (brandId: string, query: any) => {
+//      const result = await Category.find({ brandId }).populate({ path: 'brandId' });
 
-     if (!result || result.length === 0) {
-          throw new AppError(404, 'No categories are found for this brand');
+//      if (!result || result.length === 0) {
+//           throw new AppError(404, 'No categories are found for this brand');
+//      }
+
+//      const categoriesWithProductCount = await Promise.all(
+//           result.map(async (category) => {
+//                const totalProducts = await Product.countDocuments({ category: category._id });
+//                return {
+//                     ...category.toObject(),
+//                     totalProducts,
+//                };
+//           }),
+//      );
+
+//      return categoriesWithProductCount;
+// };
+
+const getCategoryByBrandsFromDB = async (brandId: string, query: any) => {
+     // base query with brandId
+     let baseQuery = Category.find({ brandId: new Types.ObjectId(brandId) }).populate({ path: 'brandId' });
+
+
+     const queryBuilder = new QueryBuilder(baseQuery, query)
+          .search(['name']) 
+          .filter()
+          .sort()
+          .fields()
+          .paginate(10);
+
+  
+     const categories = await queryBuilder.modelQuery;
+
+     if (!categories || categories.length === 0) {
+          return [];
      }
 
+     // totalProducts count
      const categoriesWithProductCount = await Promise.all(
-          result.map(async (category) => {
+          categories.map(async (category) => {
                const totalProducts = await Product.countDocuments({ category: category._id });
                return {
                     ...category.toObject(),
@@ -48,7 +96,10 @@ const getCategoryByBrandsFromDB = async (brandId: string) => {
           }),
      );
 
-     return categoriesWithProductCount;
+     // get total count & pagination info
+     const meta = await queryBuilder.countTotal();
+
+     return { data: categoriesWithProductCount, meta };
 };
 
 const updateCategoryById = async (id: string, updatedPayload: Partial<TCategory>) => {

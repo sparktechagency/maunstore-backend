@@ -81,7 +81,7 @@ const getBookmarksFromDB = async () => {
      ]);
 
      if (!result || result.length === 0) {
-          throw new AppError(404, 'No bookmarks found for this user');
+          return []
      }
 
      return result;

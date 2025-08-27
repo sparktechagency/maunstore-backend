@@ -1,6 +1,7 @@
 import { Model } from 'mongoose';
 import { USER_ROLES } from '../../../enums/user';
 import { USER_STATUS } from './user.constant';
+
 export type IUser = {
      name: string;
      role: USER_ROLES;

@@ -2,8 +2,8 @@ import { MessageService } from './message.service';
 import { ChatService } from '../chat/chat.service';
 import { Request } from 'express';
 import catchAsync from '../../../shared/catchAsync';
-import { updateFileName } from '../../../utils/fileHelper';
 import sendResponse from '../../../shared/sendResponse';
+import { updateFileName } from '../../../utils/fileHelper';
 
 const sendMessage = catchAsync(async (req, res) => {
      const { files } = req as Request & { files: any };

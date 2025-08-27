@@ -7,6 +7,7 @@ import AppError from '../../../errors/AppError';
 const createChatIntoDB = async (participants: string[]) => {
      const isExistChat = await Chat.findOne({
           participants: { $all: participants },
+          isDeleted: { $ne: true }, // new field
      });
 
      if (isExistChat) {
@@ -43,6 +44,7 @@ const getAllChatsFromDB = async (userId: string, query: Record<string, any>) => 
      const chatQuery = {
           participants: { $in: [userId] },
           deletedBy: { $ne: userId },
+          isDeleted: { $ne: true }, // new field
      };
 
      let chats;
@@ -58,7 +60,7 @@ const getAllChatsFromDB = async (userId: string, query: Record<string, any>) => 
                     const otherParticipants = await User.find({
                          _id: { $in: otherParticipantIds },
                     })
-                         .select('_id image fullName email')
+                         .select('_id name profileImage email')
                          .lean();
 
                     // FIXED: Correct unread count calculation
@@ -101,13 +103,19 @@ const getAllChatsFromDB = async (userId: string, query: Record<string, any>) => 
 
           chats = await Promise.all(
                rawChats.map(async (chat) => {
-                    const otherParticipantIds = chat.participants.filter((participantId) => participantId.toString() !== userId);
+                    // const otherParticipantIds = chat.participants.filter((participantId) => participantId.toString() !== userId);
+
+                    const otherParticipantIds = chat.participants
+                         .filter((participantId) => participantId && participantId.toString() !== userId);
+
 
                     const otherParticipants = await User.find({
                          _id: { $in: otherParticipantIds },
                     })
-                         .select('_id image fullName email')
+                         .select('_id name profileImage email')
                          .lean();
+
+
 
                     // FIXED: Same unread count calculation
                     const unreadCount = await Message.countDocuments({
@@ -288,6 +296,8 @@ const blockUnblockUser = async (blockerId: string, blockedId: string, chatId: st
 
      return updatedChat;
 };
+
+
 
 export const ChatService = {
      createChatIntoDB,

@@ -1,4 +1,0 @@
-Sat Aug 16 2025 12:54:32 [SERVER-NAME] info: 10.10.7.38 - POST /api/v1/auth/login 200 - 821.630 ms
-Sat Aug 16 2025 12:55:1 [SERVER-NAME] info: 10.10.7.38 - GET /api/v1/bookmarks 200 - 182.262 ms
-Sat Aug 16 2025 12:55:7 [SERVER-NAME] info: 10.10.7.38 - GET /api/v1/bookmarks 200 - 166.922 ms
-Sat Aug 16 2025 12:55:9 [SERVER-NAME] info: 10.10.7.38 - GET /api/v1/bookmarks 200 - 165.442 ms

@@ -19,12 +19,17 @@ app.use(Morgan.successHandler);
 app.use(Morgan.errorHandler);
 
 //body parser
+// app.use(
+//      cors({
+//           origin: config.allowed_origins || '*',
+//           credentials: true,
+//      }),
+// );
+
 app.use(
-     cors({
-          origin: config.allowed_origins || '*',
-          credentials: true,
-     }),
+  cors({ origin: ['http://10.10.7.21:3000'], credentials: true }),
 );
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

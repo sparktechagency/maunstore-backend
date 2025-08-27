@@ -14,7 +14,7 @@ const createCategory = catchAsync(async (req, res) => {
 });
 
 const getAllCategories = catchAsync(async (req, res) => {
-     const result = await CategoryServices.getAllCategoriesFromDB();
+     const result = await CategoryServices.getAllCategoriesFromDB(req.query);
      sendResponse(res, {
           success: true,
           statusCode: 200,
@@ -36,7 +36,7 @@ const getCategoryById = catchAsync(async (req, res) => {
 
 const getCategoryByBrands = catchAsync(async (req, res) => {
      const { brandId } = req.params;
-     const result = await CategoryServices.getCategoryByBrandsFromDB(brandId);
+     const result = await CategoryServices.getCategoryByBrandsFromDB(brandId,req.query);
      sendResponse(res, {
           success: true,
           statusCode: 200,
