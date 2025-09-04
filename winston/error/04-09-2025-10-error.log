@@ -1,0 +1,9 @@
+Thu Sep 04 2025 10:37:31 [SERVER-NAME] error: UnhandleException Detected listen EADDRINUSE: address already in use 10.10.7.111:5000
+Thu Sep 04 2025 10:39:36 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/products/689c6d3c1de2973dfca2c05e/products 404 - 553.902 ms
+Thu Sep 04 2025 10:39:49 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/products/68aefb8eed6e5a3903c0fc18 404 - 98.520 ms
+Thu Sep 04 2025 10:49:43 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/products/68b1e1230be85fd6810dbb8c/products 404 - 96.533 ms
+Thu Sep 04 2025 10:50:38 [SERVER-NAME] error: 10.10.7.111 - POST /api/v1/bookmarks 403 - 50.236 ms
+Thu Sep 04 2025 10:51:10 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/bookmarks 403 - 77.233 ms
+Thu Sep 04 2025 10:51:23 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/bookmarks 403 - 54.403 ms
+Thu Sep 04 2025 10:51:29 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/bookmarks 403 - 43.263 ms
+Thu Sep 04 2025 10:51:50 [SERVER-NAME] error: 10.10.7.111 - GET /api/v1/bookmarks 403 - 61.010 ms

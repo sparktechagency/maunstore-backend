@@ -1,5 +1,0 @@
-Wed Aug 27 2025 10:13:2 [SERVER-NAME] error: 10.10.7.21 - POST /api/v1/messages/send-message/6880b43b6cba574889548dbf 404 - 237.460 ms
-Wed Aug 27 2025 10:52:42 [SERVER-NAME] error: 10.10.7.21 - POST /api/v1/messages/send-message/68ada06a360d28fc7d67dd33 400 - 96.375 ms
-Wed Aug 27 2025 10:52:50 [SERVER-NAME] error: 10.10.7.21 - POST /api/v1/messages/send-message/68ada06a360d28fc7d67dd33 400 - 124.483 ms
-Wed Aug 27 2025 10:52:54 [SERVER-NAME] error: 10.10.7.21 - POST /api/v1/messages/send-message/6882201336e3e16045e5eab6 400 - 267.230 ms
-Wed Aug 27 2025 10:53:4 [SERVER-NAME] error: 10.10.7.21 - POST /api/v1/messages/send-message/68ada06a360d28fc7d67dd33 400 - 96.903 ms

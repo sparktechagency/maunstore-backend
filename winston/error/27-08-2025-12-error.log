@@ -1,7 +1,0 @@
-Wed Aug 27 2025 12:2:3 [SERVER-NAME] error: 10.10.7.21 - POST /api/v1/messages/send-message/68ada06a360d28fc7d67dd33 400 - 85.156 ms
-Wed Aug 27 2025 12:3:30 [SERVER-NAME] error: 10.10.7.21 - POST /api/v1/messages/send-message/68ada06a360d28fc7d67dd33 400 - 92.635 ms
-Wed Aug 27 2025 12:7:33 [SERVER-NAME] error: 10.10.7.21 - POST /api/v1/messages/send-message/68ada06a360d28fc7d67dd33 400 - 91.001 ms
-Wed Aug 27 2025 12:44:8 [SERVER-NAME] error: 10.10.7.21 - POST /api/v1/auth/login 400 - 315.910 ms
-Wed Aug 27 2025 12:44:17 [SERVER-NAME] error: 10.10.7.21 - GET /api/v1/products?page=1&limit=10 403 - 84.613 ms
-Wed Aug 27 2025 12:44:21 [SERVER-NAME] error: 10.10.7.21 - GET /api/v1/products?page=1&limit=10 403 - 89.950 ms
-Wed Aug 27 2025 12:44:23 [SERVER-NAME] error: 10.10.7.21 - GET /api/v1/users?page=1&limit=10 403 - 86.117 ms

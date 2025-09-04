@@ -27,7 +27,7 @@ app.use(Morgan.errorHandler);
 // );
 
 app.use(
-  cors({ origin: ['http://10.10.7.21:3000'], credentials: true }),
+     cors({ origin: ['http://10.10.7.21:3000', "https://mijanur3000.binarybards.online"], credentials: true }),
 );
 
 app.use(express.json());
