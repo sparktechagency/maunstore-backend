@@ -18,10 +18,9 @@ const createCategoryToDB = async (payload: TCategory) => {
 };
 
 const getAllCategoriesFromDB = async (query: any) => {
+     const categoryQuery = Category.find().populate('brandId');
 
-     const categoryQuery = Category.find().populate("brandId");
-
-     const queryBuilder = new QueryBuilder(categoryQuery, query).search(["name"]).filter().sort().paginate().fields();
+     const queryBuilder = new QueryBuilder(categoryQuery, query).search(['name']).filter().sort().paginate().fields();
 
      const categories = await queryBuilder.modelQuery;
 
@@ -34,8 +33,7 @@ const getAllCategoriesFromDB = async (query: any) => {
      return {
           meta,
           data: categories,
-     }
-
+     };
 };
 
 const getCategoryByIdFromDB = async (id: string) => {
@@ -70,15 +68,8 @@ const getCategoryByBrandsFromDB = async (brandId: string, query: any) => {
      // base query with brandId
      let baseQuery = Category.find({ brandId: new Types.ObjectId(brandId) }).populate({ path: 'brandId' });
 
+     const queryBuilder = new QueryBuilder(baseQuery, query).search(['name']).filter().sort().fields().paginate(10);
 
-     const queryBuilder = new QueryBuilder(baseQuery, query)
-          .search(['name']) 
-          .filter()
-          .sort()
-          .fields()
-          .paginate(10);
-
-  
      const categories = await queryBuilder.modelQuery;
 
      if (!categories || categories.length === 0) {

@@ -48,10 +48,10 @@ const productSchema = new Schema<TProduct>(
                type: String,
                required: true,
           },
-          createdBy:{
-               type:String,
-               ref:"User"
-          }
+          createdBy: {
+               type: String,
+               ref: 'User',
+          },
      },
      {
           timestamps: true,

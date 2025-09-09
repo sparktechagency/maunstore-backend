@@ -106,7 +106,7 @@ const sendMessageToDB = async (payload: IMessage): Promise<IMessage> => {
 
 const getMessagesFromDB = async (
      chatId: string,
-     userId: string, // Add userId parameter
+     userId: string,
      query: Record<string, unknown>,
 ): Promise<{
      messages: IMessage[];
@@ -129,12 +129,12 @@ const getMessagesFromDB = async (
           })
           .populate({ path: 'reactions.userId', select: 'name' })
           .populate({ path: 'pinnedBy', select: 'name' })
-          .populate({ path: "productId" })
+          .populate({ path: 'productId' })
           .skip(skip)
           .limit(limitInt)
           .sort({ createdAt: -1 });
 
-          console.log(response,"Response")
+     console.log(response, 'Response');
 
      // Mark messages as read for the current user (only messages not sent by current user)
      const messageIds = response.filter((msg) => msg.sender._id.toString() !== userId && !msg.read).map((msg) => msg._id);
@@ -240,6 +240,10 @@ const addReactionToMessage = async (id: string, messageId: string, reactionType:
           throw new AppError(500, 'Internal server error!');
      }
 };
+
+// qasba -> restaurant, fochka, pic
+// brahmanbaria -> sheikh hasina bridge, fochka, pic
+//
 
 const deleteMessage = async (userId: string, messageId: string) => {
      try {

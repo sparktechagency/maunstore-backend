@@ -36,7 +36,7 @@ const getCategoryById = catchAsync(async (req, res) => {
 
 const getCategoryByBrands = catchAsync(async (req, res) => {
      const { brandId } = req.params;
-     const result = await CategoryServices.getCategoryByBrandsFromDB(brandId,req.query);
+     const result = await CategoryServices.getCategoryByBrandsFromDB(brandId, req.query);
      sendResponse(res, {
           success: true,
           statusCode: 200,
