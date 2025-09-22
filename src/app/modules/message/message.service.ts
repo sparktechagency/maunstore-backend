@@ -241,10 +241,6 @@ const addReactionToMessage = async (id: string, messageId: string, reactionType:
      }
 };
 
-// qasba -> restaurant, fochka, pic
-// brahmanbaria -> sheikh hasina bridge, fochka, pic
-//
-
 const deleteMessage = async (userId: string, messageId: string) => {
      try {
           // Find the message by messageId
