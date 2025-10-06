@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soporte - Raconli Group</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #ffffff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .support-container {
+        background-color: #000000;
+        padding: 40px 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+        text-align: center;
+        width: 100%;
+        max-width: 460px;
+        color: #ffffff;
+        transform: translateY(40px);
+        opacity: 0;
+        animation: fadeInUp 1s ease-out forwards;
+      }
+
+      h1 {
+        margin: 0 0 20px;
+        color: #ffffff;
+        font-size: 28px;
+        font-weight: 700;
+        animation: slideIn 1s ease-out forwards;
+      }
+
+      p {
+        margin: 12px 0;
+        font-size: 16px;
+        color: #f1f1f1;
+        animation: fadeIn 1.2s ease-in forwards;
+      }
+
+      .highlight {
+        font-weight: 600;
+        color: #ffffff;
+        transition: transform 0.3s ease, color 0.3s ease;
+        display: inline-block;
+      }
+
+      .highlight:hover {
+        color: #cccccc;
+        transform: translateY(-2px);
+      }
+
+      .address {
+        margin-top: 8px;
+        line-height: 1.6;
+      }
+
+      footer {
+        margin-top: 25px;
+        font-size: 14px;
+        color: #bdbdbd;
+        animation: fadeIn 1.4s ease-in forwards;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          transform: translateY(40px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes slideIn {
+        from { transform: translateX(-25px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+
+      @media (max-width: 480px) {
+        .support-container {
+          padding: 25px 20px;
+        }
+        h1 {
+          font-size: 24px;
+        }
+        p {
+          font-size: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="support-container">
+      <h1>Soporte Técnico</h1>
+      <p>Correo: <span class="highlight">yaz.vega@raconligroup.com</span></p>
+      <p>Teléfono: <span class="highlight">(52) 55 5550 3800</span></p>
+      <p>Dirección:</p>
+      <p class="highlight address">
+        Av. San Jerónimo 263, <br />
+        Tizapan San Ángel, CDMX, México.
+      </p>
+      <footer>&copy; 2025 Raconli Group.</footer>
+    </div>
+  </body>
+</html>
