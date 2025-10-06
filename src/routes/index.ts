@@ -13,6 +13,7 @@ import { ChatRoutes } from '../app/modules/chat/chat.route';
 import { MessageRoutes } from '../app/modules/message/message.route';
 import { BookmarkRoutes } from '../app/modules/bookmark/bookmark.route';
 import { CategoryRoutes } from '../app/modules/category/category.route';
+import { SettingRoutes } from '../app/modules/settings/settings.route';
 
 const router = express.Router();
 const routes = [
@@ -72,6 +73,10 @@ const routes = [
           path: '/categories',
           route: CategoryRoutes,
      },
+     {
+          path: "/settings",
+          route: SettingRoutes
+     }
 ];
 
 routes.forEach((element) => {
