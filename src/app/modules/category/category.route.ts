@@ -17,7 +17,7 @@ router
      .route('/:id')
      .get(CategoryControllers.getCategoryById)
      .patch(auth(USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN), fileUploadHandler(), parseFileData(FOLDER_NAMES.IMAGE), CategoryControllers.updateCategoryById)
-     .delete(auth(USER_ROLES.ADMIN), CategoryControllers.deleteCategoryById);
+     .delete(auth(USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN), CategoryControllers.deleteCategoryById);
 
 router.get('/brands/:brandId', CategoryControllers.getCategoryByBrands);
 
