@@ -1,0 +1,8 @@
+Fri Oct 10 2025 17:31:16 [SERVER-NAME] error: GET /api/v1/users 404 - 46.961 ms
+Fri Oct 10 2025 17:32:25 [SERVER-NAME] error: POST /api/v1/api/v1/auth/login 404 - 1.376 ms
+Fri Oct 10 2025 17:32:41 [SERVER-NAME] error: POST /api/v1/auth/login 400 - 5.365 ms
+Fri Oct 10 2025 17:33:1 [SERVER-NAME] error: POST /api/v1/auth/login 400 - 288.412 ms
+Fri Oct 10 2025 17:33:25 [SERVER-NAME] error: DELETE /api/v1/users/profile 400 - 87.191 ms
+Fri Oct 10 2025 17:34:23 [SERVER-NAME] error: DELETE /api/v1/users/profile 400 - 175.779 ms
+Fri Oct 10 2025 17:34:41 [SERVER-NAME] error: DELETE /api/v1/users/profile 400 - 90.227 ms
+Fri Oct 10 2025 17:36:8 [SERVER-NAME] error: POST /api/v1/auth/login 400 - 57.278 ms

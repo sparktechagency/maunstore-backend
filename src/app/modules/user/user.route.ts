@@ -19,7 +19,7 @@ router
           validateRequest(UserValidation.updateUserZodSchema),
           UserControllers.updateProfile,
      )
-     .delete(auth(USER_ROLES.USER, USER_ROLES.ADMIN), UserControllers.deleteProfile);
+     .delete(auth(USER_ROLES.USER, USER_ROLES.ADMIN, USER_ROLES.SUPER_ADMIN), UserControllers.deleteProfile);
 
 router.route('/').post(validateRequest(UserValidation.createUserZodSchema), UserControllers.createUser).get(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), UserControllers.getUsers);
 
