@@ -136,6 +136,7 @@ const verifyUserPassword = (userId, password) => __awaiter(void 0, void 0, void 
     return isPasswordValid;
 });
 const deleteUser = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(id, "Id");
     const isExistUser = yield user_model_1.User.isExistUserById(id);
     if (!isExistUser) {
         throw new AppError_1.default(http_status_codes_1.StatusCodes.BAD_REQUEST, "User doesn't exist!");

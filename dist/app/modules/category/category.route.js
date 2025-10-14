@@ -20,6 +20,6 @@ router
     .route('/:id')
     .get(category_controller_1.CategoryControllers.getCategoryById)
     .patch((0, auth_1.default)(user_1.USER_ROLES.ADMIN, user_1.USER_ROLES.SUPER_ADMIN), (0, fileUploadHandler_1.default)(), (0, parseFileData_1.default)(files_1.FOLDER_NAMES.IMAGE), category_controller_1.CategoryControllers.updateCategoryById)
-    .delete((0, auth_1.default)(user_1.USER_ROLES.ADMIN), category_controller_1.CategoryControllers.deleteCategoryById);
+    .delete((0, auth_1.default)(user_1.USER_ROLES.ADMIN, user_1.USER_ROLES.SUPER_ADMIN), category_controller_1.CategoryControllers.deleteCategoryById);
 router.get('/brands/:brandId', category_controller_1.CategoryControllers.getCategoryByBrands);
 exports.CategoryRoutes = router;

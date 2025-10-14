@@ -110,8 +110,7 @@ const updateProfile = catchAsync(async (req, res) => {
 //delete profile
 const deleteProfile = catchAsync(async (req, res) => {
      const { id }: any = req.user;
-     console.log(id,"ID")
-
+     console.log(id, 'ID');
 
      const result = await UserServices.deleteUser(id);
 

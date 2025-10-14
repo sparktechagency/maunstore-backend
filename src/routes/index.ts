@@ -74,9 +74,9 @@ const routes = [
           route: CategoryRoutes,
      },
      {
-          path: "/settings",
-          route: SettingRoutes
-     }
+          path: '/settings',
+          route: SettingRoutes,
+     },
 ];
 
 routes.forEach((element) => {

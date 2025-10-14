@@ -122,15 +122,7 @@ const updateProfile = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
 //delete profile
 const deleteProfile = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.user;
-    const { password } = req.body;
-    const isUserVerified = yield user_service_1.UserServices.verifyUserPassword(id, password);
-    if (!isUserVerified) {
-        return (0, sendResponse_1.default)(res, {
-            success: false,
-            statusCode: http_status_codes_1.StatusCodes.UNAUTHORIZED,
-            message: 'Incorrect password. Please try again.',
-        });
-    }
+    console.log(id, "ID");
     const result = yield user_service_1.UserServices.deleteUser(id);
     (0, sendResponse_1.default)(res, {
         success: true,

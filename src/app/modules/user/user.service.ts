@@ -150,7 +150,7 @@ const verifyUserPassword = async (userId: string, password: string) => {
 };
 
 const deleteUser = async (id: string) => {
-     console.log(id,"Id")
+     console.log(id, 'Id');
      const isExistUser = await User.isExistUserById(id);
      if (!isExistUser) {
           throw new AppError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
