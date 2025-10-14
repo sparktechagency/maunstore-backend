@@ -7,8 +7,5 @@ exports.SettingRoutes = void 0;
 const express_1 = __importDefault(require("express"));
 const settings_controller_1 = require("./settings.controller");
 const router = express_1.default.Router();
-router
-    .get('/privacy-policy', settings_controller_1.SettingControllers.getPrivacyPolicy)
-    .get('/account-delete-policy', settings_controller_1.SettingControllers.getAccountDelete)
-    .get('/support', settings_controller_1.SettingControllers.getSupport);
+router.get('/privacy-policy', settings_controller_1.SettingControllers.getPrivacyPolicy).get('/account-delete-policy', settings_controller_1.SettingControllers.getAccountDelete).get('/support', settings_controller_1.SettingControllers.getSupport);
 exports.SettingRoutes = router;
