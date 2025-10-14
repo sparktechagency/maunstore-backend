@@ -26,10 +26,8 @@ app.use(Morgan.errorHandler);
 //      }),
 // );
 
-// thursday r - romnt, force, baht, 
 
 app.use(cors({ origin: ['http://10.10.7.21:3000', 'https://mijanur3000.binarybards.online', "https://dashboard.raconliapp.com", "https://www.dashboard.raconliapp.com","https://api.raconliapp.com","https://www.api.raconliapp.com"], credentials: true }));
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
