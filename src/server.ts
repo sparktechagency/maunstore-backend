@@ -7,7 +7,7 @@ import { socketHelper } from './helpers/socketHelper';
 import { errorLogger, logger } from './shared/logger';
 import config from './config';
 
-//uncaught exception
+// uncaught exception
 process.on('uncaughtException', (error) => {
      errorLogger.error('UnhandleException Detected', error);
      process.exit(1);
@@ -57,7 +57,7 @@ async function main() {
 
 main();
 
-//SIGTERM
+// SIGTERM
 process.on('SIGTERM', () => {
      logger.info('SIGTERM IS RECEIVE');
      if (server) {

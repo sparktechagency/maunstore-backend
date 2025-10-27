@@ -128,7 +128,7 @@ const updateProfileToDB = async (user: JwtPayload, payload: Partial<IUser>) => {
           throw new AppError(StatusCodes.BAD_REQUEST, "User doesn't exist!");
      }
 
-     //unlink file here
+     // unlink file here
      if (payload.profileImage) {
           unlinkFile(isExistUser.profileImage);
      }

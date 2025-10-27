@@ -38,7 +38,7 @@ const messageSchema = new Schema<IMessage, MessageModel>(
                default: false,
                required: true,
           },
-          // New pinned message fields
+          // new pinned message fields
           isPinned: {
                type: Boolean,
                default: false,

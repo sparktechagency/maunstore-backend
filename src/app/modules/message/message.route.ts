@@ -7,7 +7,7 @@ import { FOLDER_NAMES } from '../../../enums/files';
 import parseMultipleFileData from '../../middleware/parseMultipleFiledata';
 const router = express.Router();
 
-// Existing routes
+// existing routes
 router.post('/send-message/:chatId', auth(USER_ROLES.USER, USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), fileUploadHandler(), parseMultipleFileData(FOLDER_NAMES.IMAGES), MessageController.sendMessage);
 
 router.get('/:chatId', auth(USER_ROLES.USER, USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), MessageController.getMessages);
@@ -16,7 +16,7 @@ router.post('/react/:messageId', auth(USER_ROLES.USER, USER_ROLES.SUPER_ADMIN, U
 
 router.delete('/delete/:messageId', auth(USER_ROLES.USER, USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), MessageController.deleteMessage);
 
-// New route for pin/unpin message
+// new route for pin/unpin message
 router.patch('/pin-unpin/:messageId', auth(USER_ROLES.USER, USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), MessageController.pinUnpinMessage);
 
 export const MessageRoutes = router;

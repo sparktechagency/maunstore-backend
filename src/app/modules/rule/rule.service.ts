@@ -3,7 +3,7 @@ import { IRule } from './rule.interface';
 import { Rule } from './rule.model';
 import AppError from '../../../errors/AppError';
 
-//privacy policy
+// privacy policy
 const createPrivacyPolicyToDB = async (payload: IRule) => {
      // check if privacy policy exist or not
      const isExistPrivacy = await Rule.findOne({ type: 'privacy' });
@@ -29,7 +29,7 @@ const getPrivacyPolicyFromDB = async () => {
      return result;
 };
 
-//terms and conditions
+// terms and conditions
 const createTermsAndConditionToDB = async (payload: IRule) => {
      const isExistTerms = await Rule.findOne({ type: 'terms' });
      if (isExistTerms) {
@@ -51,7 +51,7 @@ const getTermsAndConditionFromDB = async () => {
      return result;
 };
 
-//privacy policy
+// privacy policy
 const createAboutToDB = async (payload: IRule) => {
      const isExistAbout = await Rule.findOne({ type: 'about' });
      if (isExistAbout) {

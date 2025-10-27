@@ -4,7 +4,7 @@ import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
 import { RuleServices } from './rule.service';
 
-//privacy policy
+// privacy policy
 const createPrivacyPolicy = catchAsync(async (req: Request, res: Response) => {
      const { ...privacyData } = req.body;
      const result = await RuleServices.createPrivacyPolicyToDB(privacyData);
@@ -28,7 +28,7 @@ const getPrivacyPolicy = catchAsync(async (req: Request, res: Response) => {
      });
 });
 
-//terms and conditions
+// terms and conditions
 const createTermsAndCondition = catchAsync(async (req: Request, res: Response) => {
      const { ...termsData } = req.body;
      const result = await RuleServices.createTermsAndConditionToDB(termsData);
@@ -52,7 +52,7 @@ const getTermsAndCondition = catchAsync(async (req: Request, res: Response) => {
      });
 });
 
-//about
+// about
 const createAbout = catchAsync(async (req: Request, res: Response) => {
      const { ...aboutData } = req.body;
      const result = await RuleServices.createAboutToDB(aboutData);

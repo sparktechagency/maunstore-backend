@@ -86,7 +86,7 @@ const updateUserStatus = catchAsync(async (req, res) => {
      });
 });
 
-//update profile
+// update profile
 const updateProfile = catchAsync(async (req, res) => {
      const user: any = req.user;
      if ('role' in req.body) {
@@ -107,7 +107,7 @@ const updateProfile = catchAsync(async (req, res) => {
      });
 });
 
-//delete profile
+// delete profile
 const deleteProfile = catchAsync(async (req, res) => {
      const { id }: any = req.user;
      console.log(id, 'ID');

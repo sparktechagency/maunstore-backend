@@ -16,7 +16,7 @@ export type IMessage = {
      read: boolean;
      isDeleted: boolean;
      type: 'text' | 'image' | 'doc' | 'both';
-     // New field for pinned messages
+     // new field for pinned messages
      isPinned: boolean;
      pinnedBy?: Types.ObjectId;
      pinnedAt?: Date;

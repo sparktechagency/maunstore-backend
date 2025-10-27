@@ -39,10 +39,11 @@ app.use(
           credentials: true,
      }),
 );
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Session configuration for OAuth
+// session configuration for OAuth
 app.use(
      session({
           secret: config.express_session as string,
@@ -56,21 +57,21 @@ app.use(
      }),
 );
 
-//file retrieve
+// file retrieve
 app.use(express.static('uploads'));
 app.use(express.static('public'));
 
-//router
+// router
 app.use('/api/v1', router);
-//live response
+// live response
 app.get('/', (req: Request, res: Response) => {
      res.send(welcome());
 });
 
-//global error handle
+// global error handle
 app.use(globalErrorHandler);
 
-//handle not found route;
+// handle not found route;
 app.use(notFound);
 setupTimeManagement();
 export default app;

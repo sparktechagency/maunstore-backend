@@ -35,13 +35,6 @@ const getProductsFromDB = async (query: any) => {
      };
 };
 
-// const getProductByIdFromDB = async (id: string) => {
-//      const result = await Product.findById(id).populate({ path: 'category' });
-//      if (!result) {
-//           throw new AppError(404, 'No product is found in the database');
-//      }
-//      return result;
-// };
 
 export const checkIsFavorite = async (productId: string | Types.ObjectId, userId: string | Types.ObjectId) => {
      const bookmark = await Bookmark.findOne({
@@ -78,7 +71,7 @@ const getProductsByCategoryFromDB = async (categoryId: string, userId: string) =
           throw new AppError(StatusCodes.NOT_FOUND, 'No products found for this category');
      }
 
-     // map করে isFavorite যোগ করবো
+     // map and add isFavorite
      const productsWithFavorite = await Promise.all(
           products.map(async (product) => {
                const isFavorite = await checkIsFavorite(product._id, userId);
@@ -118,7 +111,7 @@ const deleteNewsByIdFromDB = async (id: string) => {
 
      const isProductExist: any = await Product.findById({ _id: id });
 
-     //delete from folder
+     // delete from folder
      if (isProductExist) {
           unlinkFile(isProductExist?.images);
      }

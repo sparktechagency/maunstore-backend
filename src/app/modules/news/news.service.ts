@@ -61,7 +61,7 @@ const deleteNewsByIdFromDB = async (id: string) => {
 
      const isNewsExist: any = await News.findById({ _id: id });
 
-     //delete from folder
+     // delete from folder
      if (isNewsExist) {
           unlinkFile(isNewsExist?.image);
      }

@@ -16,13 +16,13 @@ const usersData = [
      },
 ];
 
-// Function to hash passwords
+// function to hash passwords
 const hashPassword = async (password: string) => {
      const salt = await bcrypt.hash(password, Number(config.bcrypt_salt_rounds));
      return await bcrypt.hash(password, salt);
 };
 
-// Function to seed users
+// function to seed users
 const seedUsers = async () => {
      try {
           await User.deleteMany();
@@ -34,7 +34,7 @@ const seedUsers = async () => {
                }),
           );
 
-          // Insert users into the database
+          // insert users into the database
           await User.insertMany(hashedUsersData);
           logger.info(colors.green('✨ --------------> Users seeded successfully <-------------- ✨'));
      } catch (err) {
@@ -42,14 +42,14 @@ const seedUsers = async () => {
      }
 };
 
-// Connect to MongoDB
+// connect to MongoDB
 mongoose.connect(config.database_url as string);
 
 const seedSuperAdmin = async () => {
      try {
           logger.info(colors.cyan('🎨 --------------> Database seeding start <--------------- 🎨'));
 
-          // Start seeding users
+          // start seeding users
           await seedUsers();
           logger.info(colors.green('🎉 --------------> Database seeding completed <--------------- 🎉'));
      } catch (error) {

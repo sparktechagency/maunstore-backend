@@ -21,10 +21,10 @@ const createChatIntoDB = async (participants: string[]) => {
           throw new Error('Failed to create chat');
      }
 
-     //@ts-ignore
+     // @ts-ignore
      const io = global.io;
      newChat.participants.forEach((participant) => {
-          //@ts-ignore
+          // @ts-ignore
           io.emit(`newChat::${participant._id}`, newChat);
      });
      return newChat;
@@ -34,7 +34,7 @@ const markChatAsRead = async (userId: string, chatId: string) => {
      return Chat.findByIdAndUpdate(chatId, { $addToSet: { readBy: userId } }, { new: true });
 };
 
-// 5. Updated getAllChatsFromDB with better unread count calculation
+// updated getAllChatsFromDB with better unread count calculation
 const getAllChatsFromDB = async (userId: string, query: Record<string, any>) => {
      const searchTerm = query.searchTerm?.toLowerCase();
      const page = parseInt(query.page) || 1;
@@ -165,32 +165,32 @@ const softDeleteChatForUser = async (chatId: string, id: string) => {
           throw new AppError(401, 'User is not authorized');
      }
 
-     // If already deleted by this user, just return
+     // if already deleted by this user, just return
      if (chat.deletedBy.some((id) => id.toString() === userId.toString())) {
           return chat;
      }
 
-     // Add userId to deletedBy array
+     // add userId to deletedBy array
      chat.deletedBy.push(userId);
 
-     // Optional: If all participants deleted, mark status deleted (soft delete for everyone)
+     // optional: If all participants deleted, mark status deleted (soft delete for everyone)
      if (chat.deletedBy.length === chat.participants.length) {
           chat.isDeleted = true;
      }
 
      await chat.save();
 
-     //@ts-ignore
+     // @ts-ignore
      const io = global.io;
      chat.participants.forEach((participant) => {
-          //@ts-ignore
+          // @ts-ignore
           io.emit(`chatDeletedForUser::${participant._id}`, { chatId, userId });
      });
 
      return chat;
 };
 
-// New feature: Mute/Unmute chat
+// new feature: Mute/Unmute chat
 const muteUnmuteChat = async (userId: string, chatId: string, action: 'mute' | 'unmute') => {
      const chat = await Chat.findById(chatId);
      if (!chat) {
@@ -202,18 +202,18 @@ const muteUnmuteChat = async (userId: string, chatId: string, action: 'mute' | '
      }
 
      if (action === 'mute') {
-          // Add user to mutedBy array if not already muted
+          // add user to mutedBy array if not already muted
           await Chat.findByIdAndUpdate(chatId, { $addToSet: { mutedBy: userId } }, { new: true });
      } else {
-          // Remove user from mutedBy array
+          // remove user from mutedBy array
           await Chat.findByIdAndUpdate(chatId, { $pull: { mutedBy: userId } }, { new: true });
      }
 
      const updatedChat = await Chat.findById(chatId);
 
-     //@ts-ignore
+     // @ts-ignore
      const io = global.io;
-     //@ts-ignore
+     // @ts-ignore
      io.emit(`chatMuteStatus::${userId}`, {
           chatId,
           isMuted: action === 'mute',
@@ -223,28 +223,28 @@ const muteUnmuteChat = async (userId: string, chatId: string, action: 'mute' | '
      return updatedChat;
 };
 
-// New feature: Block/Unblock user in chat
+// new feature: Block/Unblock user in chat
 const blockUnblockUser = async (blockerId: string, blockedId: string, chatId: string, action: 'block' | 'unblock') => {
      const chat = await Chat.findById(chatId);
      if (!chat) {
           throw new AppError(404, 'Chat not found');
      }
 
-     // Check if both users are participants
+     // check if both users are participants
      const participants = chat.participants.map((p) => p.toString());
      if (!participants.includes(blockerId) || !participants.includes(blockedId)) {
           throw new AppError(401, 'One or both users are not participants in this chat');
      }
 
      if (action === 'block') {
-          // Check if already blocked
+          // check if already blocked
           const existingBlock = chat.blockedUsers?.find((block: any) => block.blocker.toString() === blockerId && block.blocked.toString() === blockedId);
 
           if (existingBlock) {
                throw new AppError(400, 'User is already blocked');
           }
 
-          // Add to blocked users
+          // add to blocked users
           await Chat.findByIdAndUpdate(
                chatId,
                {
@@ -259,7 +259,7 @@ const blockUnblockUser = async (blockerId: string, blockedId: string, chatId: st
                { new: true },
           );
      } else {
-          // Remove from blocked users
+          // remove from blocked users
           await Chat.findByIdAndUpdate(
                chatId,
                {
@@ -276,11 +276,11 @@ const blockUnblockUser = async (blockerId: string, blockedId: string, chatId: st
 
      const updatedChat = await Chat.findById(chatId);
 
-     //@ts-ignore
+     // @ts-ignore
      const io = global.io;
-     // Notify both users
+     // notify both users
      [blockerId, blockedId].forEach((userId) => {
-          //@ts-ignore
+          // @ts-ignore
           io.emit(`userBlockStatus::${userId}`, {
                chatId,
                blockerId,

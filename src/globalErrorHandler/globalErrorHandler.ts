@@ -3,10 +3,10 @@ import processError from './processError';
 import config from '../config';
 
 export const globalErrorHandler: ErrorRequestHandler = (error: any, req: Request, res: Response, _next: NextFunction) => {
-     // Process the all error function
+     // process the all error function
      const { statusCode, message, errorSources } = processError(error);
 
-     // Respond with a consistent error structure
+     // respond with a consistent error structure
      res.status(statusCode).json({
           success: false,
           message,

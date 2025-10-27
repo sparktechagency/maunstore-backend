@@ -6,7 +6,7 @@ const socket = (io: Server) => {
      io.on('connection', (socket) => {
           logger.info(colors.blue('A user connected'));
 
-          //disconnect
+          // disconnect
           socket.on('disconnect', () => {
                logger.info(colors.red('A user disconnect'));
           });

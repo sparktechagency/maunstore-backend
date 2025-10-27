@@ -28,7 +28,7 @@ const getMessages = catchAsync(async (req, res) => {
      const { chatId } = req.params;
      const { id: userId } = req.user;
 
-     // Mark messages as read when user opens the chat
+     // mark messages as read when user opens the chat
      await ChatService.markChatAsRead(userId, chatId);
 
      const result = await MessageService.getMessagesFromDB(chatId, userId, req.query);
@@ -75,7 +75,7 @@ const deleteMessage = catchAsync(async (req, res) => {
      });
 });
 
-// New controller: Pin/Unpin message
+// new controller: Pin/Unpin message
 const pinUnpinMessage = catchAsync(async (req, res) => {
      const { id: userId }: any = req.user;
      const { messageId } = req.params;
