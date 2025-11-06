@@ -14,6 +14,9 @@ const app: Application = express();
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+// file retrieve
+app.use(express.static('uploads'));
+app.use(express.static('public'));
 //morgan
 app.use(Morgan.successHandler);
 app.use(Morgan.errorHandler);
@@ -57,9 +60,7 @@ app.use(
      }),
 );
 
-// file retrieve
-app.use(express.static('uploads'));
-app.use(express.static('public'));
+
 
 // router
 app.use('/api/v1', router);

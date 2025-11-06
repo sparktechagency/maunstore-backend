@@ -1,0 +1,30 @@
+Thu Nov 06 2025 17:11:16 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Nov 06 2025 17:11:17 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Thu Nov 06 2025 17:15:29 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/login 200 - 274.463 ms
+Thu Nov 06 2025 17:16:18 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/auth/login 200 - 253.574 ms
+Thu Nov 06 2025 17:16:36 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/chats/create-chat 200 - 164.429 ms
+Thu Nov 06 2025 17:16:53 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/messages/send-message/690c839456fb88759fe96677 200 - 878.029 ms
+Thu Nov 06 2025 17:18:2 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Nov 06 2025 17:18:3 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Thu Nov 06 2025 17:26:39 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/messages/send-message/690c839456fb88759fe96677 200 - 449.024 ms
+Thu Nov 06 2025 17:29:43 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Nov 06 2025 17:29:44 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Thu Nov 06 2025 17:30:0 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Nov 06 2025 17:30:0 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Thu Nov 06 2025 17:30:27 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Nov 06 2025 17:30:28 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Thu Nov 06 2025 17:30:33 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Nov 06 2025 17:30:33 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Thu Nov 06 2025 17:30:39 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Nov 06 2025 17:30:40 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Thu Nov 06 2025 17:30:43 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/messages/send-message/690c839456fb88759fe96677 200 - 409.057 ms
+Thu Nov 06 2025 17:31:59 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Nov 06 2025 17:32:1 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Thu Nov 06 2025 17:33:7 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Nov 06 2025 17:33:7 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Thu Nov 06 2025 17:33:15 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/messages/send-message/690c839456fb88759fe96677 200 - 500.142 ms
+Thu Nov 06 2025 17:33:42 [SERVER-NAME] info: 10.10.7.111 - POST /api/v1/messages/send-message/690c839456fb88759fe96677 200 - 475.978 ms
+Thu Nov 06 2025 17:33:57 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Nov 06 2025 17:33:57 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m
+Thu Nov 06 2025 17:34:5 [SERVER-NAME] info: [32m🚀 Database connected successfully[39m
+Thu Nov 06 2025 17:34:6 [SERVER-NAME] info: [33m♻️  Application listening on port:5003[39m

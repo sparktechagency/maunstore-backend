@@ -1,17 +1,15 @@
 import { MessageService } from './message.service';
 import { ChatService } from '../chat/chat.service';
-import { Request } from 'express';
 import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
-import { updateFileName } from '../../../utils/fileHelper';
 
 const sendMessage = catchAsync(async (req, res) => {
-     const { files } = req as Request & { files: any };
+     
      const chatId: any = req.params.chatId;
      const { id: userId }: any = req.user;
 
-     const images = files.images?.map((photo: any) => updateFileName('images', photo.filename));
-     req.body.images = images;
+     
+    
      req.body.sender = userId;
      req.body.chatId = chatId;
 
