@@ -9,7 +9,13 @@ import parseAllFilesData from '../../middleware/parseAllFilesData';
 const router = express.Router();
 
 // existing routes
-router.post('/send-message/:chatId', auth(USER_ROLES.USER, USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), fileUploadHandler(), parseAllFilesData({ fieldName: FOLDER_NAMES.IMAGES, forceMultiple: true },), MessageController.sendMessage);
+router.post(
+     '/send-message/:chatId',
+     auth(USER_ROLES.USER, USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN),
+     fileUploadHandler(),
+     parseAllFilesData({ fieldName: FOLDER_NAMES.IMAGES, forceMultiple: true }),
+     MessageController.sendMessage,
+);
 
 router.get('/:chatId', auth(USER_ROLES.USER, USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), MessageController.getMessages);
 

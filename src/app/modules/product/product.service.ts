@@ -35,7 +35,6 @@ const getProductsFromDB = async (query: any) => {
      };
 };
 
-
 export const checkIsFavorite = async (productId: string | Types.ObjectId, userId: string | Types.ObjectId) => {
      const bookmark = await Bookmark.findOne({
           userId: userId,

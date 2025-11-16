@@ -4,12 +4,9 @@ import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
 
 const sendMessage = catchAsync(async (req, res) => {
-     
      const chatId: any = req.params.chatId;
      const { id: userId }: any = req.user;
 
-     
-    
      req.body.sender = userId;
      req.body.chatId = chatId;
 

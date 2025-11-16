@@ -60,8 +60,6 @@ app.use(
      }),
 );
 
-
-
 // router
 app.use('/api/v1', router);
 // live response
