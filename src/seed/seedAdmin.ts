@@ -6,68 +6,71 @@ import { logger, errorLogger } from '../shared/logger';
 import colors from 'colors';
 import bcrypt from 'bcrypt';
 
+// ✅ Correct password hashing
 const hashPassword = async (password: string): Promise<string> => {
     return await bcrypt.hash(password, Number(config.bcrypt_salt_rounds));
 };
 
+// Lock Collection Schema
 const lockSchema = new mongoose.Schema({
     key: { type: String, required: true },
     instanceId: { type: String },
-    createdAt: { type: Date, default: Date.now, expires: 30 } 
+    createdAt: { type: Date, default: Date.now, expires: 30 }
 });
 
-// ✅ Compound unique index on key only
 lockSchema.index({ key: 1 }, { unique: true });
 
 const Lock = mongoose.model('SeedLock', lockSchema);
 
+// ✅ Improved cluster-safe seeding
 export const seedSuperAdmin = async () => {
     const lockKey = 'super_admin_seed_lock';
     const instanceId = process.env.NODE_APP_INSTANCE || process.env.pm_id || '0';
     let lockAcquired = false;
 
     try {
-        let retries = 3;
-        while (retries > 0) {
-            try {
-                await Lock.create({ 
-                    key: lockKey, 
-                    instanceId: instanceId 
-                });
-                lockAcquired = true;
-                logger.info(colors.cyan(`🔒 Lock acquired by instance ${instanceId}`));
-                break;
-            } catch (error: any) {
-                if (error.code === 11000) {
-                    // Another instance has the lock
-                    logger.info(colors.yellow(`⏳ Instance ${instanceId} waiting for lock... (${4 - retries}/3)`));
-                    await new Promise(resolve => setTimeout(resolve, 2000)); // Wait 2 seconds
-                    retries--;
-                    if (retries === 0) {
-                        logger.info(colors.yellow(`⏭️  Instance ${instanceId} skipping seeding`));
-                        return;
-                    }
-                } else {
-                    throw error;
-                }
-            }
-        }
-
         const existingAdmin = await User.findOne({ 
             email: config.super_admin.email,
             role: USER_ROLES.SUPER_ADMIN 
         }).lean();
 
         if (existingAdmin) {
-            logger.info(colors.green('✅ Super admin already exists'));
+            logger.info(colors.green(`✅ [Instance ${instanceId}] Super admin already exists`));
             return;
         }
-        const duplicateEmail = await User.findOne({ 
-            email: config.super_admin.email 
+
+        try {
+            await Lock.create({ 
+                key: lockKey, 
+                instanceId: instanceId 
+            });
+            lockAcquired = true;
+            logger.info(colors.cyan(`🔒 [Instance ${instanceId}] Lock acquired`));
+        } catch (error: any) {
+            if (error.code === 11000) {
+                logger.info(colors.yellow(`⏳ [Instance ${instanceId}] Another instance is seeding, skipping...`));
+                await new Promise(resolve => setTimeout(resolve, 3000));
+                const checkAgain = await User.findOne({ 
+                    email: config.super_admin.email 
+                }).lean();
+                
+                if (checkAgain) {
+                    logger.info(colors.green(`✅ [Instance ${instanceId}] Super admin created by another instance`));
+                } else {
+                    logger.warn(colors.yellow(`⚠️  [Instance ${instanceId}] Admin not found, might need manual check`));
+                }
+                return;
+            }
+            throw error;
+        }
+
+        const doubleCheck = await User.findOne({ 
+            email: config.super_admin.email,
+            role: USER_ROLES.SUPER_ADMIN 
         }).lean();
 
-        if (duplicateEmail) {
-            logger.warn(colors.yellow('⚠️  Email already exists with different role'));
+        if (doubleCheck) {
+            logger.info(colors.green(`✅ [Instance ${instanceId}] Super admin already exists (double-check)`));
             return;
         }
 
@@ -75,42 +78,43 @@ export const seedSuperAdmin = async () => {
         
         try {
             await session.withTransaction(async () => {
-                // Final check inside transaction
                 const finalCheck = await User.findOne({ 
                     email: config.super_admin.email 
-                }).session(session);
+                }).session(session).lean();
 
                 if (finalCheck) {
-                    logger.info(colors.green('✅ Super admin created by another instance'));
+                    logger.info(colors.green(`✅ [Instance ${instanceId}] Admin exists (transaction check)`));
                     return;
                 }
 
                 const hashedPassword = await hashPassword(config.super_admin.password as string);
 
-                await User.create([{
+                const [newAdmin] = await User.create([{
                     name: 'Administrator',
                     email: config.super_admin.email,
                     role: USER_ROLES.SUPER_ADMIN,
                     password: hashedPassword,
+                    profileImage: '',
+                    status: 'ACTIVE',
                     verified: true,
                 }], { session });
 
-                logger.info(colors.green(`✨ Super admin created successfully by instance ${instanceId}`));
+                logger.info(colors.green(`✨ [Instance ${instanceId}] Super admin created successfully`));
+                logger.info(colors.blue(`   Email: ${newAdmin.email}`));
             });
         } finally {
             await session.endSession();
         }
 
     } catch (error: any) {
-        errorLogger.error(colors.red('❌ Failed to seed super admin:'), error);
+        errorLogger.error(colors.red(`❌ [Instance ${instanceId}] Failed to seed super admin:`), error);
     } finally {
-        // 5️⃣ Release lock
         if (lockAcquired) {
             try {
                 await Lock.deleteOne({ key: lockKey, instanceId: instanceId });
-                logger.info(colors.cyan(`🔓 Lock released by instance ${instanceId}`));
+                logger.info(colors.cyan(`🔓 [Instance ${instanceId}] Lock released`));
             } catch (error) {
-                errorLogger.error('Failed to release lock:', error);
+                errorLogger.error(`[Instance ${instanceId}] Failed to release lock:`, error);
             }
         }
     }
@@ -124,10 +128,11 @@ if (require.main === module) {
             await mongoose.connect(config.database_url as string);
             logger.info(colors.green('🚀 Database connected'));
 
-            // ⚠️ Development only - force re-seed
             if (process.env.FORCE_SEED === 'true') {
-                await User.deleteMany({ role: USER_ROLES.SUPER_ADMIN });
-                logger.info(colors.yellow('⚠️  Super admin deleted'));
+                const deletedCount = await User.deleteMany({ 
+                    role: USER_ROLES.SUPER_ADMIN 
+                });
+                logger.info(colors.yellow(`⚠️  Deleted ${deletedCount.deletedCount} super admin(s)`));
             }
 
             await seedSuperAdmin();
