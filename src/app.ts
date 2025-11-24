@@ -9,7 +9,9 @@ import { welcome } from './utils/welcome';
 import config from './config';
 import path from 'path';
 import setupTimeManagement from './utils/cronJobs';
-
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
+import { sanitizeFilter } from 'mongoose';
 const app: Application = express();
 
 app.set('view engine', 'ejs');
@@ -20,7 +22,15 @@ app.use(express.static('public'));
 //morgan
 app.use(Morgan.successHandler);
 app.use(Morgan.errorHandler);
-
+// Helmet for basic HTTP security headers
+app.use(helmet());
+const limiter = rateLimit({
+     windowMs: 15 * 60 * 1000,
+     max: 100, // 100 requests / 15 min per IP
+     standardHeaders: true,
+});
+// Prevent prototype pollution (Express)
+app.disable('x-powered-by');
 //body parser
 // app.use(
 //      cors({
@@ -59,9 +69,26 @@ app.use(
           },
      }),
 );
+app.use((req, res, next) => {
+     const blocked = ['TRACE', 'TRACK'];
+     if (blocked.includes(req.method)) {
+          res.status(405).json({
+               success: false,
+               message: 'Method Not Allowed',
+          });
+     }
+     next();
+});
+app.use((req, res, next) => {
+     req.body = sanitizeFilter(req.body);
+     req.query = sanitizeFilter(req.query);
+     next();
+});
+
+
 
 // router
-app.use('/api/v1', router);
+app.use('/api/v1', limiter, router);
 // live response
 app.get('/', (req: Request, res: Response) => {
      res.send(welcome());
