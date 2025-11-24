@@ -34,23 +34,24 @@
         log_type: 'json', 
 
         // Environment Variables
-   env_production: {
+ env_production: {
   NODE_ENV: 'production',
-  PORT: process.env.PORT || 5000,
-  DATABASE_URL: process.env.DATABASE_URL,
-  JWT_SECRET: process.env.JWT_SECRET,
-  SUPER_ADMIN_EMAIL: process.env.SUPER_ADMIN_EMAIL,
-  SUPER_ADMIN_PASSWORD: process.env.SUPER_ADMIN_PASSWORD,
-  EMAIL_FROM: process.env.EMAIL_FROM,
-  EMAIL_USER: process.env.EMAIL_USER,
-  EMAIL_PASS: process.env.EMAIL_PASS,
-  EMAIL_HOST: process.env.EMAIL_HOST,
-  EMAIL_PORT: process.env.EMAIL_PORT,
-  STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
-  STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
-  BCRYPT_SALT_ROUNDS: process.env.BCRYPT_SALT_ROUNDS,
-  EXPRESS_SESSION_SECRET_KEY: process.env.EXPRESS_SESSION_SECRET_KEY
+  PORT: 5000,
+  DATABASE_URL: 'mongodb://localhost:27017/Muanstore',
+  JWT_SECRET: '12c1c1ed10454ca3b64ae21b783cd96418583ffc83b1015199b18986b57a689b',
+  SUPER_ADMIN_EMAIL: 'yaz.vega@raconligroup.com',
+  SUPER_ADMIN_PASSWORD: 'admin@123',
+  EMAIL_FROM: 'moshfiqurrahman37@gmail.com',
+  EMAIL_USER: 'moshfiqurrahman37@gmail.com',
+  EMAIL_PASS: 'mmys xoef mwuu osxk',
+  EMAIL_HOST: 'smtp.gmail.com',
+  EMAIL_PORT: 587,
+  STRIPE_SECRET_KEY: 'sk_test_51RSb5cQOpYWE7pDHjGmR1DkxoGaBiMxwkbAwaZpYWJzzRV1REmNwkmqbjS640tBePjeEWviPCEzwMXU5NcsdHG2a00Ay5a0gYc',
+  STRIPE_WEBHOOK_SECRET: 'whsec_4337ae3062507ef8a09e4540e37e7a521260b3f89b6e9a94810cfcfa5f890c9e',
+  BCRYPT_SALT_ROUNDS: 12,
+  EXPRESS_SESSION_SECRET_KEY: '1b97a62d173c126d6533566caad3aa56c48b445215343da33ac0e0f0d3793060',
 },
+
 
         // Advanced Options
         source_map_support: true, 
