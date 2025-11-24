@@ -2,61 +2,100 @@ import mongoose from 'mongoose';
 import { User } from '../app/modules/user/user.model';
 import config from '../config';
 import { USER_ROLES } from '../enums/user';
-import { logger } from '../shared/logger';
+import { logger, errorLogger } from '../shared/logger';
 import colors from 'colors';
 import bcrypt from 'bcrypt';
 
-const usersData = [
-     {
-          name: 'Administrator',
-          email: config.super_admin.email,
-          role: USER_ROLES.SUPER_ADMIN,
-          password: config.super_admin.password,
-          verified: true,
-     },
-];
-
-// function to hash passwords
-const hashPassword = async (password: string) => {
-     const salt = await bcrypt.hash(password, Number(config.bcrypt_salt_rounds));
-     return await bcrypt.hash(password, salt);
+const hashPassword = async (password: string): Promise<string> => {
+    return await bcrypt.hash(password, Number(config.bcrypt_salt_rounds));
 };
 
-// function to seed users
-const seedUsers = async () => {
-     try {
-          await User.deleteMany();
+// Lock Model for Distributed Locking
+const lockSchema = new mongoose.Schema({
+    key: { type: String, required: true, unique: true },
+    createdAt: { type: Date, default: Date.now, expires: 60 } // 60 seconds TTL
+});
 
-          const hashedUsersData = await Promise.all(
-               usersData.map(async (user: any) => {
-                    const hashedPassword = await hashPassword(user.password);
-                    return { ...user, password: hashedPassword };
-               }),
-          );
+const Lock = mongoose.model('Lock', lockSchema);
 
-          // insert users into the database
-          await User.insertMany(hashedUsersData);
-          logger.info(colors.green('✨ --------------> Users seeded successfully <-------------- ✨'));
-     } catch (err) {
-          logger.error(colors.red('💥 Error seeding users: 💥'), err);
-     }
+// ✅ Cluster-safe super admin seeding
+export const seedSuperAdmin = async () => {
+    const lockKey = 'super_admin_seed_lock';
+    let lockAcquired = false;
+
+    try {
+        try {
+            await Lock.create({ key: lockKey });
+            lockAcquired = true;
+            logger.info(colors.cyan('🔒 Lock acquired for super admin seeding'));
+        } catch (error: any) {
+            if (error.code === 11000) {
+                logger.info(colors.yellow('⏳ Another instance is seeding, skipping...'));
+                return;
+            }
+            throw error;
+        }
+        const existingAdmin = await User.findOne({ 
+            email: config.super_admin.email,
+            role: USER_ROLES.SUPER_ADMIN 
+        });
+
+        if (existingAdmin) {
+            logger.info(colors.green('✅ Super admin already exists'));
+            return;
+        }
+        const hashedPassword = await hashPassword(config.super_admin.password as string);
+
+        await User.create({
+            name: 'Administrator',
+            email: config.super_admin.email,
+            role: USER_ROLES.SUPER_ADMIN,
+            password: hashedPassword,
+            verified: true,
+        });
+
+        logger.info(colors.green('✨ Super admin created successfully'));
+
+    } catch (error: any) {
+        if (error.code === 11000) {
+            logger.info(colors.green('✅ Super admin already exists (duplicate key)'));
+            return;
+        }
+        errorLogger.error(colors.red('❌ Failed to seed super admin:'), error);
+    } finally {
+        if (lockAcquired) {
+            try {
+                await Lock.deleteOne({ key: lockKey });
+                logger.info(colors.cyan('🔓 Lock released'));
+            } catch (error) {
+                errorLogger.error('Failed to release lock:', error);
+            }
+        }
+    }
 };
 
-// connect to MongoDB
-mongoose.connect(config.database_url as string);
+if (require.main === module) {
+    const runSeeding = async () => {
+        try {
+            logger.info(colors.cyan('🎨 Database seeding start (Standalone Mode)'));
+            
+            await mongoose.connect(config.database_url as string);
+            logger.info(colors.green('🚀 Database connected'));
+            if (process.env.FORCE_SEED === 'true') {
+                await User.deleteMany({});
+                logger.info(colors.yellow('⚠️  All users deleted'));
+            }
 
-const seedSuperAdmin = async () => {
-     try {
-          logger.info(colors.cyan('🎨 --------------> Database seeding start <--------------- 🎨'));
+            await seedSuperAdmin();
+            
+            logger.info(colors.green('🎉 Database seeding completed'));
+        } catch (error) {
+            logger.error(colors.red('🔥 Error in seeding:'), error);
+        } finally {
+            await mongoose.disconnect();
+            process.exit(0);
+        }
+    };
 
-          // start seeding users
-          await seedUsers();
-          logger.info(colors.green('🎉 --------------> Database seeding completed <--------------- 🎉'));
-     } catch (error) {
-          logger.error(colors.red('🔥 Error creating Super Admin: 🔥'), error);
-     } finally {
-          mongoose.disconnect();
-     }
-};
-
-seedSuperAdmin();
+    runSeeding();
+}
