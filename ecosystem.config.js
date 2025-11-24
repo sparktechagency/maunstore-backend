@@ -34,12 +34,23 @@
         log_type: 'json', 
 
         // Environment Variables
-        env_production: {
-            NODE_ENV: 'production',
-            PORT: 5000,
-            DATABASE_URL: 'mongodb://localhost:27017/Muanstore',
-            JWT_SECRET: '12c1c1ed10454ca3b64ae21b783cd96418583ffc83b1015199b18986b57a689b',
-        },
+   env_production: {
+  NODE_ENV: 'production',
+  PORT: process.env.PORT || 5000,
+  DATABASE_URL: process.env.DATABASE_URL,
+  JWT_SECRET: process.env.JWT_SECRET,
+  SUPER_ADMIN_EMAIL: process.env.SUPER_ADMIN_EMAIL,
+  SUPER_ADMIN_PASSWORD: process.env.SUPER_ADMIN_PASSWORD,
+  EMAIL_FROM: process.env.EMAIL_FROM,
+  EMAIL_USER: process.env.EMAIL_USER,
+  EMAIL_PASS: process.env.EMAIL_PASS,
+  EMAIL_HOST: process.env.EMAIL_HOST,
+  EMAIL_PORT: process.env.EMAIL_PORT,
+  STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
+  STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
+  BCRYPT_SALT_ROUNDS: process.env.BCRYPT_SALT_ROUNDS,
+  EXPRESS_SESSION_SECRET_KEY: process.env.EXPRESS_SESSION_SECRET_KEY
+},
 
         // Advanced Options
         source_map_support: true, 
