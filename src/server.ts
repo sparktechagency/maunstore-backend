@@ -11,13 +11,13 @@ import config from './config';
 // ---------------- SECURITY ADDITIONS ---------------- //
 
 // Validate all required ENV variables
-const requiredEnvs = ['database_url', 'port'];
-requiredEnvs.forEach((env) => {
-     if (!(config as any)[env]) {
-          console.error(`❌ Missing required env: ${env}`);
-          process.exit(1);
-     }
-});
+// const requiredEnvs = ['database_url', 'port'];
+// requiredEnvs.forEach((env) => {
+//      if (!(config as any)[env]) {
+//           console.error(`❌ Missing required env: ${env}`);
+//           process.exit(1);
+//      }
+// });
 
 // uncaught exception
 process.on('uncaughtException', (error) => {
