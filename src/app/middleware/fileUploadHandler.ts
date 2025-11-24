@@ -4,10 +4,11 @@ import { StatusCodes } from 'http-status-codes';
 import multer, { FileFilterCallback } from 'multer';
 import path from 'path';
 import AppError from '../../errors/AppError';
+import getUploadDirectory from '../../utils/getUploadDirectory';
 
 const fileUploadHandler = () => {
-     // Create upload folder
-     const baseUploadDir = path.join(process.cwd(), 'uploads');
+     // Create upload folder if it doesn't exist
+     const baseUploadDir = getUploadDirectory();
      if (!fs.existsSync(baseUploadDir)) {
           fs.mkdirSync(baseUploadDir);
      }

@@ -1,11 +1,12 @@
 import fs from 'fs';
 import path from 'path';
+import getUploadDirectory from '../utils/getUploadDirectory';
 
 const unlinkFile = (file: string | string[]) => {
-     const basePath = path.join(process.cwd(), 'uploads');
+     const baseUploadDir = getUploadDirectory();
 
      const handleUnlink = (relativePath: string) => {
-          const fullPath = path.join(basePath, relativePath);
+          const fullPath = path.join(baseUploadDir, relativePath);
 
           try {
                if (fs.existsSync(fullPath)) {

@@ -12,13 +12,14 @@ import setupTimeManagement from './utils/cronJobs';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { sanitizeFilter } from 'mongoose';
+import getUploadDirectory from './utils/getUploadDirectory';
 const app: Application = express();
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 // file retrieve
-app.use(express.static('uploads'));
-app.use(express.static('public'));
+const baseUploadDir = getUploadDirectory();
+app.use(express.static(baseUploadDir));
 //morgan
 app.use(Morgan.successHandler);
 app.use(Morgan.errorHandler);
