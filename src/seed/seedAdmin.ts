@@ -11,115 +11,58 @@ const hashPassword = async (password: string): Promise<string> => {
     return await bcrypt.hash(password, Number(config.bcrypt_salt_rounds));
 };
 
-// Lock Collection Schema
-const lockSchema = new mongoose.Schema({
-    key: { type: String, required: true },
-    instanceId: { type: String },
-    createdAt: { type: Date, default: Date.now, expires: 30 }
-});
-
-lockSchema.index({ key: 1 }, { unique: true });
-
-const Lock = mongoose.model('SeedLock', lockSchema);
-
-// ✅ Improved cluster-safe seeding
+// ✅ SIMPLE & RELIABLE - শুধু instance 0 তে run হবে
 export const seedSuperAdmin = async () => {
-    const lockKey = 'super_admin_seed_lock';
-    const instanceId = process.env.NODE_APP_INSTANCE || process.env.pm_id || '0';
-    let lockAcquired = false;
-
     try {
+        // 🔥 CRITICAL: শুধু instance 0 তে run করুন
+        const instanceId = process.env.NODE_APP_INSTANCE || process.env.pm_id || '0';
+        
+        if (instanceId !== '0') {
+            logger.info(colors.yellow(`⏭️  [Instance ${instanceId}] Skipping seed (not instance 0)`));
+            return;
+        }
+
+        logger.info(colors.cyan(`🌱 [Instance ${instanceId}] Starting super admin seed...`));
+
+        // Check if super admin exists
         const existingAdmin = await User.findOne({ 
             email: config.super_admin.email,
             role: USER_ROLES.SUPER_ADMIN 
         }).lean();
 
         if (existingAdmin) {
-            logger.info(colors.green(`✅ [Instance ${instanceId}] Super admin already exists`));
+            logger.info(colors.green('✅ Super admin already exists'));
             return;
         }
 
-        try {
-            await Lock.create({ 
-                key: lockKey, 
-                instanceId: instanceId 
-            });
-            lockAcquired = true;
-            logger.info(colors.cyan(`🔒 [Instance ${instanceId}] Lock acquired`));
-        } catch (error: any) {
-            if (error.code === 11000) {
-                logger.info(colors.yellow(`⏳ [Instance ${instanceId}] Another instance is seeding, skipping...`));
-                await new Promise(resolve => setTimeout(resolve, 3000));
-                const checkAgain = await User.findOne({ 
-                    email: config.super_admin.email 
-                }).lean();
-                
-                if (checkAgain) {
-                    logger.info(colors.green(`✅ [Instance ${instanceId}] Super admin created by another instance`));
-                } else {
-                    logger.warn(colors.yellow(`⚠️  [Instance ${instanceId}] Admin not found, might need manual check`));
-                }
-                return;
-            }
-            throw error;
-        }
+        // Create super admin
+        const hashedPassword = await hashPassword(config.super_admin.password as string);
 
-        const doubleCheck = await User.findOne({ 
+        const newAdmin = await User.create({
+            name: 'Administrator',
             email: config.super_admin.email,
-            role: USER_ROLES.SUPER_ADMIN 
-        }).lean();
+            role: USER_ROLES.SUPER_ADMIN,
+            password: hashedPassword,
+            profileImage: '',
+            status: 'ACTIVE',
+            verified: true,
+        });
 
-        if (doubleCheck) {
-            logger.info(colors.green(`✅ [Instance ${instanceId}] Super admin already exists (double-check)`));
-            return;
-        }
-
-        const session = await mongoose.startSession();
-        
-        try {
-            await session.withTransaction(async () => {
-                const finalCheck = await User.findOne({ 
-                    email: config.super_admin.email 
-                }).session(session).lean();
-
-                if (finalCheck) {
-                    logger.info(colors.green(`✅ [Instance ${instanceId}] Admin exists (transaction check)`));
-                    return;
-                }
-
-                const hashedPassword = await hashPassword(config.super_admin.password as string);
-
-                const [newAdmin] = await User.create([{
-                    name: 'Administrator',
-                    email: config.super_admin.email,
-                    role: USER_ROLES.SUPER_ADMIN,
-                    password: hashedPassword,
-                    profileImage: '',
-                    status: 'ACTIVE',
-                    verified: true,
-                }], { session });
-
-                logger.info(colors.green(`✨ [Instance ${instanceId}] Super admin created successfully`));
-                logger.info(colors.blue(`   Email: ${newAdmin.email}`));
-            });
-        } finally {
-            await session.endSession();
-        }
+        logger.info(colors.green('✨ Super admin created successfully'));
+        logger.info(colors.blue(`   Email: ${newAdmin.email}`));
+        logger.info(colors.blue(`   ID: ${newAdmin._id}`));
 
     } catch (error: any) {
-        errorLogger.error(colors.red(`❌ [Instance ${instanceId}] Failed to seed super admin:`), error);
-    } finally {
-        if (lockAcquired) {
-            try {
-                await Lock.deleteOne({ key: lockKey, instanceId: instanceId });
-                logger.info(colors.cyan(`🔓 [Instance ${instanceId}] Lock released`));
-            } catch (error) {
-                errorLogger.error(`[Instance ${instanceId}] Failed to release lock:`, error);
-            }
+        // Duplicate key error হলে ignore করুন
+        if (error.code === 11000) {
+            logger.info(colors.green('✅ Super admin already exists (duplicate key)'));
+            return;
         }
+        errorLogger.error(colors.red('❌ Failed to seed super admin:'), error);
     }
 };
 
+// ⚠️ Standalone seeding script (শুধু development এর জন্য)
 if (require.main === module) {
     const runSeeding = async () => {
         try {
@@ -128,13 +71,17 @@ if (require.main === module) {
             await mongoose.connect(config.database_url as string);
             logger.info(colors.green('🚀 Database connected'));
 
+            // Development এ force re-seed
             if (process.env.FORCE_SEED === 'true') {
-                const deletedCount = await User.deleteMany({ 
+                const result = await User.deleteMany({ 
                     role: USER_ROLES.SUPER_ADMIN 
                 });
-                logger.info(colors.yellow(`⚠️  Deleted ${deletedCount.deletedCount} super admin(s)`));
+                logger.info(colors.yellow(`⚠️  Deleted ${result.deletedCount} super admin(s)`));
             }
 
+            // Standalone mode এ NODE_APP_INSTANCE set করুন
+            process.env.NODE_APP_INSTANCE = '0';
+            
             await seedSuperAdmin();
             
             logger.info(colors.green('🎉 Database seeding completed'));
