@@ -67,5 +67,6 @@ const notificationSchema = new Schema<INotification>(
 );
 
 notificationSchema.index({ receiver: 1, read: 1 });
-
+// ২. TTL Index: ৩০ দিন পর অটোমেটিক ডিলিট হয়ে যাবে (30 * 24 * 60 * 60 = 2592000 seconds)
+notificationSchema.index({ createdAt: 1 }, { expireAfterSeconds: 2592000 });
 export const Notification = model<INotification>('Notification', notificationSchema);

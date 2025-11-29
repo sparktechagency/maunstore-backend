@@ -27,6 +27,11 @@ export default {
           host: process.env.EMAIL_HOST,
           pass: process.env.EMAIL_PASS,
      },
+      firebase: {
+          projectId: process.env.FIREBASE_PROJECT_ID,
+          clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+          privateKey: process.env.FIREBASE_PRIVATE_KEY,
+     },
      express_session: process.env.EXPRESS_SESSION_SECRET_KEY,
      super_admin: {
           email: process.env.SUPER_ADMIN_EMAIL,

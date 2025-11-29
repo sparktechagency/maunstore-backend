@@ -3,3 +3,4 @@ coverage
 uploads
 winston
 dist
+serviceAccountKey.json

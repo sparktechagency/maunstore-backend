@@ -12,9 +12,10 @@ import AppError from '../../../errors/AppError';
 import generateOTP from '../../../utils/generateOTP';
 import cryptoToken from '../../../utils/cryptoToken';
 import { USER_STATUS } from '../user/user.constant';
+import { FcmTokenService } from '../fcmToken/fcmToken.service';
 
 const loginUserFromDB = async (payload: ILoginData) => {
-     const { email, password } = payload; // role টা payload থেকে নাও
+     const { email, password, } = payload; // role টা payload থেকে নাও
 
      const isExistUser = await User.findOne({ email }).select('+password');
      if (!isExistUser) {
@@ -38,7 +39,13 @@ const loginUserFromDB = async (payload: ILoginData) => {
 
      // create token
      const createToken = jwtHelper.createToken({ id: isExistUser._id, role: isExistUser.role, email: isExistUser.email }, config.jwt.jwt_secret as Secret, config.jwt.jwt_expire_in as string);
-
+     if (payload.fcmToken && payload.deviceId) {
+          await FcmTokenService.saveDeviceToken(isExistUser._id.toString(), {
+               fcmToken: payload.fcmToken,
+               deviceId: payload.deviceId,
+               deviceType: payload.deviceType || 'android',
+          });
+     }
      const result = {
           token: createToken,
           user: isExistUser,

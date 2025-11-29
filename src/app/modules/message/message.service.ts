@@ -1,4 +1,5 @@
 import AppError from '../../../errors/AppError';
+import { NotificationHelper } from '../../builder/notificatinHelper';
 import { Chat } from '../chat/chat.model';
 import { IMessage } from './message.interface';
 import { Message } from './message.model';
@@ -100,7 +101,9 @@ const sendMessageToDB = async (payload: IMessage): Promise<IMessage> => {
                updatedAt: new Date(),
           });
      }
-
+     if (populatedChat && populatedMessage) {
+          await NotificationHelper.sendChatMessage(populatedChat, populatedMessage);
+     }
      return response;
 };
 

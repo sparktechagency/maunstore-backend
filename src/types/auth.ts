@@ -6,6 +6,9 @@ export type IVerifyEmail = {
 export type ILoginData = {
      email: string;
      password: string;
+     fcmToken?: string;
+     deviceId?: string;
+     deviceType?: 'android' | 'ios' | 'web';
 };
 
 export type IAuthResetPassword = {
