@@ -124,7 +124,7 @@ export class NotificationHelper {
       // Token Cleanup
       if (response.failureCount > 0) {
         const failedTokens: string[] = [];
-        response.responses.forEach((resp, idx) => {
+        response.responses.forEach((resp: admin.messaging.SendResponse, idx: number) => {
           if (!resp.success) {
             const errCode = resp.error?.code;
             if (errCode === 'messaging/registration-token-not-registered' || errCode === 'messaging/mismatched-credential') {
@@ -148,21 +148,12 @@ export class NotificationHelper {
     try {
       // payload.data থেকে reference আইডি বের করা (যদি থাকে)
       const referenceId = payload.data?.bookingId || payload.data?.orderId || payload.data?.chatId || null;
-      
-      let refModel = null;
-      if (payload.type === 'booking_create') refModel = 'Booking';
-      // চ্যাট মেসেজের জন্য আমরা সাধারণত DB তে আলাদা নোটিফিকেশন সেভ করি না, 
-      // কারণ মেসেজ নিজেই একটি নোটিফিকেশন। 
-      // তবুও যদি সেভ করতে চান, নিচের লাইনটি আনকমেন্ট করুন:
-      // if (payload.type === 'message_new') refModel = 'Chat'; 
-
       const notifications = userIds.map((userId) => ({
         receiver: userId,
         title: payload.title,
         message: payload.body,
         type: payload.type,
         reference: referenceId,
-        referenceModel: refModel,
         read: false,
       }));
 
