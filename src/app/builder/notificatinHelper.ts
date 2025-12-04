@@ -32,7 +32,7 @@ export class NotificationHelper {
       // 1. Filter Users
       const validUsers = await User.find({
         _id: { $in: userIds },
-        isVerified: true,
+        verified: true,
       }).select('_id').lean();
 
       const validUserIds = validUsers.map((u) => u._id);
