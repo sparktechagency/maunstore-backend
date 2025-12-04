@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
-import * as admin from 'firebase-admin';
 import { User } from '../modules/user/user.model'; 
 import { Notification } from '../modules/notification/notification.model';
 import { DeviceToken } from '../modules/fcmToken/fcmToken.model';
 import colors from 'colors';
 import { logger } from '../../shared/logger';
+import admin from '../../firebase/firebase';
 
 // 1. Define the Payload Interface
 export interface INotificationPayload {
