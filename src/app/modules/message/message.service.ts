@@ -137,8 +137,6 @@ const getMessagesFromDB = async (
           .limit(limitInt)
           .sort({ createdAt: -1 });
 
-     console.log(response, 'Response');
-
      // mark messages as read for the current user (only messages not sent by current user)
      const messageIds = response.filter((msg) => msg.sender._id.toString() !== userId && !msg.read).map((msg) => msg._id);
 
