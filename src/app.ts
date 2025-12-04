@@ -43,7 +43,7 @@ app.disable('x-powered-by');
 app.use(
      cors({
           origin: [
-               'http://10.10.7.21:3000',
+               'http://10.10.7.42:3000',
                'https://mijanur3000.binarybards.online',
                'https://dashboard.raconliapp.com',
                'https://www.dashboard.raconliapp.com',
@@ -85,8 +85,6 @@ app.use((req, res, next) => {
      req.query = sanitizeFilter(req.query);
      next();
 });
-
-
 
 // router
 app.use('/api/v1', limiter, router);

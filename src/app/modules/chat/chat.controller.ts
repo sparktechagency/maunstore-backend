@@ -1,11 +1,14 @@
+import { USER_ROLES } from '../../../enums/user';
 import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
+import { User } from '../user/user.model';
 import { ChatService } from './chat.service';
 
 const createChat = catchAsync(async (req, res) => {
-     const participant = req.body.participant;
+     // const participant = req.body.participant;
+     const getAdmin = await User.findOne({ role: USER_ROLES.SUPER_ADMIN });
      const { id: userId }: any = req.user;
-     const participants = [userId, participant];
+     const participants = [userId, getAdmin?._id];
      const result = await ChatService.createChatIntoDB(participants);
 
      sendResponse(res, {
