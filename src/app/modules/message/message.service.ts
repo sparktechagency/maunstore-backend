@@ -102,6 +102,7 @@ const sendMessageToDB = async (payload: IMessage): Promise<IMessage> => {
           });
      }
      if (populatedChat && populatedMessage) {
+          console.log('hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiu');
           await NotificationHelper.sendChatMessage(populatedChat, populatedMessage);
      }
      return response;

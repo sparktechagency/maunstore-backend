@@ -33,7 +33,6 @@ export class NotificationHelper {
       const validUsers = await User.find({
         _id: { $in: userIds },
         isVerified: true,
-        notificationStatus: true, 
       }).select('_id').lean();
 
       const validUserIds = validUsers.map((u) => u._id);
